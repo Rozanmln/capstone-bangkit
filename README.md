@@ -1,4 +1,4 @@
-# Capstone-Bangkit
+# HeRe (Your Health Record HeRe!)
 ## This repository is GitHub repository for Capstone Project.
 
 **Team ID: C23-PS395**
