@@ -6,7 +6,7 @@
 **Title of the Project: HeRe (Your Health Record HeRe!)
 
 **Team Member:
-1. 1. (ML) M013DSY0024 – Citra Regita Nurtalia Wahyu Santosa – IPB University - [Active]
+1. (ML) M013DSY0024 – Citra Regita Nurtalia Wahyu Santosa – IPB University - [Active]
 2. (ML) M017DSX0322 – Christophe Samuel Diaz Harnanto Putra – Bandung Institute of Technology - [Active]
 3. (CC) C013DSX0652 – Rozan Maulana – IPB University - [Active]
 4. (CC) C241DSX3578– Rinaldy Darmawan – Mercubuana University - [Active]
