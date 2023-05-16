@@ -2,9 +2,9 @@ const express = require('express')
 const router = express.Router()
 const mysql = require('mysql')
 const jwt = require('jsonwebtoken')
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt')
 
-const secretKey = 'secret123';
+const secretKey = 'secret123'
 
 router.get("/", (req, res) => {
     console.log("Response Success")
@@ -16,14 +16,14 @@ const db = mysql.createConnection({
     user: 'root',
     password: '',
     database: 'here',
-});
+})
 
 db.connect((err) => {
     if (err) {
         throw err;
     }
     console.log('Connected to MySQL database')
-});
+})
 
 //route for user registration
 router.post('/register', (req, res) => {
@@ -50,8 +50,8 @@ router.post('/register', (req, res) => {
         } else {
             res.status(200).json({ message: 'User registered successfully' })
         }
-    });
-});
+    })
+})
 
 //route for user login
 router.post('/login', (req, res) => {
@@ -59,20 +59,33 @@ router.post('/login', (req, res) => {
 
     db.query('SELECT * FROM users WHERE username = ?', username, (err, results) => {
         if (err) {
-            res.status(500).json({ error: err.message });
+            res.status(500).json({ error: err.message })
         } else if (results.length === 0) {
             res.status(401).json({ message: 'Invalid username or password' })
         } else {
             const user = results[0];
-            if (user.password === password) {
+            if (!bcrypt.compareSync(password, user.hashedPassword)) {
+                res.status(401).json({ message: 'Invalid username or password' })
+
+            } else {
                 const token = jwt.sign({ username, role: user.role }, secretKey)
                 res.status(200).json({ message: 'Login successful', token })
-            } else {
-                res.status(401).json({ message: 'Invalid username or password' })
             }
         }
-    });
-});
+    })
+})
+
+// bcrypt.compareSync(password, user.hashedPassword, (err, isMatch) => {
+//     if (err) {
+//         console.error('Error comparing passwords:', err)
+//         return res.status(500).json({ message: 'Internal server error' })
+//     }
+//     if (!isMatch) {
+//         return res.status(401).json({ message: 'Invalid email or password' })
+//     }
+//     const token = jwt.sign({ username, role: user.role }, secretKey)
+//     res.status(200).json({ message: 'Login successful', token })
+// })
 
 router.get('/protected', authenticateToken, (req, res) => {
     const { username, role } = req.user
