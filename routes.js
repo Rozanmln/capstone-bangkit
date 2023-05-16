@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const mysql = require('mysql')
 const jwt = require('jsonwebtoken')
+const bcrypt = require('bcrypt');
 
 const secretKey = 'secret123';
 
@@ -24,9 +25,24 @@ db.connect((err) => {
     console.log('Connected to MySQL database')
 });
 
+//route for user registration
 router.post('/register', (req, res) => {
     const { username, email, password, role } = req.body
-    const user = { username, email, password, role }
+
+    const query = 'SELECT * FROM users WHERE username = ?'
+
+    db.query(query, [username], (err, results) => {
+        if (err) {
+            console.error('Error executing the query: ', err)
+            return res.status(500).json({ message: 'Internal server error' })
+        }
+        if (results.length > 0) {
+            return res.status(409).json({ message: 'User already exists' })
+        }
+    })
+
+    const hashedPassword = bcrypt.hashSync(password, 10)
+    const user = { username, email, hashedPassword, role }
 
     db.query('INSERT INTO users SET ?', user, (err, result) => {
         if (err) {
@@ -37,6 +53,7 @@ router.post('/register', (req, res) => {
     });
 });
 
+//route for user login
 router.post('/login', (req, res) => {
     const { username, password } = req.body;
 
