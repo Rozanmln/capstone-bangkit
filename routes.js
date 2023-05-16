@@ -85,6 +85,16 @@ router.get('/patient/dashboard', authenticateToken, (req, res) => {
     res.json({ message: 'Patient Dashboard!' })
 })
 
+//Protected route accessible only to hospitals
+router.get('/hospital/dashboard', authenticateToken, (req, res) => {
+    // Check the role to ensure only patients can access this route
+    if (req.user.role !== '2') {
+        return res.status(403).json({ message: 'Access denied!' })
+    }
+
+    res.json({ message: 'Hospital Dashboard!' })
+})
+
 //Protected route accessible only for auth token
 router.get('/protected', authenticateToken, (req, res) => {
     const { username, role } = req.user
