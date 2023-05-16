@@ -75,18 +75,17 @@ router.post('/login', (req, res) => {
     })
 })
 
-// bcrypt.compareSync(password, user.hashedPassword, (err, isMatch) => {
-//     if (err) {
-//         console.error('Error comparing passwords:', err)
-//         return res.status(500).json({ message: 'Internal server error' })
-//     }
-//     if (!isMatch) {
-//         return res.status(401).json({ message: 'Invalid email or password' })
-//     }
-//     const token = jwt.sign({ username, role: user.role }, secretKey)
-//     res.status(200).json({ message: 'Login successful', token })
-// })
+//Protected route accessible only to patients
+router.get('/patient/dashboard', authenticateToken, (req, res) => {
+    // Check the role to ensure only patients can access this route
+    if (req.user.role !== '1') {
+        return res.status(403).json({ message: 'Access denied!' })
+    }
 
+    res.json({ message: 'Patient Dashboard!' })
+})
+
+//Protected route accessible only for auth token
 router.get('/protected', authenticateToken, (req, res) => {
     const { username, role } = req.user
     res.status(200).json({ message: 'Protected endpoint accessed', username, role })
