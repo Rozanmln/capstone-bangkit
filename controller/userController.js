@@ -68,7 +68,38 @@ const login = (req, res) => {
     })
 }
 
+const symptom = (req, res) => {
+    const query = 'SELECT * FROM symptom'
+
+    db.query(query, (err, result) => {
+        if (err) {
+            res.status(500).json({ error: err.message })
+        } else {
+            res.status(200).json({ message: 'List of symptom retrieved', result })
+        }
+    })
+}
+
+const checkSymptom = (req, res) => {
+    const user_id = req.params.id
+    const { symptom_id, symptom } = req.body
+    const date = new Date().toISOString()
+
+    const data = { user_id, symptom_id, symptom, date }
+    const query = "INSERT INTO checksymptom SET ?"
+
+    db.query(query, data, (err, result) => {
+        if (err) {
+            res.status(500).json({ error: err.message })
+        } else {
+            res.status(200).json({ message: 'Symptom inserted successfully' })
+        }
+    })
+}
+
 module.exports = {
     register,
-    login
+    login,
+    symptom,
+    checkSymptom
 }
