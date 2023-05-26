@@ -5,4 +5,12 @@
     <string name="title_notifications">Notifications</string>
     <string name="title_medical_record">Medical Record</string>
     <string name="title_profile">Profile</string>
+    <string name="welcome_message">Hello, %s!</string>
+    <string name="notification">Notification</string>
+    <string name="search">Search...</string>
+    <string name="description">description\n</string>
+    <string name="promo">Promo Menarik</string>
+    <string name="feature">Fitur</string>
+    <string name="artikel">Artikel</string>
+    <string name="all_articel">Lihat Semua</string>
 </resources>

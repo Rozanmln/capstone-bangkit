@@ -1,4 +1,4 @@
-package com.example.hereapp.ui.dashboard
+package com.example.hereapp.ui.RecordViewModel
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.hereapp.databinding.FragmentDashboardBinding
 
-class DashboardFragment : Fragment() {
+class RecordFragment : Fragment() {
 
     private var _binding: FragmentDashboardBinding? = null
 
