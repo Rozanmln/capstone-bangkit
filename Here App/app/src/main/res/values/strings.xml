@@ -13,4 +13,16 @@
     <string name="feature">Fitur</string>
     <string name="artikel">Artikel</string>
     <string name="all_articel">Lihat Semua</string>
+    <string name="create_new_account">Create New Account</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="register">Register</string>
+    <string name="hospital">Hospital</string>
+    <string name="patient">Patient</string>
+    <string name="role">Role: </string>
+    <string name="address">Alamat</string>
+    <string name="nik">Nomor Induk Kependudukan</string>
+    <string name="sudah_punya_akun">Sudah punya akun?</string>
+    <string name="login">Login</string>
 </resources>
