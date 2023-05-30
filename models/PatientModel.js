@@ -17,7 +17,7 @@ const Patient = db.define('patient', {
         allowNull: false,
         validate: {
             notEmpty: true,
-            len: [5, 10]
+            len: [5, 20]
         }
     },
     email: {

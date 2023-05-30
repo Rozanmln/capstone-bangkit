@@ -17,7 +17,7 @@ const Hospital = db.define('hospital', {
         allowNull: false,
         validate: {
             notEmpty: true,
-            len: [5, 10]
+            len: [5, 20]
         }
     },
     email: {
