@@ -3,9 +3,6 @@ package com.example.hereapp.ui.register
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import com.example.hereapp.R
 import com.example.hereapp.databinding.ActivityRegisterBinding
 
 class RegisterActivity : AppCompatActivity() {

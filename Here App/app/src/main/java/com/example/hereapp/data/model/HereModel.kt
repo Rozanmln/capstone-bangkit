@@ -10,6 +10,12 @@ data class DataArticle(
     val description: String,
 )
 
+data class UserPreferences(
+    var isLogin: Boolean? = null,
+    var name: String? = null,
+    var token: String? = null,
+    var role: Int? = null
+)
 data class RegisterHospitalRequest(
     val Username: String,
     val Email: String,
