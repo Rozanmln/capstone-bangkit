@@ -4,6 +4,7 @@ const bodyParser = require("body-parser")
 const PatientRoute = require("./routes/PatientRoute")
 const HospitalRoute = require("./routes/HospitalRoute")
 const MedRecordRoute = require("./routes/MedRecordRoute")
+const SymptomRoute = require('./routes/SymptomRoute')
 const AuthRoute = require("./routes/AuthRoute")
 
 const app = express();
@@ -17,6 +18,7 @@ app.use(bodyParser.json())
 app.use(PatientRoute)
 app.use(HospitalRoute)
 app.use(MedRecordRoute)
+app.use(SymptomRoute)
 app.use(AuthRoute)
 
 
