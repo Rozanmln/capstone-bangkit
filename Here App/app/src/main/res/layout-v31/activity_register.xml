@@ -44,6 +44,8 @@
         app:startIconDrawable="@drawable/ic_username"
         app:startIconTint="#199A8E"
         app:layout_constraintTop_toBottomOf="@id/tv_register"
+        android:clipToOutline="true"
+        android:outlineProvider="background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
         <EditText
