@@ -9,7 +9,11 @@ data class DataArticle(
     val imageUrl: String,
     val description: String,
 )
-
+data class RecordHospital(
+    val date: String,
+    val name: String,
+    val nik: String
+)
 data class UserPreferences(
     var isLogin: Boolean? = null,
     var name: String? = null,

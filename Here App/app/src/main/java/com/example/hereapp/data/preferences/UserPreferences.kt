@@ -29,7 +29,7 @@ class UserPreferences(context: Context) {
         model.isLogin = preferences.getBoolean(isLogin, false)
         model.name = preferences.getString(name, "Dummy")
         model.token = preferences.getString(token, "")
-        model.role = preferences.getInt(role, 0)
+        model.role = preferences.getInt(role, 2)
 
         return model
     }

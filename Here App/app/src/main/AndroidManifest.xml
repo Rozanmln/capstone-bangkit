@@ -15,6 +15,12 @@
         android:theme="@style/Theme.HereApp"
         tools:targetApi="31">
         <activity
+            android:name=".ui.medical.hospital.AddMedicalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.medical.hospital.AddMedicalRecordActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.register.RegisterActivity"
             android:exported="false" />
         <activity
