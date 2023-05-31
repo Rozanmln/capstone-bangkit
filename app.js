@@ -1,11 +1,26 @@
-const express = require('express')
-const app = express()
-const bodyParser = require('body-parser')
+const express = require("express")
+const db = require("./config/Database")
+const bodyParser = require("body-parser")
+const PatientRoute = require("./routes/PatientRoute")
+const HospitalRoute = require("./routes/HospitalRoute")
+const MedRecordRoute = require("./routes/MedRecordRoute")
+const SymptomRoute = require('./routes/SymptomRoute')
+const AuthRoute = require("./routes/AuthRoute")
 
-const router = require('./routes/routes')
+const app = express();
+
+(async () => {
+    await db.sync();
+})();
 
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(router)
+app.use(bodyParser.json())
+app.use(PatientRoute)
+app.use(HospitalRoute)
+app.use(MedRecordRoute)
+app.use(SymptomRoute)
+app.use(AuthRoute)
+
 
 const PORT = process.env.PORT || 5000
 app.listen(PORT, () => {
