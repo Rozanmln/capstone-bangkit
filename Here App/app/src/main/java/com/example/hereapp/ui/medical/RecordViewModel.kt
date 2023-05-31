@@ -1,10 +1,10 @@
-package com.example.hereapp.ui.RecordViewModel
+package com.example.hereapp.ui.medical
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class DashboardViewModel : ViewModel() {
+class RecordViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is dashboard Fragment"

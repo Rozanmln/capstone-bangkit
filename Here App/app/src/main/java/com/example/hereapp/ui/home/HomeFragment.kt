@@ -8,16 +8,19 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.hereapp.MainActivity
 import com.example.hereapp.R
 import com.example.hereapp.adapter.home.ArticleAdapter
 import com.example.hereapp.adapter.home.FeatureAdapter
 import com.example.hereapp.adapter.home.MainAdapter
+import com.example.hereapp.data.preferences.UserPreferences
 import com.example.hereapp.databinding.FragmentHomeBinding
 import com.example.hereapp.dummy.DataDummy
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
+    private lateinit var userPreferences: UserPreferences
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -25,17 +28,15 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
-
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        userPreferences = UserPreferences(requireContext())
 
-        welcomeMessage("Lorem ipsum dolor sit amet")
+        welcomeMessage(userPreferences.getPref().name!!)
         recyclerViewImage()
         recyclerViewFeature()
         recyclerViewArticle()
