@@ -42,9 +42,17 @@ const Patient = db.define('patient', {
             notEmpty: true
         }
     },
+    address: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notEmpty: true
+        }
+    },
     role: {
         type: DataTypes.STRING,
         allowNull: false,
+        defaultValue: 1,
         validate: {
             notEmpty: true
         }

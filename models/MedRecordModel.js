@@ -28,7 +28,21 @@ const MedRecord = db.define('medical_record', {
             notEmpty: true,
         }
     },
-    body: {
+    symptom: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notEmpty: true,
+        }
+    },
+    diagnostic_results: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notEmpty: true,
+        }
+    },
+    doctor_recommendation: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {

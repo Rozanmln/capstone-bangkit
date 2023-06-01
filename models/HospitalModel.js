@@ -45,6 +45,7 @@ const Hospital = db.define('hospital', {
     role: {
         type: DataTypes.STRING,
         allowNull: false,
+        defaultValue: 2,
         validate: {
             notEmpty: true
         }
