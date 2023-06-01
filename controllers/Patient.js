@@ -2,7 +2,7 @@ const Patient = require("../models/PatientModel")
 const bcrypt = require("bcrypt")
 
 const createPatient = async (req, res) => {
-    const { username, email, password, NIK, role } = req.body
+    const { username, email, password, NIK, address } = req.body
     const salt = bcrypt.genSaltSync(10)
     const hashPass = await bcrypt.hashSync(password, salt)
 
@@ -20,7 +20,7 @@ const createPatient = async (req, res) => {
             email: email,
             password: hashPass,
             NIK: NIK,
-            role: role
+            address: address
         })
         res.status(201).json({ msg: "Register Berhasil" })
     } catch (error) {
@@ -31,7 +31,7 @@ const createPatient = async (req, res) => {
 const getPatient = async (req, res) => {
     try {
         const response = await Patient.findAll({
-            attributes: ['pid', 'username', 'email', 'NIK', 'role']
+            attributes: ['pid', 'username', 'email', 'NIK', 'address']
         });
         res.status(200).json(response);
     } catch (error) {
@@ -42,7 +42,7 @@ const getPatient = async (req, res) => {
 const getPatientById = async (req, res) => {
     try {
         const response = await Patient.findOne({
-            attributes: ['pid', 'username', 'email', 'NIK', 'role'],
+            attributes: ['pid', 'username', 'email', 'NIK', 'address'],
             where: {
                 pid: req.params.id
             }
@@ -54,7 +54,7 @@ const getPatientById = async (req, res) => {
 }
 
 const updatePatient = async (req, res) => {
-    const { username, email, password, NIK, role } = req.body
+    const { username, email, password, NIK, address } = req.body
     const user = await Patient.findOne({
         where: {
             pid: req.params.id
@@ -76,7 +76,7 @@ const updatePatient = async (req, res) => {
             email: email,
             password: hashPass,
             NIK: NIK,
-            role: role
+            address: address
         }, {
             where: {
                 id: user.id

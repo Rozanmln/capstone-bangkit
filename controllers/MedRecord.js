@@ -4,7 +4,7 @@ const { Op } = require("sequelize")
 
 const createMedRecord = async (req, res) => {
     const hospitalId = req.user._id
-    const { patientName, NIK, body } = req.body
+    const { patientName, NIK, symptom, diagnostic_results, doctor_recommendation } = req.body
 
     try {
         const user = await Patient.findOne({
@@ -20,7 +20,9 @@ const createMedRecord = async (req, res) => {
             await MedRecord.create({
                 patientName: patientName,
                 NIK: NIK,
-                body: body,
+                symptom: symptom,
+                diagnostic_results: diagnostic_results,
+                doctor_recommendation: doctor_recommendation,
                 patientId: user.id,
                 hospitalId: hospitalId
             })
@@ -36,7 +38,7 @@ const getMedRecord = async (req, res) => {
 
     try {
         const user = await MedRecord.findAll({
-            attributes: ['patientName', 'NIK', 'body'],
+            attributes: ['patientName', 'NIK', 'diagnostic_results'],
             where: {
                 hospitalId: hospitalId
             }
@@ -58,7 +60,7 @@ const getMedRecordById = async (req, res) => {
 
     try {
         const user = await MedRecord.findOne({
-            attributes: ['patientName', 'NIK', 'body'],
+            attributes: ['patientName', 'NIK', 'symptom', 'diagnostic_results', 'doctor_recommendation'],
             where: {
                 [Op.and]: [{ hospitalId: hospitalId }, { mrid: medRecordId }]
             }
@@ -72,15 +74,17 @@ const getMedRecordById = async (req, res) => {
 const updateMedRecord = async (req, res) => {
     const hospitalId = req.user._id
     const medRecordId = req.params.id
-    const { patientName, NIK, body } = req.body
+    const { patientName, NIK, symptom, diagnostic_results, doctor_recommendation } = req.body
 
     try {
         await MedRecord.update({
             patientName: patientName,
             NIK: NIK,
-            body: body
+            symptom: symptom,
+            diagnostic_results: diagnostic_results,
+            doctor_recommendation: doctor_recommendation,
         }, {
-            attributes: ['patientName', 'NIK', 'body'],
+            attributes: ['patientName', 'NIK', 'symptom', 'diagnostic_results', 'doctor_recommendation'],
             where: {
                 [Op.and]: [{ hospitalId: hospitalId }, { mrid: medRecordId }]
             }
