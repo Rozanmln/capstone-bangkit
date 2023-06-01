@@ -17,7 +17,7 @@ class RecordHospitalAdapter(private val list: ArrayList<RecordHospital>): Recycl
         fun bind(data: RecordHospital) {
             item.tvDate.text = data.date
             item.patientName.text = data.name
-            item.patientNik.text = data.nik
+            item.patientNik.text = data.NIK
 
             itemView.setOnClickListener {
                 val detailFragment = DetailRecordHospitalFragment()

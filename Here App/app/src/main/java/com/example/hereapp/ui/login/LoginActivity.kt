@@ -3,13 +3,14 @@ package com.example.hereapp.ui.login
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.hereapp.MainActivity
 import com.example.hereapp.R
 import com.example.hereapp.ViewModelFactory
 import com.example.hereapp.data.model.LoginRequest
+import com.example.hereapp.data.model.UserSession
 import com.example.hereapp.data.preferences.UserPreferences
 import com.example.hereapp.databinding.ActivityLoginBinding
 import com.example.hereapp.ui.register.RegisterActivity
@@ -33,6 +34,24 @@ class LoginActivity : AppCompatActivity() {
 
         toRegister()
         btnLogin()
+        showLoading(false)
+
+        isLogin()
+    }
+
+    private fun isLogin() {
+        if(userPreferences.getPref().isLogin == true) {
+            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+            finish()
+        }
+    }
+
+    private fun showLoading(state: Boolean) {
+        if(state){
+            binding.progressBar.visibility = View.VISIBLE
+        }else {
+            binding.progressBar.visibility = View.GONE
+        }
     }
 
     private fun btnLogin() {
@@ -41,10 +60,6 @@ class LoginActivity : AppCompatActivity() {
             val tvPassword = binding.edtPassword.text.toString()
             val role = binding.rgRole.checkedRadioButtonId
 
-            if(tvUsername.equals("admin") && tvPassword.equals("admin")) {
-                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
-                finish()
-            }
             val request = LoginRequest(
                 tvUsername,
                 tvPassword
@@ -58,17 +73,60 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun postHospital(request: LoginRequest) {
-        showText("yess")
         loginViewModel.postLoginHospital(request).observe(this) {
             when(it) {
                 is Result.Success -> {
-                   showText(it.data.message)
+                    showText(it.data.message)
+                    showLoading(false)
+                    if(it.data.message == "Login successful") {
+                        userPreferences.setPref(
+                           UserSession(
+                               true,
+                               request.username,
+                               it.data.token,
+                               2
+                           )
+                        )
+                        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                        finish()
+                    }
+
                 }
                 is Result.Loading -> {
-
+                    showLoading(true)
                 }
                 is Result.Error -> {
-
+                    showText(it.error)
+                    showLoading(false)
+                }
+            }
+        }
+    }
+    private fun postPatient(request: LoginRequest) {
+        loginViewModel.postLoginPatient(request).observe(this) {
+            when(it) {
+                is Result.Success -> {
+                    showLoading(false)
+                    showText(it.data.message)
+                    if(it.data.message == "Login successful") {
+                        userPreferences.setPref(
+                            UserSession(
+                                true,
+                                request.username,
+                                it.data.token,
+                                1
+                            )
+                        )
+                        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                        finish()
+                    }
+                }
+                is Result.Loading -> {
+                    showLoading(true)
+                }
+                is Result.Error -> {
+                    showText(it.error)
+                    showLoading(false)
                 }
             }
         }
@@ -77,24 +135,6 @@ class LoginActivity : AppCompatActivity() {
     private fun showText(text: String) {
         Toast.makeText(this@LoginActivity, text, Toast.LENGTH_SHORT).show()
     }
-
-    private fun postPatient(request: LoginRequest) {
-        loginViewModel.postLoginPatient(request).observe(this) {
-            when(it) {
-                is Result.Success -> {
-                    showText(it.data.message)
-                }
-                is Result.Loading -> {
-
-                }
-                is Result.Error -> {
-
-                }
-            }
-        }
-    }
-
-
     private fun toRegister() {
         binding.toRegister.setOnClickListener {
             startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))

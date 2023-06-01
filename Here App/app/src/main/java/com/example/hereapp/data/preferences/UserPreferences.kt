@@ -1,7 +1,7 @@
 package com.example.hereapp.data.preferences
 
 import android.content.Context
-import com.example.hereapp.data.model.UserPreferences
+import com.example.hereapp.data.model.UserSession
 
 class UserPreferences(context: Context) {
     companion object {
@@ -14,7 +14,7 @@ class UserPreferences(context: Context) {
     private val preferences = context.getSharedPreferences(isLogin, Context.MODE_PRIVATE)
 
 
-    fun setPref(pref: UserPreferences) {
+    fun setPref(pref: UserSession) {
         val editor = preferences.edit()
         editor.putBoolean(isLogin, pref.isLogin!!)
         editor.putString(name, pref.name)
@@ -24,12 +24,12 @@ class UserPreferences(context: Context) {
         editor.apply()
     }
 
-    fun getPref(): UserPreferences {
-        val model = UserPreferences()
+    fun getPref(): UserSession {
+        val model = UserSession()
         model.isLogin = preferences.getBoolean(isLogin, false)
-        model.name = preferences.getString(name, "Dummy")
+        model.name = preferences.getString(name, "")
         model.token = preferences.getString(token, "")
-        model.role = preferences.getInt(role, 2)
+        model.role = preferences.getInt(role, 0)
 
         return model
     }

@@ -21,19 +21,19 @@ data class DataArticle(
 data class RecordHospital(
     val date: String,
     val name: String,
-    val nik: String
+    val NIK: String
 )
-data class UserPreferences(
+data class UserSession(
     var isLogin: Boolean? = null,
     var name: String? = null,
     var token: String? = null,
     var role: Int? = null
 )
 data class RegisterHospitalRequest(
-    val username: String,
-    val email: String,
-    val password: String,
-    val address: String
+    var username: String,
+    var email: String,
+    var password: String,
+    var address: String
 )
 
 data class RegisterHospitalResponse(
@@ -44,7 +44,8 @@ data class RegisterPatientRequest(
     val username: String,
     val email: String,
     val password: String,
-    val NIK: String
+    val NIK: String,
+    val address: String
 )
 
 data class RegisterPatientResponse(

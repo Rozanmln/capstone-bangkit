@@ -124,8 +124,7 @@
         app:startIconTint="#199A8E"
         app:layout_constraintTop_toBottomOf="@id/rg_role"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/btn_register">
+        app:layout_constraintEnd_toEndOf="parent">
         <EditText
             android:id="@+id/edt_address"
             android:layout_width="match_parent"
@@ -141,7 +140,7 @@
         android:hint="@string/nik"
         app:startIconDrawable="@drawable/ic_nik"
         app:startIconTint="#199A8E"
-        app:layout_constraintTop_toBottomOf="@id/rg_role"
+        app:layout_constraintTop_toBottomOf="@id/ti_address"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/btn_register">
@@ -185,5 +184,14 @@
             android:textColor="#199A8E" />
     </LinearLayout>
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.ProgressBar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
