@@ -39,6 +39,7 @@ class RecordFragment : Fragment() {
                 1 -> replace(R.id.nav_host_fragment_activity_main, patient, AddRecordPatientFragment::class.java.simpleName)
                 2 -> replace(R.id.nav_host_fragment_activity_main, hospital, RecordHospitalFragment::class.java.simpleName)
             }
+            setReorderingAllowed(true)
             addToBackStack(null)
             commit()
         }

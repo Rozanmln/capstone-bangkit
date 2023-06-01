@@ -1,5 +1,14 @@
 package com.example.hereapp.data.model
 
+
+data class LoginRequest(
+    val username: String,
+    val password: String
+)
+data class LoginResponse(
+    val message: String,
+    val token: String
+)
 data class DataFeature(
     val imageUrl: String,
     val description: String
@@ -21,10 +30,10 @@ data class UserPreferences(
     var role: Int? = null
 )
 data class RegisterHospitalRequest(
-    val Username: String,
-    val Email: String,
-    val Password: String,
-    val Address: String
+    val username: String,
+    val email: String,
+    val password: String,
+    val address: String
 )
 
 data class RegisterHospitalResponse(
@@ -32,9 +41,9 @@ data class RegisterHospitalResponse(
 )
 
 data class RegisterPatientRequest(
-    val Username: String,
-    val Email: String,
-    val Password: String,
+    val username: String,
+    val email: String,
+    val password: String,
     val NIK: String
 )
 

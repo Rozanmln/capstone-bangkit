@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.example.hereapp.R
 
 
-class AddMedicalRecordHospital : Fragment() {
+class AddMedicalRecordHospitalFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
