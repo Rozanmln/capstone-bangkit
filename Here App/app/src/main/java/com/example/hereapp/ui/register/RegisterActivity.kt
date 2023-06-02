@@ -126,18 +126,18 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun roleAdjustment() {
-        binding.tiNik.visibility = View.GONE
-        binding.tiAddress.visibility = View.GONE
+        binding.edtNik.visibility = View.GONE
+        binding.edtAddress.visibility = View.GONE
 
         binding.rgRole.setOnCheckedChangeListener { _, checkedId ->
            when(checkedId) {
                binding.rbHospital.id -> {
-                   binding.tiAddress.visibility = View.VISIBLE
-                   binding.tiNik.visibility = View.GONE
+                   binding.edtAddress.visibility = View.VISIBLE
+                   binding.edtNik.visibility = View.GONE
                }
                binding.rbPatient.id -> {
-                   binding.tiNik.visibility = View.VISIBLE
-                   binding.tiAddress.visibility = View.VISIBLE
+                   binding.edtNik.visibility = View.VISIBLE
+                   binding.edtAddress.visibility = View.VISIBLE
                }
            }
         }

@@ -5,7 +5,7 @@
     <string name="title_notifications">Notifications</string>
     <string name="title_medical_record">Medical Record</string>
     <string name="title_profile">Profile</string>
-    <string name="welcome_message">Hello, %s!</string>
+    <string name="welcome_message">Hello, %s !</string>
     <string name="notification">Notification</string>
     <string name="search">Search...</string>
     <string name="description">description\n</string>
@@ -43,8 +43,11 @@
     <string name="sakit">sakit....</string>
     <string name="anda_mengidap">anda mengidap...</string>
     <string name="sebaiknya_anda">sebaiknya anda..</string>
-    <string name="belum_punya_akun">belum punya akun?</string>
+    <string name="belum_punya_akun">Belum punya akun? </string>
     <string name="welcome">Welcome</string>
     <string name="submit">Submit</string>
     <string name="logout">Logout</string>
+    <string name="here_app">Here App</string>
+    <string name="kelola_profile">Kelola Profile</string>
+    <string name="pengaturan_aplikasi">Pengaturan Aplikasi</string>
 </resources>

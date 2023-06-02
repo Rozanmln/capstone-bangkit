@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import com.example.hereapp.MainActivity
 import com.example.hereapp.data.preferences.UserPreferences
 import com.example.hereapp.databinding.FragmentProfileBinding
 import com.example.hereapp.ui.login.LoginActivity
@@ -22,8 +22,6 @@ class ProfileFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val notificationsViewModel =
-            ViewModelProvider(this)[ProfileViewModel::class.java]
 
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
@@ -34,10 +32,12 @@ class ProfileFragment : Fragment() {
 
         userPreferences = UserPreferences(requireActivity())
 
-        //logout coba2 aja, tapi activitynya ga bisa di finish, jadi masih bisa balik ke activity sebelumnya
         binding.btnLogout.setOnClickListener {
             userPreferences.clearSession()
             startActivity(Intent(requireActivity(), LoginActivity::class.java))
+            if(requireActivity() is MainActivity) {
+                requireActivity().finish()
+            }
         }
     }
     override fun onDestroyView() {
