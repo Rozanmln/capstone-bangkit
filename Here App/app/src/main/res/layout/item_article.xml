@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_gravity="center"
@@ -25,5 +26,7 @@
         android:paddingEnd="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="@string/description"/>
+        style="@style/MaterialAlertDialog.Material3"
+        tools:text="@string/description"
+        android:textSize="18sp"/>
 </LinearLayout>

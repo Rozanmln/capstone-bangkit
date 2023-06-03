@@ -1,10 +1,8 @@
 package com.example.hereapp.adapter.medical
 
-import android.content.Intent
-import android.text.TextUtils.replace
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.startActivity
+import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hereapp.R
@@ -19,13 +17,15 @@ class RecordHospitalAdapter(private val list: ArrayList<RecordHospital>): Recycl
         fun bind(data: RecordHospital) {
             item.tvDate.text = data.date
             item.patientName.text = data.name
-            item.patientNik.text = data.nik
+            item.patientNik.text = data.NIK
 
             itemView.setOnClickListener {
-                val detailRecordHospital = DetailRecordHospitalFragment()
-                val fragmentManager = (itemView.context as FragmentActivity).supportFragmentManager
+                val detailFragment = DetailRecordHospitalFragment()
+                val fragmentManager =(itemView.context as FragmentActivity).supportFragmentManager
+
                 fragmentManager.beginTransaction().apply {
-                    replace(R.id.container, detailRecordHospital, DetailRecordHospitalFragment::class.java.simpleName)
+                    replace(R.id.nav_host_fragment_activity_main, detailFragment)
+                    addToBackStack(null)
                     commit()
                 }
             }

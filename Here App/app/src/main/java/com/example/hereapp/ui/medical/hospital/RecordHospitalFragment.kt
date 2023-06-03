@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.hereapp.MainActivity
 import com.example.hereapp.R
 import com.example.hereapp.adapter.medical.RecordHospitalAdapter
 import com.example.hereapp.data.model.RecordHospital
@@ -35,10 +36,11 @@ class RecordHospitalFragment : Fragment() {
     private fun addMedicalRecord() {
         binding.fabAdd.setOnClickListener {
             val fragmentManager = parentFragmentManager
-            val addMedicalRecordHospital = AddMedicalRecordHospital()
+            val addMedicalRecordHospital = AddMedicalRecordHospitalFragment()
 
             fragmentManager.beginTransaction().apply {
-                replace(R.id.nav_host_fragment_activity_main, addMedicalRecordHospital, AddMedicalRecordHospital::class.java.simpleName)
+                replace(R.id.nav_host_fragment_activity_main, addMedicalRecordHospital, AddMedicalRecordHospitalFragment::class.java.simpleName)
+                setReorderingAllowed(true)
                 addToBackStack(null)
                 commit()
             }

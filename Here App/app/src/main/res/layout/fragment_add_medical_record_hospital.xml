@@ -3,10 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
+    android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
             android:id="@+id/tambah"
             android:layout_width="wrap_content"
@@ -15,131 +17,169 @@
             style="@style/MaterialAlertDialog.Material3"
             android:textSize="24sp"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/btn_submit"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_add_medical"
+            android:background="#199A8E"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
-        <TextView
-            android:id="@+id/tv_data_diri"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_data"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/data"
-            style="@style/MaterialAlertDialog.Material3"
-            android:textSize="18sp"
-            android:paddingTop="32dp"
+            app:cardCornerRadius="16dp"
+            android:elevation="16dp"
+            android:layout_marginTop="32dp"
             app:layout_constraintTop_toBottomOf="@id/tambah"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-        <EditText
-            android:id="@+id/ed_date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/tanggal"
-            android:inputType="datetime"
-            android:drawableStart="@drawable/ic_date"
-            android:drawablePadding="8dp"
-            app:layout_constraintTop_toBottomOf="@id/tv_data_diri"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-        <EditText
-            android:id="@+id/ed_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/nama_patient"
-            android:inputType="text"
-            android:drawableStart="@drawable/ic_username"
-            android:drawablePadding="8dp"
-            app:layout_constraintTop_toBottomOf="@id/ed_date"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-        <EditText
-            android:id="@+id/ed_nik"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/nik"
-            android:inputType="number"
-            android:drawableStart="@drawable/ic_nik"
-            android:drawablePadding="8dp"
-            app:layout_constraintTop_toBottomOf="@id/ed_name"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-        <TextView
-            android:id="@+id/keluhan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/keluhan"
-            android:paddingTop="16dp"
-            android:textSize="18sp"
-            style="@style/MaterialAlertDialog.Material3.Title.Icon"
-            app:layout_constraintTop_toBottomOf="@id/ed_nik"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/data"
+                    android:layout_gravity="center"
+                    style="@style/MaterialAlertDialog.Material3"
+                    android:textSize="18sp" />
+                <EditText
+                    android:id="@+id/ed_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/tanggal"
+                    android:background="@drawable/custom_edit_text"
+                    android:inputType="datetime"
+                    android:drawableStart="@drawable/ic_date"
+                    android:drawablePadding="4dp"
+                    android:drawableTint="#A0D8B3"/>
+                <EditText
+                    android:id="@+id/ed_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/nama_patient"
+                    android:background="@drawable/custom_edit_text"
+                    android:layout_marginTop="8dp"
+                    android:inputType="text"
+                    android:drawableStart="@drawable/ic_username"
+                    android:drawablePadding="4dp"
+                    android:drawableTint="#A0D8B3"/>
+                <EditText
+                    android:id="@+id/ed_nik"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/nik"
+                    android:background="@drawable/custom_edit_text"
+                    android:layout_marginTop="8dp"
+                    android:inputType="number"
+                    android:drawableStart="@drawable/ic_nik"
+                    android:drawablePadding="4dp"
+                    android:drawableTint="#A0D8B3"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_keluhan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="96dp"
+            app:cardCornerRadius="20dp"
             android:elevation="16dp"
-            app:layout_constraintTop_toBottomOf="@id/keluhan"
-            app:layout_constraintStart_toStartOf="parent">
-            <EditText
-                android:id="@+id/ed_keluhan"
-                android:hint="@string/sakit"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/cv_data"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/keluhan"
+                    android:layout_gravity="center"
+                    style="@style/MaterialAlertDialog.Material3"
+                    android:textSize="18sp" />
+                <EditText
+                    android:id="@+id/edt_keluhan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="160dp"
+                    android:hint="@string/sakit"
+                    android:gravity="fill_horizontal"
+                    android:background="@drawable/custom_edit_text"/>
+            </LinearLayout>
         </androidx.cardview.widget.CardView>
-
-        <TextView
-            android:id="@+id/diagonosis"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/hasil_diagnosis"
-            android:paddingTop="16dp"
-            android:textSize="18sp"
-            style="@style/MaterialAlertDialog.Material3.Title.Icon"
-            app:layout_constraintTop_toBottomOf="@id/cv_keluhan"
-            app:layout_constraintStart_toStartOf="parent"/>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_diagnosis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="96dp"
+            app:cardCornerRadius="20dp"
             android:elevation="16dp"
-            app:layout_constraintTop_toBottomOf="@id/diagonosis"
-            app:layout_constraintStart_toStartOf="parent">
-            <EditText
-                android:id="@+id/ed_diagnosis"
-                android:hint="@string/anda_mengidap"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/cv_keluhan"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hasil_diagnosis"
+                    android:layout_gravity="center"
+                    style="@style/MaterialAlertDialog.Material3"
+                    android:textSize="18sp" />
+                <EditText
+                    android:id="@+id/edt_diagnosis"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="160dp"
+                    android:hint="@string/anda_mengidap"
+                    android:gravity="fill_horizontal"
+                    android:background="@drawable/custom_edit_text"/>
+            </LinearLayout>
         </androidx.cardview.widget.CardView>
-
-        <TextView
-            android:id="@+id/saran"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/saran"
-            android:paddingTop="16dp"
-            android:textSize="18sp"
-            style="@style/MaterialAlertDialog.Material3.Title.Icon"
-            app:layout_constraintTop_toBottomOf="@id/cv_diagnosis"
-            app:layout_constraintStart_toStartOf="parent"/>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_saran"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="96dp"
+            app:cardCornerRadius="20dp"
             android:elevation="16dp"
-            app:layout_constraintTop_toBottomOf="@id/saran"
-            app:layout_constraintStart_toStartOf="parent">
-            <EditText
-                android:id="@+id/ed_saran"
-                android:hint="@string/sebaiknya_anda"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/cv_diagnosis"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/saran"
+                    android:layout_gravity="center"
+                    style="@style/MaterialAlertDialog.Material3"
+                    android:textSize="18sp"/>
+                <EditText
+                    android:id="@+id/edt_saran"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="160dp"
+                    android:hint="@string/sebaiknya_anda"
+                    android:gravity="fill_horizontal"
+                    android:background="@drawable/custom_edit_text"/>
+            </LinearLayout>
         </androidx.cardview.widget.CardView>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

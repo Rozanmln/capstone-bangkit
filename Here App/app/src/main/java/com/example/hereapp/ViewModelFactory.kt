@@ -5,12 +5,19 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.hereapp.data.repository.HereRepository
 import com.example.hereapp.di.Injection
+import com.example.hereapp.ui.login.LoginViewModel
+import com.example.hereapp.ui.register.RegisterViewModel
 
 @Suppress("UNCHECKED_CAST")
 class ViewModelFactory(private val repo: HereRepository): ViewModelProvider.NewInstanceFactory() {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
        return when {
-
+           modelClass.isAssignableFrom(LoginViewModel::class.java) -> {
+               LoginViewModel(repo) as T
+           }
+           modelClass.isAssignableFrom(RegisterViewModel::class.java) -> {
+               RegisterViewModel(repo) as T
+           }
            else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
        }
     }

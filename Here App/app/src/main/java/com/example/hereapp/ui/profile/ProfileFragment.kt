@@ -1,20 +1,20 @@
 package com.example.hereapp.ui.profile
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import com.example.hereapp.databinding.FragmentNotificationsBinding
+import com.example.hereapp.MainActivity
+import com.example.hereapp.data.preferences.UserPreferences
+import com.example.hereapp.databinding.FragmentProfileBinding
+import com.example.hereapp.ui.login.LoginActivity
 
 class ProfileFragment : Fragment() {
+    private lateinit var userPreferences: UserPreferences
+    private var _binding: FragmentProfileBinding? = null
 
-    private var _binding: FragmentNotificationsBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -22,19 +22,24 @@ class ProfileFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val notificationsViewModel =
-            ViewModelProvider(this).get(ProfileViewModel::class.java)
 
-        _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        val textView: TextView = binding.textNotifications
-        notificationsViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
-        return root
+        _binding = FragmentProfileBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        userPreferences = UserPreferences(requireActivity())
+
+        binding.btnLogout.setOnClickListener {
+            userPreferences.clearSession()
+            startActivity(Intent(requireActivity(), LoginActivity::class.java))
+            if(requireActivity() is MainActivity) {
+                requireActivity().finish()
+            }
+        }
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
