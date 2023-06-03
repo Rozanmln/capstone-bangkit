@@ -4,7 +4,7 @@ const Patient = require("./PatientModel.js")
 
 const { DataTypes } = Sequelize;
 
-const Symptom = db.define('symptom', {
+const Symptoms = db.define('symptoms', {
     symptomName: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -24,8 +24,44 @@ const Symptom = db.define('symptom', {
     freezeTableName: true
 })
 
-const CheckSymptom = db.define('check_symptom', {
-    symptomName: {
+const Predicted = db.define('predicted', {
+    prid: {
+        type: DataTypes.STRING,
+        defaultValue: DataTypes.UUIDV4,
+        allowNull: false,
+        validate: {
+            notEmpty: true
+        }
+    },
+    symptoms: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notEmpty: true
+        }
+    },
+    predictedId: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notEmpty: true
+        }
+    },
+    disease: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notEmpty: true
+        }
+    },
+    description: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notEmpty: true
+        }
+    },
+    precaution: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
@@ -38,21 +74,12 @@ const CheckSymptom = db.define('check_symptom', {
         validate: {
             notEmpty: true
         }
-    },
-    symptomId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-            notEmpty: true
-        }
     }
 }, {
     freezeTableName: true
 })
 
-Patient.hasMany(CheckSymptom)
-Symptom.hasMany(CheckSymptom)
-CheckSymptom.belongsTo(Patient, { foreignKey: 'patientId' })
-CheckSymptom.belongsTo(Symptom, { foreignKey: 'symptomId' })
+Patient.hasMany(Predicted)
+Predicted.belongsTo(Patient, { foreignKey: 'patientId' })
 
-module.exports = { Symptom, CheckSymptom }
+module.exports = { Symptoms, Predicted }
