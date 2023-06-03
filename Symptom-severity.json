@@ -1,0 +1,530 @@
+{
+    "itching": {
+        "Symptom": "itching",
+        "weight": "1"
+    },
+    "skin_rash": {
+        "Symptom": "skin_rash",
+        "weight": "3"
+    },
+    "nodal_skin_eruptions": {
+        "Symptom": "nodal_skin_eruptions",
+        "weight": "4"
+    },
+    "continuous_sneezing": {
+        "Symptom": "continuous_sneezing",
+        "weight": "4"
+    },
+    "shivering": {
+        "Symptom": "shivering",
+        "weight": "5"
+    },
+    "chills": {
+        "Symptom": "chills",
+        "weight": "3"
+    },
+    "joint_pain": {
+        "Symptom": "joint_pain",
+        "weight": "3"
+    },
+    "stomach_pain": {
+        "Symptom": "stomach_pain",
+        "weight": "5"
+    },
+    "acidity": {
+        "Symptom": "acidity",
+        "weight": "3"
+    },
+    "ulcers_on_tongue": {
+        "Symptom": "ulcers_on_tongue",
+        "weight": "4"
+    },
+    "muscle_wasting": {
+        "Symptom": "muscle_wasting",
+        "weight": "3"
+    },
+    "vomiting": {
+        "Symptom": "vomiting",
+        "weight": "5"
+    },
+    "burning_micturition": {
+        "Symptom": "burning_micturition",
+        "weight": "6"
+    },
+    "spotting_urination": {
+        "Symptom": "spotting_urination",
+        "weight": "6"
+    },
+    "fatigue": {
+        "Symptom": "fatigue",
+        "weight": "4"
+    },
+    "weight_gain": {
+        "Symptom": "weight_gain",
+        "weight": "3"
+    },
+    "anxiety": {
+        "Symptom": "anxiety",
+        "weight": "4"
+    },
+    "cold_hands_and_feets": {
+        "Symptom": "cold_hands_and_feets",
+        "weight": "5"
+    },
+    "mood_swings": {
+        "Symptom": "mood_swings",
+        "weight": "3"
+    },
+    "weight_loss": {
+        "Symptom": "weight_loss",
+        "weight": "3"
+    },
+    "restlessness": {
+        "Symptom": "restlessness",
+        "weight": "5"
+    },
+    "lethargy": {
+        "Symptom": "lethargy",
+        "weight": "2"
+    },
+    "patches_in_throat": {
+        "Symptom": "patches_in_throat",
+        "weight": "6"
+    },
+    "irregular_sugar_level": {
+        "Symptom": "irregular_sugar_level",
+        "weight": "5"
+    },
+    "cough": {
+        "Symptom": "cough",
+        "weight": "4"
+    },
+    "high_fever": {
+        "Symptom": "high_fever",
+        "weight": "7"
+    },
+    "sunken_eyes": {
+        "Symptom": "sunken_eyes",
+        "weight": "3"
+    },
+    "breathlessness": {
+        "Symptom": "breathlessness",
+        "weight": "4"
+    },
+    "sweating": {
+        "Symptom": "sweating",
+        "weight": "3"
+    },
+    "dehydration": {
+        "Symptom": "dehydration",
+        "weight": "4"
+    },
+    "indigestion": {
+        "Symptom": "indigestion",
+        "weight": "5"
+    },
+    "headache": {
+        "Symptom": "headache",
+        "weight": "3"
+    },
+    "yellowish_skin": {
+        "Symptom": "yellowish_skin",
+        "weight": "3"
+    },
+    "dark_urine": {
+        "Symptom": "dark_urine",
+        "weight": "4"
+    },
+    "nausea": {
+        "Symptom": "nausea",
+        "weight": "5"
+    },
+    "loss_of_appetite": {
+        "Symptom": "loss_of_appetite",
+        "weight": "4"
+    },
+    "pain_behind_the_eyes": {
+        "Symptom": "pain_behind_the_eyes",
+        "weight": "4"
+    },
+    "back_pain": {
+        "Symptom": "back_pain",
+        "weight": "3"
+    },
+    "constipation": {
+        "Symptom": "constipation",
+        "weight": "4"
+    },
+    "abdominal_pain": {
+        "Symptom": "abdominal_pain",
+        "weight": "4"
+    },
+    "diarrhoea": {
+        "Symptom": "diarrhoea",
+        "weight": "6"
+    },
+    "mild_fever": {
+        "Symptom": "mild_fever",
+        "weight": "5"
+    },
+    "yellow_urine": {
+        "Symptom": "yellow_urine",
+        "weight": "4"
+    },
+    "yellowing_of_eyes": {
+        "Symptom": "yellowing_of_eyes",
+        "weight": "4"
+    },
+    "acute_liver_failure": {
+        "Symptom": "acute_liver_failure",
+        "weight": "6"
+    },
+    "fluid_overload": {
+        "Symptom": "fluid_overload",
+        "weight": "4"
+    },
+    "swelling_of_stomach": {
+        "Symptom": "swelling_of_stomach",
+        "weight": "7"
+    },
+    "swelled_lymph_nodes": {
+        "Symptom": "swelled_lymph_nodes",
+        "weight": "6"
+    },
+    "malaise": {
+        "Symptom": "malaise",
+        "weight": "6"
+    },
+    "blurred_and_distorted_vision": {
+        "Symptom": "blurred_and_distorted_vision",
+        "weight": "5"
+    },
+    "phlegm": {
+        "Symptom": "phlegm",
+        "weight": "5"
+    },
+    "throat_irritation": {
+        "Symptom": "throat_irritation",
+        "weight": "4"
+    },
+    "redness_of_eyes": {
+        "Symptom": "redness_of_eyes",
+        "weight": "5"
+    },
+    "sinus_pressure": {
+        "Symptom": "sinus_pressure",
+        "weight": "4"
+    },
+    "runny_nose": {
+        "Symptom": "runny_nose",
+        "weight": "5"
+    },
+    "congestion": {
+        "Symptom": "congestion",
+        "weight": "5"
+    },
+    "chest_pain": {
+        "Symptom": "chest_pain",
+        "weight": "7"
+    },
+    "weakness_in_limbs": {
+        "Symptom": "weakness_in_limbs",
+        "weight": "7"
+    },
+    "fast_heart_rate": {
+        "Symptom": "fast_heart_rate",
+        "weight": "5"
+    },
+    "pain_during_bowel_movements": {
+        "Symptom": "pain_during_bowel_movements",
+        "weight": "5"
+    },
+    "pain_in_anal_region": {
+        "Symptom": "pain_in_anal_region",
+        "weight": "6"
+    },
+    "bloody_stool": {
+        "Symptom": "bloody_stool",
+        "weight": "5"
+    },
+    "irritation_in_anus": {
+        "Symptom": "irritation_in_anus",
+        "weight": "6"
+    },
+    "neck_pain": {
+        "Symptom": "neck_pain",
+        "weight": "5"
+    },
+    "dizziness": {
+        "Symptom": "dizziness",
+        "weight": "4"
+    },
+    "cramps": {
+        "Symptom": "cramps",
+        "weight": "4"
+    },
+    "bruising": {
+        "Symptom": "bruising",
+        "weight": "4"
+    },
+    "obesity": {
+        "Symptom": "obesity",
+        "weight": "4"
+    },
+    "swollen_legs": {
+        "Symptom": "swollen_legs",
+        "weight": "5"
+    },
+    "swollen_blood_vessels": {
+        "Symptom": "swollen_blood_vessels",
+        "weight": "5"
+    },
+    "puffy_face_and_eyes": {
+        "Symptom": "puffy_face_and_eyes",
+        "weight": "5"
+    },
+    "enlarged_thyroid": {
+        "Symptom": "enlarged_thyroid",
+        "weight": "6"
+    },
+    "brittle_nails": {
+        "Symptom": "brittle_nails",
+        "weight": "5"
+    },
+    "swollen_extremeties": {
+        "Symptom": "swollen_extremeties",
+        "weight": "5"
+    },
+    "excessive_hunger": {
+        "Symptom": "excessive_hunger",
+        "weight": "4"
+    },
+    "extra_marital_contacts": {
+        "Symptom": "extra_marital_contacts",
+        "weight": "5"
+    },
+    "drying_and_tingling_lips": {
+        "Symptom": "drying_and_tingling_lips",
+        "weight": "4"
+    },
+    "slurred_speech": {
+        "Symptom": "slurred_speech",
+        "weight": "4"
+    },
+    "knee_pain": {
+        "Symptom": "knee_pain",
+        "weight": "3"
+    },
+    "hip_joint_pain": {
+        "Symptom": "hip_joint_pain",
+        "weight": "2"
+    },
+    "muscle_weakness": {
+        "Symptom": "muscle_weakness",
+        "weight": "2"
+    },
+    "stiff_neck": {
+        "Symptom": "stiff_neck",
+        "weight": "4"
+    },
+    "swelling_joints": {
+        "Symptom": "swelling_joints",
+        "weight": "5"
+    },
+    "movement_stiffness": {
+        "Symptom": "movement_stiffness",
+        "weight": "5"
+    },
+    "spinning_movements": {
+        "Symptom": "spinning_movements",
+        "weight": "6"
+    },
+    "loss_of_balance": {
+        "Symptom": "loss_of_balance",
+        "weight": "4"
+    },
+    "unsteadiness": {
+        "Symptom": "unsteadiness",
+        "weight": "4"
+    },
+    "weakness_of_one_body_side": {
+        "Symptom": "weakness_of_one_body_side",
+        "weight": "4"
+    },
+    "loss_of_smell": {
+        "Symptom": "loss_of_smell",
+        "weight": "3"
+    },
+    "bladder_discomfort": {
+        "Symptom": "bladder_discomfort",
+        "weight": "4"
+    },
+    "foul_smell_ofurine": {
+        "Symptom": "foul_smell_ofurine",
+        "weight": "5"
+    },
+    "continuous_feel_of_urine": {
+        "Symptom": "continuous_feel_of_urine",
+        "weight": "6"
+    },
+    "passage_of_gases": {
+        "Symptom": "passage_of_gases",
+        "weight": "5"
+    },
+    "internal_itching": {
+        "Symptom": "internal_itching",
+        "weight": "4"
+    },
+    "toxic_look_(typhos)": {
+        "Symptom": "toxic_look_(typhos)",
+        "weight": "5"
+    },
+    "depression": {
+        "Symptom": "depression",
+        "weight": "3"
+    },
+    "irritability": {
+        "Symptom": "irritability",
+        "weight": "2"
+    },
+    "muscle_pain": {
+        "Symptom": "muscle_pain",
+        "weight": "2"
+    },
+    "altered_sensorium": {
+        "Symptom": "altered_sensorium",
+        "weight": "2"
+    },
+    "red_spots_over_body": {
+        "Symptom": "red_spots_over_body",
+        "weight": "3"
+    },
+    "belly_pain": {
+        "Symptom": "belly_pain",
+        "weight": "4"
+    },
+    "abnormal_menstruation": {
+        "Symptom": "abnormal_menstruation",
+        "weight": "6"
+    },
+    "dischromic_patches": {
+        "Symptom": "dischromic_patches",
+        "weight": "6"
+    },
+    "watering_from_eyes": {
+        "Symptom": "watering_from_eyes",
+        "weight": "4"
+    },
+    "increased_appetite": {
+        "Symptom": "increased_appetite",
+        "weight": "5"
+    },
+    "polyuria": {
+        "Symptom": "polyuria",
+        "weight": "4"
+    },
+    "family_history": {
+        "Symptom": "family_history",
+        "weight": "5"
+    },
+    "mucoid_sputum": {
+        "Symptom": "mucoid_sputum",
+        "weight": "4"
+    },
+    "rusty_sputum": {
+        "Symptom": "rusty_sputum",
+        "weight": "4"
+    },
+    "lack_of_concentration": {
+        "Symptom": "lack_of_concentration",
+        "weight": "3"
+    },
+    "visual_disturbances": {
+        "Symptom": "visual_disturbances",
+        "weight": "3"
+    },
+    "receiving_blood_transfusion": {
+        "Symptom": "receiving_blood_transfusion",
+        "weight": "5"
+    },
+    "receiving_unsterile_injections": {
+        "Symptom": "receiving_unsterile_injections",
+        "weight": "2"
+    },
+    "coma": {
+        "Symptom": "coma",
+        "weight": "7"
+    },
+    "stomach_bleeding": {
+        "Symptom": "stomach_bleeding",
+        "weight": "6"
+    },
+    "distention_of_abdomen": {
+        "Symptom": "distention_of_abdomen",
+        "weight": "4"
+    },
+    "history_of_alcohol_consumption": {
+        "Symptom": "history_of_alcohol_consumption",
+        "weight": "5"
+    },
+    "blood_in_sputum": {
+        "Symptom": "blood_in_sputum",
+        "weight": "5"
+    },
+    "prominent_veins_on_calf": {
+        "Symptom": "prominent_veins_on_calf",
+        "weight": "6"
+    },
+    "palpitations": {
+        "Symptom": "palpitations",
+        "weight": "4"
+    },
+    "painful_walking": {
+        "Symptom": "painful_walking",
+        "weight": "2"
+    },
+    "pus_filled_pimples": {
+        "Symptom": "pus_filled_pimples",
+        "weight": "2"
+    },
+    "blackheads": {
+        "Symptom": "blackheads",
+        "weight": "2"
+    },
+    "scurring": {
+        "Symptom": "scurring",
+        "weight": "2"
+    },
+    "skin_peeling": {
+        "Symptom": "skin_peeling",
+        "weight": "3"
+    },
+    "silver_like_dusting": {
+        "Symptom": "silver_like_dusting",
+        "weight": "2"
+    },
+    "small_dents_in_nails": {
+        "Symptom": "small_dents_in_nails",
+        "weight": "2"
+    },
+    "inflammatory_nails": {
+        "Symptom": "inflammatory_nails",
+        "weight": "2"
+    },
+    "blister": {
+        "Symptom": "blister",
+        "weight": "4"
+    },
+    "red_sore_around_nose": {
+        "Symptom": "red_sore_around_nose",
+        "weight": "2"
+    },
+    "yellow_crust_ooze": {
+        "Symptom": "yellow_crust_ooze",
+        "weight": "3"
+    },
+    "prognosis": {
+        "Symptom": "prognosis",
+        "weight": "5"
+    }
+}
