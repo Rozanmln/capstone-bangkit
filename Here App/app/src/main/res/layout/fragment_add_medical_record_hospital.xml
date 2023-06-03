@@ -59,7 +59,7 @@
                     android:inputType="datetime"
                     android:drawableStart="@drawable/ic_date"
                     android:drawablePadding="4dp"
-                    android:drawableTint="#A0D8B3"/>
+                    android:drawableTint="@color/black"/>
                 <EditText
                     android:id="@+id/ed_name"
                     android:layout_width="match_parent"
@@ -70,7 +70,7 @@
                     android:inputType="text"
                     android:drawableStart="@drawable/ic_username"
                     android:drawablePadding="4dp"
-                    android:drawableTint="#A0D8B3"/>
+                    android:drawableTint="@color/black"/>
                 <EditText
                     android:id="@+id/ed_nik"
                     android:layout_width="match_parent"
@@ -81,7 +81,7 @@
                     android:inputType="number"
                     android:drawableStart="@drawable/ic_nik"
                     android:drawablePadding="4dp"
-                    android:drawableTint="#A0D8B3"/>
+                    android:drawableTint="@color/black"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 

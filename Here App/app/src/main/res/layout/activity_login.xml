@@ -74,7 +74,7 @@
                 android:background="@drawable/custom_edit_text"
                 android:drawableStart="@drawable/ic_username"
                 android:drawablePadding="4dp"
-                android:drawableTint="#A0D8B3"
+                android:drawableTint="@color/black"
                 android:hint="@string/username"
                 android:inputType="text"
                 android:textSize="18sp" />
@@ -88,7 +88,7 @@
                 android:background="@drawable/custom_edit_text"
                 android:drawableStart="@drawable/ic_password"
                 style="@style/TextAppearance.Material3.LabelMedium"
-                android:drawableTint="#A0D8B3"
+                android:drawableTint="@color/black"
                 android:drawablePadding="4dp"
                 android:textSize="18sp"
                 android:hint="@string/password"/>
