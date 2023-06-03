@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">Here App</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_medical_record">Medical Record</string>
+    <string name="title_profile">Profile</string>
+    <string name="welcome_message">Hello, %s!</string>
+    <string name="notification">Notification</string>
+    <string name="search">Search...</string>
+    <string name="description">description\n</string>
+    <string name="promo">Promo Menarik</string>
+    <string name="feature">Fitur</string>
+    <string name="artikel">Artikel</string>
+    <string name="all_articel">Lihat Semua</string>
+    <string name="create_new_account">Create New Account</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="register">Register</string>
+    <string name="hospital">Hospital</string>
+    <string name="patient">Patient</string>
+    <string name="role">Role: </string>
+    <string name="address">Alamat</string>
+    <string name="nik">Nomor Induk Kependudukan</string>
+    <string name="sudah_punya_akun">Sudah punya akun?</string>
+    <string name="login">Login</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search_patient">Cari Pasien..</string>
+    <string name="riwayat">Riwayat</string>
+    <string name="detail_riwayat">Detail Riwayat</string>
+    <string name="keluhan">Keluhan</string>
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</string>
+    <string name="hasil_diagnosis">Hasil Diagnosis</string>
+    <string name="saran">Saran</string>
+    <string name="date">19 May 2023</string>
+    <string name="tambah_rekam_medis">Tambah Rekam Medis</string>
+    <string name="tanggal">tanggal</string>
+    <string name="data_diri">Data Diri</string>
+    <string name="nama_patient">nama patient</string>
+    <string name="data">Data</string>
+    <string name="sakit">sakit....</string>
+    <string name="anda_mengidap">anda mengidap...</string>
+    <string name="sebaiknya_anda">sebaiknya anda..</string>
+</resources>
