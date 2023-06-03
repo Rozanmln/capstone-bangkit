@@ -1,0 +1,70 @@
+[
+    {
+        "merged": "C:\\Users\\albar\\.gradle\\daemon\\8.0\\com.example.hereapp-mergeDebugResources-49:\\layout\\activity_register.xml",
+        "source": "C:\\Users\\albar\\.gradle\\daemon\\8.0\\com.example.hereapp-main-52:\\layout\\activity_register.xml"
+    },
+    {
+        "merged": "C:\\Users\\albar\\.gradle\\daemon\\8.0\\com.example.hereapp-mergeDebugResources-49:\\layout\\fragment_add_record_patient.xml",
+        "source": "C:\\Users\\albar\\.gradle\\daemon\\8.0\\com.example.hereapp-main-52:\\layout\\fragment_add_record_patient.xml"
+    },
+    {
+        "merged": "com.example.hereapp-mergeDebugResources-49:/layout/activity_register.xml",
+        "source": "com.example.hereapp-main-52:/layout/activity_register.xml"
+    },
+    {
+        "merged": "C:\\Users\\albar\\.gradle\\daemon\\8.0\\com.example.hereapp-mergeDebugResources-49:\\layout\\item_feature.xml",
+        "source": "C:\\Users\\albar\\.gradle\\daemon\\8.0\\com.example.hereapp-main-52:\\layout\\item_feature.xml"
+    },
+    {
+        "merged": "C:\\Users\\albar\\.gradle\\daemon\\8.0\\com.example.hereapp-mergeDebugResources-49:\\layout\\fragment_home.xml",
+        "source": "C:\\Users\\albar\\.gradle\\daemon\\8.0\\com.example.hereapp-main-52:\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\albar\\.gradle\\daemon\\8.0\\com.example.hereapp-mergeDebugResources-49:\\layout\\fragment_detail_record_hospital.xml",
+        "source": "C:\\Users\\albar\\.gradle\\daemon\\8.0\\com.example.hereapp-main-52:\\layout\\fragment_detail_record_hospital.xml"
+    },
+    {
+        "merged": "com.example.hereapp-mergeDebugResources-49:/layout/fragment_add_medical_record_hospital.xml",
+        "source": "com.example.hereapp-main-52:/layout/fragment_add_medical_record_hospital.xml"
+    },
+    {
+        "merged": "C:\\Users\\albar\\.gradle\\daemon\\8.0\\com.example.hereapp-mergeDebugResources-49:\\layout\\item_riwayat_hospital.xml",
+        "source": "C:\\Users\\albar\\.gradle\\daemon\\8.0\\com.example.hereapp-main-52:\\layout\\item_riwayat_hospital.xml"
+    },
+    {
+        "merged": "C:\\Users\\albar\\.gradle\\daemon\\8.0\\com.example.hereapp-mergeDebugResources-49:\\layout\\item_article.xml",
+        "source": "C:\\Users\\albar\\.gradle\\daemon\\8.0\\com.example.hereapp-main-52:\\layout\\item_article.xml"
+    },
+    {
+        "merged": "C:\\Users\\albar\\.gradle\\daemon\\8.0\\com.example.hereapp-mergeDebugResources-49:\\layout\\activity_login.xml",
+        "source": "C:\\Users\\albar\\.gradle\\daemon\\8.0\\com.example.hereapp-main-52:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\albar\\.gradle\\daemon\\8.0\\com.example.hereapp-mergeDebugResources-49:\\layout\\fragment_record.xml",
+        "source": "C:\\Users\\albar\\.gradle\\daemon\\8.0\\com.example.hereapp-main-52:\\layout\\fragment_record.xml"
+    },
+    {
+        "merged": "C:\\Users\\albar\\.gradle\\daemon\\8.0\\com.example.hereapp-mergeDebugResources-49:\\layout\\fragment_profile.xml",
+        "source": "C:\\Users\\albar\\.gradle\\daemon\\8.0\\com.example.hereapp-main-52:\\layout\\fragment_profile.xml"
+    },
+    {
+        "merged": "com.example.hereapp-mergeDebugResources-49:/layout/activity_login.xml",
+        "source": "com.example.hereapp-main-52:/layout/activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\albar\\.gradle\\daemon\\8.0\\com.example.hereapp-mergeDebugResources-49:\\layout\\item_main_image.xml",
+        "source": "C:\\Users\\albar\\.gradle\\daemon\\8.0\\com.example.hereapp-main-52:\\layout\\item_main_image.xml"
+    },
+    {
+        "merged": "C:\\Users\\albar\\.gradle\\daemon\\8.0\\com.example.hereapp-mergeDebugResources-49:\\layout\\fragment_record_hospital.xml",
+        "source": "C:\\Users\\albar\\.gradle\\daemon\\8.0\\com.example.hereapp-main-52:\\layout\\fragment_record_hospital.xml"
+    },
+    {
+        "merged": "C:\\Users\\albar\\.gradle\\daemon\\8.0\\com.example.hereapp-mergeDebugResources-49:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\albar\\.gradle\\daemon\\8.0\\com.example.hereapp-main-52:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\albar\\.gradle\\daemon\\8.0\\com.example.hereapp-mergeDebugResources-49:\\layout\\fragment_add_medical_record_hospital.xml",
+        "source": "C:\\Users\\albar\\.gradle\\daemon\\8.0\\com.example.hereapp-main-52:\\layout\\fragment_add_medical_record_hospital.xml"
+    }
+]
