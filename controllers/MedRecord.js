@@ -38,7 +38,7 @@ const getMedRecord = async (req, res) => {
 
     try {
         const user = await MedRecord.findAll({
-            attributes: ['mrid', 'patientName', 'NIK', 'diagnostic_results'],
+            attributes: ['mrid', 'patientName', 'NIK', 'diagnostic_results', 'createdAt'],
             where: {
                 hospitalId: hospitalId
             }
@@ -60,7 +60,7 @@ const getMedRecordById = async (req, res) => {
 
     try {
         const user = await MedRecord.findOne({
-            attributes: ['mrid', 'patientName', 'NIK', 'symptom', 'diagnostic_results', 'doctor_recommendation'],
+            attributes: ['mrid', 'patientName', 'NIK', 'symptom', 'diagnostic_results', 'doctor_recommendation', 'createdAt'],
             where: {
                 [Op.and]: [{ hospitalId: hospitalId }, { mrid: medRecordId }]
             }
