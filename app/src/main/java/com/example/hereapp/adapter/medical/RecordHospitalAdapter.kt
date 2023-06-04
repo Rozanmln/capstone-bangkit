@@ -2,33 +2,29 @@ package com.example.hereapp.adapter.medical
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.fragment.app.FragmentActivity
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.hereapp.R
-import com.example.hereapp.data.model.RecordHospital
+import com.example.hereapp.data.model.MedicalRecord
 import com.example.hereapp.databinding.ItemRiwayatHospitalBinding
-import com.example.hereapp.ui.medical.hospital.DetailRecordHospitalFragment
 
 
-class RecordHospitalAdapter(private val list: ArrayList<RecordHospital>): RecyclerView.Adapter<RecordHospitalAdapter.ViewHolder>() {
+class RecordHospitalAdapter(private val list: ArrayList<MedicalRecord>): RecyclerView.Adapter<RecordHospitalAdapter.ViewHolder>() {
 
+    private lateinit var onItemClickCallback: OnItemClickCallback
+
+    interface OnItemClickCallback {
+        fun onItemClicked(data: MedicalRecord)
+    }
+
+    fun setOnItemClickCallback(callback: OnItemClickCallback) {
+        this.onItemClickCallback = callback
+    }
     class ViewHolder(private val item: ItemRiwayatHospitalBinding): RecyclerView.ViewHolder(item.root) {
-        fun bind(data: RecordHospital) {
-            item.tvDate.text = data.date
-            item.patientName.text = data.name
+        fun bind(data: MedicalRecord) {
+            item.tvDate.text = data.createdAt
+            item.patientName.text = data.patientName
             item.patientNik.text = data.NIK
-
-            itemView.setOnClickListener {
-                val detailFragment = DetailRecordHospitalFragment()
-                val fragmentManager =(itemView.context as FragmentActivity).supportFragmentManager
-
-                fragmentManager.beginTransaction().apply {
-                    replace(R.id.nav_host_fragment_activity_main, detailFragment)
-                    addToBackStack(null)
-                    commit()
-                }
-            }
+            item.tvDiagnosis.text = data.diagnostic_results
         }
 
     }
@@ -43,7 +39,27 @@ class RecordHospitalAdapter(private val list: ArrayList<RecordHospital>): Recycl
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data = list[position]
         holder.bind(data)
+
+        holder.itemView.setOnClickListener {
+            onItemClickCallback.onItemClicked(data)
+        }
     }
 
     override fun getItemCount(): Int = list.size
+
+    companion object {
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<MedicalRecord>() {
+            override fun areItemsTheSame(oldItem: MedicalRecord, newItem: MedicalRecord): Boolean {
+                return oldItem == newItem
+            }
+
+            override fun areContentsTheSame(
+                oldItem: MedicalRecord,
+                newItem: MedicalRecord
+            ): Boolean {
+                return oldItem.mrid == newItem.mrid
+            }
+
+        }
+    }
 }

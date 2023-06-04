@@ -11,4 +11,5 @@ object Injection {
         val apiService = ApiConfig.hereAppService
         return HereRepository(pref, apiService)
     }
+
 }

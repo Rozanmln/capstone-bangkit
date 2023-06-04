@@ -3,6 +3,7 @@ package com.example.hereapp.ui.login
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
@@ -31,6 +32,7 @@ class LoginActivity : AppCompatActivity() {
         userPreferences = UserPreferences(this)
         factory = ViewModelFactory.getInstance(this)
         loginViewModel = ViewModelProvider(this, factory)[LoginViewModel::class.java]
+
 
         toRegister()
         btnLogin()

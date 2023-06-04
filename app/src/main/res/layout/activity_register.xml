@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="@color/white"
     tools:context=".ui.register.RegisterActivity">
 
     <TextView
@@ -62,7 +61,8 @@
                 android:drawableTint="@color/black"
                 android:hint="@string/username"
                 android:inputType="text"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:gravity="center_vertical"/>
 
             <EditText
                 android:id="@+id/edt_email"
@@ -75,7 +75,8 @@
                 android:layout_marginTop="16dp"
                 android:hint="@string/email"
                 android:textSize="18sp"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:gravity="center_vertical"/>
 
             <EditText
                 android:id="@+id/edt_password"
@@ -130,7 +131,8 @@
                 android:drawableTint="@color/black"
                 android:drawablePadding="4dp"
                 android:textSize="18sp"
-                android:hint="@string/address" />
+                android:hint="@string/address"
+                android:gravity="center_vertical"/>
             <EditText
                 android:id="@+id/edt_nik"
                 android:layout_width="match_parent"
@@ -143,7 +145,8 @@
                 android:drawableTint="@color/black"
                 android:drawablePadding="4dp"
                 android:textSize="18sp"
-                android:hint="@string/nik" />
+                android:hint="@string/nik"
+                android:gravity="center_vertical"/>
             <Button
                 android:id="@+id/btn_register"
                 android:layout_width="wrap_content"

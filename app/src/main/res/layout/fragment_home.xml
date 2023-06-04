@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     android:padding="16dp"
     tools:context=".MainActivity">
 
@@ -16,8 +15,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/welcome_message"
+            android:textAllCaps="true"
             style="@style/MaterialAlertDialog.Material3"
-            android:textSize="18sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
@@ -28,8 +28,9 @@
             android:layout_height="wrap_content"
             style="@style/ShapeAppearance.Material3.Corner.None"
             android:src="@drawable/ic_notification"
+            app:layout_constraintTop_toTopOf="@id/tv_welcome_name"
+            app:layout_constraintBottom_toBottomOf="@id/tv_welcome_name"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             android:contentDescription="@string/notification" />
 
         <EditText

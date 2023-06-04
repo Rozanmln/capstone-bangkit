@@ -18,10 +18,27 @@ data class DataArticle(
     val imageUrl: String,
     val description: String,
 )
-data class RecordHospital(
-    val date: String,
-    val name: String,
-    val NIK: String
+data class MedicalRecord(
+    val mrid: String,
+    val patientName: String,
+    val NIK: String,
+    val diagnostic_results: String,
+    val createdAt: String
+)
+data class MedicalRecordRequest(
+    val patientName: String,
+    val NIK: String,
+    val symptom: String,
+    val diagnostic_results: String,
+    val doctor_recommendation: String
+)
+data class MedicalRecordDetail(
+    val patientName: String,
+    val NIK: String,
+    val symptom: String,
+    val diagnostic_results: String,
+    val doctor_recommendation: String,
+    val createdAt: String
 )
 data class UserSession(
     var isLogin: Boolean? = null,
@@ -36,7 +53,7 @@ data class RegisterHospitalRequest(
     var address: String
 )
 
-data class RegisterHospitalResponse(
+data class Response(
     val msg: String
 )
 
@@ -50,4 +67,11 @@ data class RegisterPatientRequest(
 
 data class RegisterPatientResponse(
     val msg: String
+)
+
+data class InfoHospitalResponse(
+    val hid: String,
+    val username: String,
+    val email: String,
+    val address: String
 )

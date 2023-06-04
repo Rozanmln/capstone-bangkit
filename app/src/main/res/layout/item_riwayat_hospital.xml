@@ -19,12 +19,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="20dp"
-        android:elevation="16dp"
+        android:elevation="20dp"
         app:layout_constraintTop_toBottomOf="@id/tv_date"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
             android:layout_gravity="fill_vertical"
@@ -32,15 +32,36 @@
             <TextView
                 android:id="@+id/patient_name"
                 style="@style/MaterialAlertDialog.Material3.Title.Icon"
+                android:gravity="center"
+                android:textSize="18sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:text="@string/username"/>
             <TextView
                 android:id="@+id/patient_nik"
                 style="@style/MaterialAlertDialog.Material3.Title.Icon"
+                android:gravity="center"
+                android:textSize="18sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:text="@string/nik"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/diagnosis"
+                android:textSize="18sp"
+                style="@style/MaterialAlertDialog.Material3.Title.Icon"/>
+            <TextView
+                android:id="@+id/tv_diagnosis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                style="@style/MaterialAlertDialog.Material3.Title.Icon"
+                tools:text="@string/lorem"
+                android:textAlignment="viewStart"
+                />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,26 +1,11 @@
 package com.example.hereapp.dummy
 
-import android.icu.text.AlphabeticIndex.Record
+
 import com.example.hereapp.data.model.DataArticle
 import com.example.hereapp.data.model.DataFeature
-import com.example.hereapp.data.model.RecordHospital
 
 object DataDummy {
 
-    fun generateRecordHospitalDummy(): List<RecordHospital> {
-        val list = ArrayList<RecordHospital>()
-
-        for(i in 0..10) {
-            list.add(
-                RecordHospital(
-                    "19 May 2023",
-                    "Albarra Zikrillah",
-                    "12345678910111213"
-                )
-            )
-        }
-        return list
-    }
     fun generateMainImage(): List<String> {
         val list = ArrayList<String>()
 

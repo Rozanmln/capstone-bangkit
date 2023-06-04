@@ -50,4 +50,5 @@
     <string name="here_app">Here App</string>
     <string name="kelola_profile">Kelola Profile</string>
     <string name="pengaturan_aplikasi">Pengaturan Aplikasi</string>
+    <string name="diagnosis">Diagnosis:</string>
 </resources>
