@@ -44,7 +44,7 @@ const getPatientById = async (req, res) => {
         const response = await Patient.findOne({
             attributes: ['pid', 'username', 'email', 'NIK', 'address'],
             where: {
-                pid: req.params.id
+                id: req.user._id
             }
         });
         res.status(200).json(response)
@@ -57,7 +57,7 @@ const updatePatient = async (req, res) => {
     const { username, email, password, NIK, address } = req.body
     const user = await Patient.findOne({
         where: {
-            pid: req.params.id
+            id: req.user._id
         }
     });
     if (!user) return res.status(404).json({ msg: "User tidak ditemukan" })
@@ -91,7 +91,7 @@ const updatePatient = async (req, res) => {
 const deletePatient = async (req, res) => {
     const user = await Patient.findOne({
         where: {
-            pid: req.params.id
+            id: req.user._id
         }
     });
     if (!user) return res.status(404).json({ msg: "User tidak ditemukan" })
