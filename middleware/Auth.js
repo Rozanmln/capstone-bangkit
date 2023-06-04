@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken')
+const { blacklistToken } = require("../controllers/Auth")
 
 require('dotenv').config()
 const secretKey = process.env.SECRET_KEY
@@ -9,6 +10,11 @@ const authToken = (req, res, next) => {
     if (token == null) {
         return res.sendStatus(401)
     }
+
+    if (blacklistToken.includes(token)) {
+        return res.status(401).json({ message: 'Token revoked' });
+    }
+
     jwt.verify(token, secretKey, (err, user) => {
         if (err) {
             return res.sendStatus(403)

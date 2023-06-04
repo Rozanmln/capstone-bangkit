@@ -6,6 +6,8 @@ const bcrypt = require("bcrypt")
 require('dotenv').config()
 const secretKey = process.env.SECRET_KEY
 
+const blacklistToken = []
+
 const loginPatient = async (req, res) => {
     const { username, password } = req.body
     const user = await Patient.findOne({
@@ -30,11 +32,34 @@ const loginHospital = async (req, res) => {
     const match = await bcrypt.compareSync(password, user.password)
     if (!match) return res.status(400).json({ msg: "Wrong Password" })
 
-    const token = jwt.sign({ username, role: user.role, _id: user.id }, secretKey)
+    const token = jwt.sign({ username, role: user.role, _id: user.id, uuid: user }, secretKey)
     res.status(200).json({ message: 'Login successful', token })
+}
+
+const logout = async (req, res) => {
+    const authHeader = req.headers['authorization']
+    const token = authHeader && authHeader.split(' ')[1]
+
+    if (!token) {
+        return res.status(401).json({ message: 'No token provided.' })
+    }
+
+    try {
+        blacklistToken.push(token)
+
+        const decoded = jwt.verify(token, secretKey);
+
+        const expiredToken = jwt.sign({}, secretKey, { expiresIn: 0 });
+
+        res.json({ token: expiredToken, message: 'Logout successful.' });
+    } catch (error) {
+        return res.status(401).json({ message: 'Invalid token.' });
+    }
 }
 
 module.exports = {
     loginPatient,
-    loginHospital
+    loginHospital,
+    logout,
+    blacklistToken
 }
