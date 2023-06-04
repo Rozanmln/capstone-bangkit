@@ -43,7 +43,7 @@ const getHospitalById = async (req, res) => {
         const response = await Hospital.findOne({
             attributes: ['hid', 'username', 'email', 'address'],
             where: {
-                hid: req.params.id
+                id: req.user._id
             }
         });
         res.status(200).json(response)
@@ -53,10 +53,10 @@ const getHospitalById = async (req, res) => {
 }
 
 const updateHospital = async (req, res) => {
-    const { username, email, password, address} = req.body
+    const { username, email, password, address } = req.body
     const user = await Hospital.findOne({
         where: {
-            hid: req.params.id
+            id: req.user._id
         }
     });
     if (!user) return res.status(404).json({ msg: "User tidak ditemukan" })
@@ -89,7 +89,7 @@ const updateHospital = async (req, res) => {
 const deleteHospital = async (req, res) => {
     const user = await Hospital.findOne({
         where: {
-            hid: req.params.id
+            id: req.user._id
         }
     });
     if (!user) return res.status(404).json({ msg: "User tidak ditemukan" })
