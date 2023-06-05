@@ -33,7 +33,7 @@ const createMedRecord = async (req, res) => {
         res.status(400).json({ msg: error.message })
     }
 }
-const getMedRecord = async (req, res) => {
+const getMedRecordforHospital = async (req, res) => {
     const hospitalId = req.user._id
 
     try {
@@ -54,7 +54,7 @@ const getMedRecord = async (req, res) => {
     }
 }
 
-const getMedRecordById = async (req, res) => {
+const getMedRecordByIdforHospital = async (req, res) => {
     const hospitalId = req.user._id
     const medRecordId = req.params.id
 
@@ -63,6 +63,44 @@ const getMedRecordById = async (req, res) => {
             attributes: ['mrid', 'patientName', 'NIK', 'symptom', 'diagnostic_results', 'doctor_recommendation', 'createdAt'],
             where: {
                 [Op.and]: [{ hospitalId: hospitalId }, { mrid: medRecordId }]
+            }
+        })
+        res.status(200).json(user);
+    } catch (error) {
+        res.status(400).json({ msg: error.message })
+    }
+}
+
+const getMedRecordforPatient = async (req, res) => {
+    const patientId = req.user._id
+
+    try {
+        const user = await MedRecord.findAll({
+            attributes: ['mrid', 'patientName', 'NIK', 'diagnostic_results', 'createdAt'],
+            where: {
+                patientId: patientId
+            }
+        })
+
+        if (!user) {
+            res.status(401).json({ message: 'There is no Medical Record yet' })
+        } else {
+            res.status(200).json(user);
+        }
+    } catch (error) {
+        res.status(400).json({ msg: error.message })
+    }
+}
+
+const getMedRecordByIdforPatient = async (req, res) => {
+    const patientId = req.user._id
+    const medRecordId = req.params.id
+
+    try {
+        const user = await MedRecord.findOne({
+            attributes: ['mrid', 'patientName', 'NIK', 'symptom', 'diagnostic_results', 'doctor_recommendation', 'createdAt'],
+            where: {
+                [Op.and]: [{ patientId: patientId }, { mrid: medRecordId }]
             }
         })
         res.status(200).json(user);
@@ -112,8 +150,10 @@ const deleteMedRecord = async (req, res) => {
 
 module.exports = {
     createMedRecord,
-    getMedRecord,
-    getMedRecordById,
+    getMedRecordforHospital,
+    getMedRecordByIdforHospital,
+    getMedRecordforPatient,
+    getMedRecordByIdforPatient,
     updateMedRecord,
-    deleteMedRecord
+    deleteMedRecord,
 }
