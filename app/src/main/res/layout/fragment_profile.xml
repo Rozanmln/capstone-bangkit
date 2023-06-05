@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#199A8E"
+    tools:context=".ui.profile.ProfileFragment">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_profile"
+        android:layout_width="192dp"
+        android:layout_height="192dp"
+        android:src="@drawable/ic_person"
+        app:civ_border_width="3dp"
+        app:civ_border_color="@color/white"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_edit"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="12dp"
+        android:src="@drawable/ic_edit"
+        app:civ_border_color="@color/black"
+        app:civ_border_width="3dp"
+        app:layout_constraintBottom_toBottomOf="@id/iv_profile"
+        app:layout_constraintEnd_toEndOf="@id/iv_profile" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_marginTop="128dp"
+        android:padding="16dp"
+        android:background="@drawable/custom_background"
+        app:layout_constraintTop_toBottomOf="@id/iv_profile"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/kelola_profile"
+            android:padding="16dp"
+            android:gravity="center_vertical"
+            style="@style/MaterialAlertDialog.Material3"
+            app:drawableStartCompat="@drawable/ic_person"
+            app:drawableEndCompat="@drawable/ic_panah"
+            app:drawableTint="@color/black"
+            android:drawablePadding="8dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/address"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            style="@style/MaterialAlertDialog.Material3"
+            app:drawableStartCompat="@drawable/ic_address"
+            app:drawableEndCompat="@drawable/ic_panah"
+            app:drawableTint="@color/black"
+            android:drawablePadding="8dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pengaturan_aplikasi"
+            android:padding="16dp"
+            android:gravity="center_vertical"
+            style="@style/MaterialAlertDialog.Material3"
+            app:drawableStartCompat="@drawable/ic_setting"
+            app:drawableEndCompat="@drawable/ic_panah"
+            app:drawableTint="@color/black"
+            android:drawablePadding="8dp"/>
+        <TextView
+            android:id="@+id/btn_logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/logout"
+            android:padding="16dp"
+            android:gravity="center_vertical"
+            style="@style/MaterialAlertDialog.Material3"
+            android:textColor="#BC2424"
+            app:drawableStartCompat="@drawable/ic_logout"
+            app:drawableEndCompat="@drawable/ic_panah"
+            app:drawableTint="@color/black"
+            android:drawablePadding="8dp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

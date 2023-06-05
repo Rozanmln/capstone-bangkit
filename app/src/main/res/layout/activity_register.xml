@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".ui.register.RegisterActivity">
+
+    <TextView
+        android:id="@+id/tv_create"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/create_new_account"
+        android:layout_marginBottom="64dp"
+        android:textStyle="bold"
+        android:textColor="#199A8E"
+        android:textSize="32sp"
+        style="@style/MaterialAlertDialog.Material3.Title.Text"
+        android:textAlignment="center"
+        android:paddingTop="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="16dp"
+        android:elevation="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/register"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#199A8E"
+                style="@style/MaterialAlertDialog.Material3.Title.Text"/>
+
+            <EditText
+                android:id="@+id/edt_username"
+                style="@style/TextAppearance.Material3.LabelMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_edit_text"
+                android:drawableStart="@drawable/ic_username"
+                android:drawablePadding="4dp"
+                android:drawableTint="@color/black"
+                android:hint="@string/username"
+                android:inputType="text"
+                android:textSize="18sp"
+                android:gravity="center_vertical"/>
+
+            <EditText
+                android:id="@+id/edt_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_edit_text"
+                android:drawableStart="@drawable/ic_email"
+                android:drawablePadding="4dp"
+                android:drawableTint="@color/black"
+                android:layout_marginTop="16dp"
+                android:hint="@string/email"
+                android:textSize="18sp"
+                android:inputType="textEmailAddress"
+                android:gravity="center_vertical"/>
+
+            <EditText
+                android:id="@+id/edt_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:inputType="textPassword"
+                android:background="@drawable/custom_edit_text"
+                android:drawableStart="@drawable/ic_password"
+                style="@style/TextAppearance.Material3.LabelMedium"
+                android:drawableTint="@color/black"
+                android:drawablePadding="4dp"
+                android:textSize="18sp"
+                android:hint="@string/password"/>
+
+            <RadioGroup
+                android:id="@+id/rg_role"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/role"
+                    style="@style/MaterialAlertDialog.Material3.Title.Text"
+                    android:textColor="#199A8E"
+                    android:textSize="18sp"/>
+
+                <RadioButton
+                    android:id="@+id/rb_hospital"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hospital"/>
+
+                <RadioButton
+                    android:id="@+id/rb_patient"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/patient"/>
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/edt_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPostalAddress"
+                android:background="@drawable/custom_edit_text"
+                android:drawableStart="@drawable/ic_address"
+                style="@style/TextAppearance.Material3.LabelMedium"
+                android:layout_marginTop="16dp"
+                android:drawableTint="@color/black"
+                android:drawablePadding="4dp"
+                android:textSize="18sp"
+                android:hint="@string/address"
+                android:gravity="center_vertical"/>
+            <EditText
+                android:id="@+id/edt_nik"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:inputType="number"
+                android:background="@drawable/custom_edit_text"
+                android:drawableStart="@drawable/ic_nik"
+                style="@style/TextAppearance.Material3.LabelMedium"
+                android:drawableTint="@color/black"
+                android:drawablePadding="4dp"
+                android:textSize="18sp"
+                android:hint="@string/nik"
+                android:gravity="center_vertical"/>
+            <Button
+                android:id="@+id/btn_register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/register"
+                android:backgroundTint="#199A8E" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <LinearLayout
+        android:id="@+id/end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sudah_punya_akun" />
+
+        <TextView
+            android:id="@+id/to_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login"
+            android:layout_marginStart="4dp"
+            android:textColor="#199A8E" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.ProgressBar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
