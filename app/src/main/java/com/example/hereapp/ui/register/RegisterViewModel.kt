@@ -7,6 +7,5 @@ import com.example.hereapp.data.repository.HereRepository
 
 class RegisterViewModel(private val repo: HereRepository): ViewModel() {
     fun postRegisterHospital(request: RegisterHospitalRequest) = repo.postRegisterHospital(request)
-
     fun postRegisterPatient(request: RegisterPatientRequest) = repo.postRegisterPatient(request)
 }

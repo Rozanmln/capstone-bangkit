@@ -18,27 +18,57 @@
             android:textSize="24sp"
             style="@style/MaterialAlertDialog.Material3"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent" />
 
+        <ImageView
+            android:id="@+id/btn_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_edit"
+            app:layout_constraintEnd_toStartOf="@id/btn_delete"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <ImageView
+            android:id="@+id/btn_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_delete"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
         <TextView
             android:id="@+id/tv_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/date"
+            tools:text="@string/date"
             style="@style/MaterialAlertDialog.Material3"
             app:layout_constraintTop_toBottomOf="@id/detail_riwayat"
             app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/MaterialAlertDialog.Material3"
+            android:layout_marginTop="8dp"
+            tools:text="@string/username"
+            app:layout_constraintTop_toBottomOf="@id/tv_date"
+            app:layout_constraintStart_toStartOf="parent"/>
+        <TextView
+            android:id="@+id/tv_nik"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/MaterialAlertDialog.Material3"
+            tools:text="@string/nik"
+            app:layout_constraintTop_toBottomOf="@id/tv_name"
+            app:layout_constraintStart_toStartOf="parent"/>
+        <TextView
             android:id="@+id/keluhan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/keluhan"
-            android:paddingTop="16dp"
+            android:layout_margin="0dp"
             android:textSize="18sp"
             style="@style/MaterialAlertDialog.Material3.Title.Icon"
-            app:layout_constraintTop_toBottomOf="@id/tv_date"
+            app:layout_constraintTop_toBottomOf="@id/tv_nik"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 

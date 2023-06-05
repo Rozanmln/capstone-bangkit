@@ -46,7 +46,12 @@ class RecordHospitalFragment : Fragment() {
 
     }
 
-    private fun searchUser(data: List<MedicalRecord>) {
+    private fun showLoading(state: Boolean) {
+        if(state) binding.progressBar.visibility = View.VISIBLE
+        else binding.progressBar.visibility = View.GONE
+    }
+
+    private fun searchUser() {
         binding.edtSearch.addTextChangedListener(object: TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -85,21 +90,23 @@ class RecordHospitalFragment : Fragment() {
     }
 
     private fun getData() {
-        recordHospitalViewModel.getListMedicalRecord().observe(requireActivity()) {
+        recordHospitalViewModel.getListMedicalRecordForHospital().observe(requireActivity()) {
             when(it) {
                 is Result.Success -> {
+                    showLoading(false)
                     list.clear()
                     list.addAll(it.data)
                     list.reverse()
                     val recordHospitalAdapter = RecordHospitalAdapter(list)
                     binding.rvRiwayatHospital.adapter = recordHospitalAdapter
                     toDetail(recordHospitalAdapter)
-                    searchUser(list)
+                    searchUser()
                 }
                 is Result.Loading -> {
-
+                    showLoading(true)
                 }
                 is Result.Error -> {
+                    showLoading(false)
                     showText(it.error)
                 }
             }

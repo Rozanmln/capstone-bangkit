@@ -1,6 +1,7 @@
 package com.example.hereapp.ui.medical.hospital
 
 import android.os.Bundle
+import android.text.TextUtils.replace
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,11 +9,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import com.example.hereapp.R
 import com.example.hereapp.ViewModelFactory
 import com.example.hereapp.adapter.medical.RecordHospitalAdapter
 import com.example.hereapp.data.model.MedicalRecordDetail
 import com.example.hereapp.databinding.FragmentDetailRecordHospitalBinding
+import com.example.hereapp.ui.medical.hospital.add.AddMedicalRecordHospitalFragment
 import com.example.hereapp.utils.Result
+import java.util.stream.Collectors.toList
 
 
 class DetailRecordHospitalFragment : Fragment() {
@@ -35,6 +39,56 @@ class DetailRecordHospitalFragment : Fragment() {
         factory = ViewModelFactory.getInstance(requireActivity())
         recordHospitalViewModel = ViewModelProvider(this, factory)[RecordHospitalViewModel::class.java]
         setDetail()
+        btnDelete()
+
+    }
+
+    private fun btnEdit(data: MedicalRecordDetail) {
+        binding.btnEdit.setOnClickListener {
+            val addMedicalRecordHospitalFragment = AddMedicalRecordHospitalFragment()
+            val fragmentManager = parentFragmentManager
+
+            val bundle = Bundle()
+            bundle.putParcelable("data", data)
+            addMedicalRecordHospitalFragment.arguments = bundle
+
+            fragmentManager.beginTransaction().apply {
+                replace(R.id.nav_host_fragment_activity_main, addMedicalRecordHospitalFragment, AddMedicalRecordHospitalFragment::class.java.simpleName)
+                setReorderingAllowed(true)
+                addToBackStack(null)
+                commit()
+            }
+        }
+    }
+
+    private fun btnDelete() {
+        binding.btnDelete.setOnClickListener {
+            recordHospitalViewModel.deleteMedicalRecord(mrid!!).observe(requireActivity()) {
+                when(it) {
+                    is Result.Success -> {
+                        showText(it.data.msg)
+                        toMedRecord()
+                    }
+                    is Result.Loading -> {
+
+                    }
+                    is Result.Error -> {
+                        showText(it.error)
+                    }
+                }
+            }
+        }
+    }
+
+    private fun toMedRecord() {
+        val fragmentManager = parentFragmentManager
+        val recordHospitalFragment = RecordHospitalFragment()
+        fragmentManager.beginTransaction().apply {
+            replace(R.id.nav_host_fragment_activity_main, recordHospitalFragment, RecordHospitalFragment::class.java.simpleName)
+            setReorderingAllowed(true)
+            addToBackStack(null)
+            commit()
+        }
     }
 
     private fun setDetail() {
@@ -42,6 +96,8 @@ class DetailRecordHospitalFragment : Fragment() {
             when(it) {
                 is Result.Success -> {
                     bindData(it.data)
+                    btnEdit(it.data)
+
                 }
                 is Result.Loading -> {
 
@@ -59,6 +115,8 @@ class DetailRecordHospitalFragment : Fragment() {
             tvKeluhan.text = data.symptom
             tvDiagnosis.text = data.diagnostic_results
             tvSaran.text = data.doctor_recommendation
+            tvName.text = data.patientName
+            tvNik.text = data.NIK
         }
     }
 

@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import com.example.hereapp.data.model.InfoHospitalResponse
+import com.example.hereapp.data.model.InfoPatientResponse
 import com.example.hereapp.data.model.LoginRequest
 import com.example.hereapp.data.model.LoginResponse
 import com.example.hereapp.data.model.MedicalRecord
@@ -20,12 +21,12 @@ import com.example.hereapp.utils.Result
 
 class HereRepository(private val pref: UserPreferences, private val apiService: HereAppService) {
 
-    fun getListMedicalRecord(): LiveData<Result<List<MedicalRecord>>> = liveData {
+    fun getListMedicalRecordForHospital(): LiveData<Result<List<MedicalRecord>>> = liveData {
         val token = "Bearer ${pref.getPref().token}"
         emit(Result.Loading)
         try {
             val response = apiService
-                .getListMedicalRecord(token)
+                .getListMedicalRecordForHospital(token)
             emit(Result.Success(response))
 
         } catch (e: Exception) {
@@ -124,12 +125,129 @@ class HereRepository(private val pref: UserPreferences, private val apiService: 
     }
 
 
-    fun getDetailMedicalRecord(id: String): LiveData<Result<MedicalRecordDetail>> = liveData {
+    fun getDetailMedicalRecordHospital(id: String): LiveData<Result<MedicalRecordDetail>> = liveData {
         val token = "Bearer ${pref.getPref().token}"
         emit(Result.Loading)
         try {
             val response = apiService
-                .getDetailMedRecord(token, id)
+                .getDetailMedRecordHospital(token, id)
+            emit(Result.Success(response))
+        } catch (e: Exception) {
+            Log.d("Register_Hospital", e.message.toString())
+            emit(Result.Error(e.message.toString()))
+        }
+    }
+
+    fun patchEditHospital(request: RegisterHospitalRequest): LiveData<Result<Response>> = liveData{
+        val token = "Bearer ${pref.getPref().token}"
+        emit(Result.Loading)
+        try {
+            val response = apiService
+                .patchEditHospital(token, request)
+            emit(Result.Success(response))
+        } catch (e: Exception) {
+            Log.d("Register_Hospital", e.message.toString())
+            emit(Result.Error(e.message.toString()))
+        }
+    }
+
+    fun deleteHospital(): LiveData<Result<Response>> = liveData {
+        val token = "Bearer ${pref.getPref().token}"
+        emit(Result.Loading)
+        try {
+            val response = apiService
+                .deleteHospital(token)
+            emit(Result.Success(response))
+        } catch (e: Exception) {
+            Log.d("Register_Hospital", e.message.toString())
+            emit(Result.Error(e.message.toString()))
+        }
+    }
+
+    fun getInfoPatientSelf(): LiveData<Result<InfoPatientResponse>> = liveData {
+        val token = "Bearer ${pref.getPref().token}"
+        emit(Result.Loading)
+        try {
+            val response = apiService
+                .getInfoPatientSelf(token)
+            emit(Result.Success(response))
+        } catch (e: Exception) {
+            Log.d("Register_Hospital", e.message.toString())
+            emit(Result.Error(e.message.toString()))
+        }
+    }
+
+    fun patchEditPatient(request: RegisterPatientRequest): LiveData<Result<Response>> = liveData {
+        val token = "Bearer ${pref.getPref().token}"
+        emit(Result.Loading)
+        try {
+            val response = apiService
+                .patchEditPatient(token, request)
+            emit(Result.Success(response))
+        } catch (e: Exception) {
+            Log.d("Register_Hospital", e.message.toString())
+            emit(Result.Error(e.message.toString()))
+        }
+    }
+
+    fun deletePatient(): LiveData<Result<Response>> = liveData {
+        val token = "Bearer ${pref.getPref().token}"
+        emit(Result.Loading)
+        try {
+            val response = apiService
+                .deletePatient(token)
+            emit(Result.Success(response))
+        } catch (e: Exception) {
+            Log.d("Register_Hospital", e.message.toString())
+            emit(Result.Error(e.message.toString()))
+        }
+    }
+
+    fun getListMedRecordForPatient(): LiveData<Result<List<MedicalRecord>>> = liveData {
+        val token = "Bearer ${pref.getPref().token}"
+        emit(Result.Loading)
+        try {
+            val response = apiService
+                .getListMedRecordForPatient(token)
+            emit(Result.Success(response))
+        } catch (e: Exception) {
+            Log.d("Register_Hospital", e.message.toString())
+            emit(Result.Error(e.message.toString()))
+        }
+    }
+
+    fun getDetailMedRecordPatient(id: String): LiveData<Result<MedicalRecordDetail>> = liveData {
+        val token = "Bearer ${pref.getPref().token}"
+        emit(Result.Loading)
+        try {
+            val response = apiService
+                .getDetailMedRecordPatient(token, id)
+            emit(Result.Success(response))
+        } catch (e: Exception) {
+            Log.d("Register_Hospital", e.message.toString())
+            emit(Result.Error(e.message.toString()))
+        }
+    }
+
+    fun patchEditMedicalRecord(request: MedicalRecordRequest): LiveData<Result<Response>> = liveData {
+        val token = "Bearer ${pref.getPref().token}"
+        emit(Result.Loading)
+        try {
+            val response = apiService
+                .patchEditMedicalRecord(token, request)
+            emit(Result.Success(response))
+        } catch (e: Exception) {
+            Log.d("Register_Hospital", e.message.toString())
+            emit(Result.Error(e.message.toString()))
+        }
+    }
+
+    fun deleteMedicalRecord(id: String): LiveData<Result<Response>> = liveData {
+        val token = "Bearer ${pref.getPref().token}"
+        emit(Result.Loading)
+        try {
+            val response = apiService
+                .deleteMedicalRecord(token, id)
             emit(Result.Success(response))
         } catch (e: Exception) {
             Log.d("Register_Hospital", e.message.toString())

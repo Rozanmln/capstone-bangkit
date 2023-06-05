@@ -9,16 +9,20 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.hereapp.R
 import com.example.hereapp.ViewModelFactory
+import com.example.hereapp.data.model.MedicalRecordDetail
 import com.example.hereapp.data.model.MedicalRecordRequest
 import com.example.hereapp.databinding.FragmentAddMedicalRecordHospitalBinding
 import com.example.hereapp.ui.medical.hospital.RecordHospitalFragment
 import com.example.hereapp.utils.Result
+import okhttp3.internal.cache2.Relay.Companion.edit
 
 
 class AddMedicalRecordHospitalFragment : Fragment() {
     private lateinit var addMedicalRecordHospitalViewModel: AddMedicalRecordHospitalViewModel
     private lateinit var factory: ViewModelFactory
     private var _binding: FragmentAddMedicalRecordHospitalBinding? = null
+    private var data: MedicalRecordDetail? = null
+    private var isFromEdit = false
     private val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,6 +37,19 @@ class AddMedicalRecordHospitalFragment : Fragment() {
 
         factory = ViewModelFactory.getInstance(requireActivity())
         addMedicalRecordHospitalViewModel = ViewModelProvider(this, factory)[AddMedicalRecordHospitalViewModel::class.java]
+
+        data = arguments?.getParcelable<MedicalRecordDetail>("data")
+        if(data != null) {
+            isFromEdit = true
+            binding.apply {
+                edName.setText(data!!.patientName)
+                edNik.setText(data!!.NIK)
+                edtKeluhan.setText(data!!.symptom)
+                edtDiagnosis.setText(data!!.diagnostic_results)
+                edtSaran.setText(data!!.doctor_recommendation)
+            }
+        }
+
         submit()
     }
 
@@ -47,13 +64,32 @@ class AddMedicalRecordHospitalFragment : Fragment() {
                        edtDiagnosis.text.toString(),
                        edtSaran.text.toString()
                    )
-                   post(request)
+                   if(isFromEdit) {
+                       edit(request)
+                   }else {
+                       post(request)
+                   }
 
                }else {
                    showText("No yeah")
                }
            }
        }
+    }
+
+    private fun edit(request: MedicalRecordRequest) {
+        addMedicalRecordHospitalViewModel.patchEditMedicalRecord(request).observe(requireActivity()) {
+            when(it) {
+                is Result.Success -> {
+                    showText(it.data.msg)
+                    backToListMedRecord()
+                }
+                is Result.Loading -> {}
+                is Result.Error -> {
+                    showText(it.error)
+                }
+            }
+        }
     }
 
     private fun post(request: MedicalRecordRequest) {
@@ -63,9 +99,7 @@ class AddMedicalRecordHospitalFragment : Fragment() {
                     showText(it.data.msg)
                     backToListMedRecord()
                 }
-                is Result.Loading -> {
-
-                }
+                is Result.Loading -> {}
                 is Result.Error -> {
                     showText(it.error)
                 }

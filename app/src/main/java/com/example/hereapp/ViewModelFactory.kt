@@ -8,6 +8,7 @@ import com.example.hereapp.di.Injection
 import com.example.hereapp.ui.login.LoginViewModel
 import com.example.hereapp.ui.medical.hospital.add.AddMedicalRecordHospitalViewModel
 import com.example.hereapp.ui.medical.hospital.RecordHospitalViewModel
+import com.example.hereapp.ui.medical.patient.PatientViewModel
 import com.example.hereapp.ui.profile.ProfileViewModel
 import com.example.hereapp.ui.register.RegisterViewModel
 
@@ -29,6 +30,9 @@ class ViewModelFactory(private val repo: HereRepository): ViewModelProvider.NewI
            }
            modelClass.isAssignableFrom(RecordHospitalViewModel::class.java) -> {
                RecordHospitalViewModel(repo) as T
+           }
+           modelClass.isAssignableFrom(PatientViewModel::class.java) -> {
+               PatientViewModel(repo) as T
            }
            else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
        }

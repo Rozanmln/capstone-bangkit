@@ -1,5 +1,8 @@
 package com.example.hereapp.data.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
 
 data class LoginRequest(
     val username: String,
@@ -32,6 +35,7 @@ data class MedicalRecordRequest(
     val diagnostic_results: String,
     val doctor_recommendation: String
 )
+@Parcelize
 data class MedicalRecordDetail(
     val patientName: String,
     val NIK: String,
@@ -39,7 +43,8 @@ data class MedicalRecordDetail(
     val diagnostic_results: String,
     val doctor_recommendation: String,
     val createdAt: String
-)
+): Parcelable
+
 data class UserSession(
     var isLogin: Boolean? = null,
     var name: String? = null,
@@ -73,5 +78,13 @@ data class InfoHospitalResponse(
     val hid: String,
     val username: String,
     val email: String,
+    val address: String
+)
+
+data class InfoPatientResponse(
+    val pid: String,
+    val username: String,
+    val email: String,
+    val NIK: String,
     val address: String
 )
