@@ -9,8 +9,8 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/iv_profile"
-        android:layout_width="192dp"
-        android:layout_height="192dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:src="@drawable/ic_person"
         app:civ_border_width="3dp"
         app:civ_border_color="@color/white"
@@ -23,20 +23,31 @@
         android:id="@+id/iv_edit"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:src="@drawable/ic_edit"
         app:civ_border_color="@color/black"
         app:civ_border_width="3dp"
         app:layout_constraintBottom_toBottomOf="@id/iv_profile"
         app:layout_constraintEnd_toEndOf="@id/iv_profile" />
 
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/nama_patient"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_profile" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
-        android:layout_marginTop="64dp"
-        android:padding="16dp"
+        android:layout_marginTop="150dp"
+        android:padding="20dp"
         android:background="@drawable/custom_background"
         app:layout_constraintTop_toBottomOf="@id/iv_profile"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -73,18 +84,19 @@
             app:drawableEndCompat="@drawable/ic_panah"
             app:drawableTint="@color/black"
             android:drawablePadding="8dp"/>
+
         <TextView
             android:id="@+id/btn_logout"
+            style="@style/MaterialAlertDialog.Material3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/logout"
+            android:drawablePadding="8dp"
             android:padding="16dp"
-            style="@style/MaterialAlertDialog.Material3"
+            android:text="@string/logout"
             android:textColor="#BC2424"
-            app:drawableStartCompat="@drawable/ic_logout"
             app:drawableEndCompat="@drawable/ic_panah"
-            app:drawableTint="@color/black"
-            android:drawablePadding="8dp" />
+            app:drawableStartCompat="@drawable/ic_logout"
+            app:drawableTint="@color/black" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
