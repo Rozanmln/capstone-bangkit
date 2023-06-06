@@ -50,6 +50,7 @@ class DetailRecordHospitalFragment : Fragment() {
 
             val bundle = Bundle()
             bundle.putParcelable("data", data)
+            bundle.putString("id", mrid)
             addMedicalRecordHospitalFragment.arguments = bundle
 
             fragmentManager.beginTransaction().apply {

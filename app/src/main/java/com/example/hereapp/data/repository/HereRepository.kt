@@ -229,12 +229,12 @@ class HereRepository(private val pref: UserPreferences, private val apiService: 
         }
     }
 
-    fun patchEditMedicalRecord(request: MedicalRecordRequest): LiveData<Result<Response>> = liveData {
+    fun patchEditMedicalRecord(id: String, request: MedicalRecordRequest): LiveData<Result<Response>> = liveData {
         val token = "Bearer ${pref.getPref().token}"
         emit(Result.Loading)
         try {
             val response = apiService
-                .patchEditMedicalRecord(token, request)
+                .patchEditMedicalRecord(token, id, request)
             emit(Result.Success(response))
         } catch (e: Exception) {
             Log.d("Register_Hospital", e.message.toString())

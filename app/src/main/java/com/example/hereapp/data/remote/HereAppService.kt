@@ -95,7 +95,7 @@ interface HereAppService {
         @Header("Authorization") token: String,
     ): Response
 
-    @GET("medRecordforPatient/{id}")
+    @GET("medRecordforPatient")
     suspend fun getListMedRecordForPatient(
         @Header("Authorization") token: String
     ): List<MedicalRecord>
@@ -109,6 +109,7 @@ interface HereAppService {
     @PATCH("medRecord/{id}")
     suspend fun patchEditMedicalRecord(
         @Header("Authorization") token: String,
+        @Path("id") id: String,
         @Body request: MedicalRecordRequest
     ): Response
 

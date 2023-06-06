@@ -23,6 +23,7 @@ class AddMedicalRecordHospitalFragment : Fragment() {
     private var _binding: FragmentAddMedicalRecordHospitalBinding? = null
     private var data: MedicalRecordDetail? = null
     private var isFromEdit = false
+    private var id: String? = null
     private val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,11 +50,12 @@ class AddMedicalRecordHospitalFragment : Fragment() {
                 edtSaran.setText(data!!.doctor_recommendation)
             }
         }
+        id = arguments?.getString("id")
 
-        submit()
+        submit(id!!)
     }
 
-    private fun submit() {
+    private fun submit(id: String) {
        binding.apply {
            btnSubmit.setOnClickListener {
                if(mustHasValue()) {
@@ -65,7 +67,7 @@ class AddMedicalRecordHospitalFragment : Fragment() {
                        edtSaran.text.toString()
                    )
                    if(isFromEdit) {
-                       edit(request)
+                       edit(id, request)
                    }else {
                        post(request)
                    }
@@ -77,8 +79,8 @@ class AddMedicalRecordHospitalFragment : Fragment() {
        }
     }
 
-    private fun edit(request: MedicalRecordRequest) {
-        addMedicalRecordHospitalViewModel.patchEditMedicalRecord(request).observe(requireActivity()) {
+    private fun edit(id: String ,request: MedicalRecordRequest) {
+        addMedicalRecordHospitalViewModel.patchEditMedicalRecord(id, request).observe(requireActivity()) {
             when(it) {
                 is Result.Success -> {
                     showText(it.data.msg)
