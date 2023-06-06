@@ -44,6 +44,7 @@ class RecordHospitalFragment : Fragment() {
         showRecyclerView()
         addMedicalRecord()
 
+
     }
 
     private fun showLoading(state: Boolean) {
@@ -69,11 +70,11 @@ class RecordHospitalFragment : Fragment() {
 
     private fun addMedicalRecord() {
         binding.fabAdd.setOnClickListener {
+            val addMedicalRecordHospitalFragment = AddMedicalRecordHospitalFragment()
             val fragmentManager = parentFragmentManager
-            val addMedicalRecordHospital = AddMedicalRecordHospitalFragment()
 
             fragmentManager.beginTransaction().apply {
-                replace(R.id.nav_host_fragment_activity_main, addMedicalRecordHospital, AddMedicalRecordHospitalFragment::class.java.simpleName)
+                replace(R.id.nav_host_fragment_activity_main, addMedicalRecordHospitalFragment, AddMedicalRecordHospitalFragment::class.java.simpleName)
                 setReorderingAllowed(true)
                 addToBackStack(null)
                 commit()

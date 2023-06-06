@@ -1,8 +1,6 @@
 package com.example.hereapp.ui.medical.hospital
 
 import android.os.Bundle
-import android.text.TextUtils.replace
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,12 +9,11 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.hereapp.R
 import com.example.hereapp.ViewModelFactory
-import com.example.hereapp.adapter.medical.RecordHospitalAdapter
 import com.example.hereapp.data.model.MedicalRecordDetail
 import com.example.hereapp.databinding.FragmentDetailRecordHospitalBinding
 import com.example.hereapp.ui.medical.hospital.add.AddMedicalRecordHospitalFragment
 import com.example.hereapp.utils.Result
-import java.util.stream.Collectors.toList
+
 
 
 class DetailRecordHospitalFragment : Fragment() {
