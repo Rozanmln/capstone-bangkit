@@ -54,6 +54,32 @@ const getMedRecordforHospital = async (req, res) => {
     }
 }
 
+const searchMedRecordforHospital = async (req, res) => {
+    const hospitalId = req.user._id
+    const { input } = req.body
+
+    try {
+        // const pattern = new RegExp(input, 'i');
+        const user = await MedRecord.findAll({
+            attributes: ['mrid', 'patientName', 'NIK', 'diagnostic_results', 'createdAt'],
+            where: {
+                // [Op.and]: [{ hospitalId: hospitalId }, { patientName: input }]
+                hospitalId: hospitalId
+            }
+        })
+
+        // const matchedData = user.filter(item => item.match(pattern));
+
+        if (!user) {
+            res.status(401).json({ message: 'Patient not found' })
+        } else {
+            res.status(200).json(user);
+        }
+    } catch (error) {
+        res.status(400).json({ msg: error.message })
+    }
+}
+
 const getMedRecordByIdforHospital = async (req, res) => {
     const hospitalId = req.user._id
     const medRecordId = req.params.id
@@ -152,6 +178,7 @@ module.exports = {
     createMedRecord,
     getMedRecordforHospital,
     getMedRecordByIdforHospital,
+    searchMedRecordforHospital,
     getMedRecordforPatient,
     getMedRecordByIdforPatient,
     updateMedRecord,
