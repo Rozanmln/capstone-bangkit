@@ -56,19 +56,31 @@ const getMedRecordforHospital = async (req, res) => {
 
 const searchMedRecordforHospital = async (req, res) => {
     const hospitalId = req.user._id
-    const { input } = req.body
+    const { input } = req.query
 
     try {
-        // const pattern = new RegExp(input, 'i');
         const user = await MedRecord.findAll({
             attributes: ['mrid', 'patientName', 'NIK', 'diagnostic_results', 'createdAt'],
             where: {
-                // [Op.and]: [{ hospitalId: hospitalId }, { patientName: input }]
-                hospitalId: hospitalId
+                
+                hospitalId: hospitalId,
+                [Op.or]: [
+                    {patientName: {
+                    [Op.like]: '%' + input + '%'
+                  }},
+                  {symptom: {
+                    [Op.like]: '%' + input + '%'
+                  }},
+                  {diagnostic_results: {
+                    [Op.like]: '%' + input + '%'
+                  }},
+                  {doctor_recommendation: {
+                    [Op.like]: '%' + input + '%'
+                  }},
+                ]
+                
             }
         })
-
-        // const matchedData = user.filter(item => item.match(pattern));
 
         if (!user) {
             res.status(401).json({ message: 'Patient not found' })
