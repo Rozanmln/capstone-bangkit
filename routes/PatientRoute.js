@@ -6,12 +6,12 @@ const {
     updatePatient,
     deletePatient
 } = require("../controllers/Patient")
-const { authPatient, authToken } = require("../middleware/Auth")
+const { authPatient, authToken, authHospital } = require("../middleware/Auth")
 
 const router = express.Router()
 
-router.get('/patient', authToken, authPatient, getPatient)
-router.get('/patientbyid', authToken, authPatient, getPatientById)
+router.get('/patient', authToken, authHospital, getPatient)
+router.get('/patientbyid', authToken, authHospital, getPatientById)
 router.post('/patient', createPatient)
 router.patch('/patient', authToken, authPatient, updatePatient)
 router.delete('/patient', authToken, authPatient, deletePatient)
