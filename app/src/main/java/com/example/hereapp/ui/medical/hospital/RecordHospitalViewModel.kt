@@ -10,4 +10,6 @@ class RecordHospitalViewModel(private val hereRepository: HereRepository): ViewM
     fun getListMedicalRecordForHospital() = hereRepository.getListMedicalRecordForHospital()
     fun getDetail(id: String) = hereRepository.getDetailMedicalRecordHospital(id)
     fun deleteMedicalRecord(id: String) = hereRepository.deleteMedicalRecord(id)
+
+    fun searchMedRecord(query: String) = hereRepository.searchMedRecord(query)
 }

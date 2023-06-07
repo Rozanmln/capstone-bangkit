@@ -17,7 +17,7 @@ import com.example.hereapp.data.model.MedicalRecord
 import com.example.hereapp.databinding.FragmentRecordHospitalBinding
 import com.example.hereapp.ui.medical.hospital.add.AddMedicalRecordHospitalFragment
 import com.example.hereapp.utils.Result
-import java.sql.Array
+
 
 
 class RecordHospitalFragment : Fragment() {
@@ -56,13 +56,25 @@ class RecordHospitalFragment : Fragment() {
         binding.edtSearch.addTextChangedListener(object: TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                val newList = list.filter {
-                    it.patientName.contains(p0!!, ignoreCase = true)
+                recordHospitalViewModel.searchMedRecord(p0.toString()).observe(requireActivity()) {
+                    when(it) {
+                        is Result.Success -> {
+                            showLoading(false)
+                            list.clear()
+                            list.addAll(it.data)
+                            val recordHospitalAdapter = RecordHospitalAdapter(list)
+                            binding.rvRiwayatHospital.adapter = recordHospitalAdapter
+                            toDetail(recordHospitalAdapter)
+                        }
+                        is Result.Loading -> {
+                            showLoading(true)
+                        }
+                        is Result.Error -> {
+                            showLoading(false)
+                            showText(it.error)
+                        }
+                    }
                 }
-                val adapter = RecordHospitalAdapter(newList as ArrayList<MedicalRecord>)
-                binding.rvRiwayatHospital.adapter = adapter
-                toDetail(adapter)
-
             }
             override fun afterTextChanged(p0: Editable?) {}
         })
@@ -84,10 +96,8 @@ class RecordHospitalFragment : Fragment() {
 
     private fun showRecyclerView() {
         getData()
-
         binding.rvRiwayatHospital.layoutManager = LinearLayoutManager(requireActivity())
         binding.rvRiwayatHospital.setHasFixedSize(true)
-
     }
 
     private fun getData() {

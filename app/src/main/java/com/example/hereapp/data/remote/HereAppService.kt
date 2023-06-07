@@ -18,6 +18,7 @@ import retrofit2.http.Header
 import retrofit2.http.PATCH
 import retrofit2.http.POST
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 
 interface HereAppService {
@@ -78,6 +79,12 @@ interface HereAppService {
         @Header("Authorization") token: String,
         @Path("id") id: String
     ): MedicalRecordDetail
+
+    @GET("searchMedRecordforHospital")
+    suspend fun searchMedRecord(
+        @Header("Authorization") token: String,
+        @Query("input") input: String
+    ): List<MedicalRecord>
 
     @GET("patientbyid")
     suspend fun getInfoPatientSelf(

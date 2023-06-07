@@ -254,4 +254,17 @@ class HereRepository(private val pref: UserPreferences, private val apiService: 
             emit(Result.Error(e.message.toString()))
         }
     }
+
+    fun searchMedRecord(query: String): LiveData<Result<List<MedicalRecord>>> = liveData {
+        val token = "Bearer ${pref.getPref().token}"
+        emit(Result.Loading)
+        try {
+            val response = apiService
+                .searchMedRecord(token, query)
+            emit(Result.Success(response))
+        } catch (e: Exception) {
+            Log.d("Register_Hospital", e.message.toString())
+            emit(Result.Error(e.message.toString()))
+        }
+    }
 }
