@@ -131,4 +131,10 @@ interface HereAppService {
     suspend fun getSymptom(
         @Header("Authorization") token: String
     ): List<Symptom>
+
+    @POST("predict")
+    suspend fun postCreatePredict(
+        @Header("Authorization") token: String,
+        @Body symptoms: List<Symptom>
+    ): Response
 }

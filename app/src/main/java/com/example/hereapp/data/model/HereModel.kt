@@ -96,8 +96,7 @@ data class Symptom(
     val createdAt: String,
     val updateAt: String
 )
-
 data class InputSymptom(
-    val isUse: Boolean = false,
+    var isChecked: Boolean = false,
     val symptom: Symptom
 )

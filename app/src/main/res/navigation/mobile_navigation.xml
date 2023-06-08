@@ -15,11 +15,55 @@
         android:id="@+id/navigation_record"
         android:name="com.example.hereapp.ui.medical.RecordFragment"
         android:label="@string/title_medical_record"
-        tools:layout="@layout/fragment_record" />
+        tools:layout="@layout/fragment_record" >
+        <action
+            android:id="@+id/action_navigation_record_to_recordHospitalFragment"
+            app:destination="@id/recordHospitalFragment" />
+        <action
+            android:id="@+id/action_navigation_record_to_addRecordPatientFragment"
+            app:destination="@id/addRecordPatientFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_profile"
         android:name="com.example.hereapp.ui.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/recordHospitalFragment"
+        android:name="com.example.hereapp.ui.medical.hospital.RecordHospitalFragment"
+        android:label="fragment_record_hospital"
+        tools:layout="@layout/fragment_record_hospital" >
+        <action
+            android:id="@+id/action_recordHospitalFragment_to_addMedicalRecordHospitalFragment"
+            app:destination="@id/addMedicalRecordHospitalFragment" />
+        <action
+            android:id="@+id/action_recordHospitalFragment_to_detailRecordHospitalFragment"
+            app:destination="@id/detailRecordHospitalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addRecordPatientFragment"
+        android:name="com.example.hereapp.ui.medical.patient.AddRecordPatientFragment"
+        android:label="fragment_add_record_patient"
+        tools:layout="@layout/fragment_add_record_patient" >
+        <action
+            android:id="@+id/action_addRecordPatientFragment_to_detailRecordPatientFragment"
+            app:destination="@id/detailRecordPatientFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addMedicalRecordHospitalFragment"
+        android:name="com.example.hereapp.ui.medical.hospital.add.AddMedicalRecordHospitalFragment"
+        android:label="AddMedicalRecordHospitalFragment" />
+    <fragment
+        android:id="@+id/detailRecordHospitalFragment"
+        android:name="com.example.hereapp.ui.medical.hospital.DetailRecordHospitalFragment"
+        android:label="DetailRecordHospitalFragment" >
+        <action
+            android:id="@+id/action_detailRecordHospitalFragment_to_addMedicalRecordHospitalFragment"
+            app:destination="@id/addMedicalRecordHospitalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailRecordPatientFragment"
+        android:name="com.example.hereapp.ui.medical.patient.DetailRecordPatientFragment"
+        android:label="DetailRecordPatientFragment" />
 </navigation>

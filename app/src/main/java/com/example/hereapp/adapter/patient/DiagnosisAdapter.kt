@@ -3,27 +3,30 @@ package com.example.hereapp.adapter.patient
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.hereapp.R
+import com.example.hereapp.data.model.InputSymptom
 import com.example.hereapp.data.model.Symptom
-import com.example.hereapp.databinding.ItemSymptomBinding
+import com.example.hereapp.databinding.ItemSymptonBinding
 
-class AddDiagnosisAdapter(private val list: ArrayList<Symptom>): RecyclerView.Adapter<AddDiagnosisAdapter.ViewHolder>() {
+
+class DiagnosisAdapter(private val list: ArrayList<InputSymptom>): RecyclerView.Adapter<DiagnosisAdapter.ViewHolder>() {
     private lateinit var onItemClickCallback: OnItemClickCallback
+
     interface OnItemClickCallback {
-        fun onItemClicked(data: Symptom)
+        fun onItemClicked(data: InputSymptom)
     }
+
     fun setOnItemClickCallback(callback: OnItemClickCallback) {
         this.onItemClickCallback = callback
     }
-    class ViewHolder(val item: ItemSymptomBinding): RecyclerView.ViewHolder(item.root) {
-        fun bind(data: Symptom, position: Int) {
-            item.tvSymptom.text = itemView.context.getString(R.string.keluhan, position + 1, data.symptomName)
+    class ViewHolder(val item: ItemSymptonBinding): RecyclerView.ViewHolder(item.root) {
+        fun bind(data: InputSymptom) {
+            item.tvSymptom.text = data.symptom.symptomName
+            item.cbSymptom.isChecked = data.isChecked
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = ItemSymptomBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val view = ItemSymptonBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(view)
     }
 
@@ -31,9 +34,11 @@ class AddDiagnosisAdapter(private val list: ArrayList<Symptom>): RecyclerView.Ad
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data = list[position]
-        holder.bind(data, position)
+        holder.bind(data)
 
-        holder.item.ivSymptom.setOnClickListener {
+        holder.item.cbSymptom.setOnCheckedChangeListener { _, isChecked ->
+            data.isChecked = isChecked
+
             onItemClickCallback.onItemClicked(data)
         }
     }

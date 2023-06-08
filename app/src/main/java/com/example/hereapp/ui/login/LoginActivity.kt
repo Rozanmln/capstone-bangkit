@@ -42,7 +42,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun isLogin() {
-        Log.d("TOKENX", userPreferences.getPref().token.toString())
         if(userPreferences.getPref().isLogin == true) {
             startActivity(Intent(this@LoginActivity, MainActivity::class.java))
             finish()

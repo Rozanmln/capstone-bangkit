@@ -12,19 +12,17 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hereapp.R
 import com.example.hereapp.ViewModelFactory
-import com.example.hereapp.adapter.patient.AddDiagnosisAdapter
-import com.example.hereapp.adapter.patient.DiagnosisSearchAdapter
+import com.example.hereapp.adapter.patient.DiagnosisAdapter
+import com.example.hereapp.data.model.InputSymptom
 import com.example.hereapp.data.model.Symptom
 import com.example.hereapp.databinding.FragmentAddRecordPatientBinding
-import com.example.hereapp.dummy.DataDummy
 import com.example.hereapp.utils.Result
 
 
 class AddRecordPatientFragment : Fragment() {
-    private var list = ArrayList<Symptom>()
+    private var list = ArrayList<InputSymptom>()
     private lateinit var factory: ViewModelFactory
     private lateinit var recordPatientViewModel: PatientViewModel
-    private val listSymptom = ArrayList<Symptom>()
     private var _binding: FragmentAddRecordPatientBinding? = null
     private val binding get() = _binding!!
 
@@ -41,14 +39,20 @@ class AddRecordPatientFragment : Fragment() {
         factory = ViewModelFactory.getInstance(requireActivity())
         recordPatientViewModel = ViewModelProvider(this, factory)[PatientViewModel::class.java]
 
-        list = DataDummy.generateSymptomData()
+
+        getData()
         searchSymptom()
         btnSubmit()
     }
 
     private fun btnSubmit() {
         binding.btnSubmit.setOnClickListener {
-            if(listSymptom.isNotEmpty()) {
+            if(list.isNotEmpty()) {
+                showText(
+                    list.filter {
+                        it.isChecked
+                    }.toString()
+                )
                 val fragmentManager = parentFragmentManager
                 val detailFragment = DetailRecordPatientFragment()
                 fragmentManager.beginTransaction().apply {
@@ -63,70 +67,36 @@ class AddRecordPatientFragment : Fragment() {
         }
     }
 
-    private fun showRecyclerSymptom(list: ArrayList<Symptom>) {
-        val newList = list
-        val adapter = AddDiagnosisAdapter(newList)
-        binding.rvSymptom.layoutManager = LinearLayoutManager(requireActivity())
-        binding.rvSymptom.setHasFixedSize(true)
-        binding.rvSymptom.adapter = adapter
-
-        adapter.setOnItemClickCallback(object: AddDiagnosisAdapter.OnItemClickCallback {
-            override fun onItemClicked(data: Symptom) {
-                newList.remove(data)
-                showRecyclerSymptom(newList)
-            }
-        })
-
-    }
 
     private fun searchSymptom() {
         binding.edtSearch.addTextChangedListener(object: TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                showRecyclerSearch(p0.toString())
+                val newList = list.filter {
+                    it.symptom.symptomName.contains(p0.toString(), ignoreCase = true)
+                } as ArrayList<InputSymptom>
+                showRecyclerSymptom(newList)
             }
 
             override fun afterTextChanged(p0: Editable?) {}
-
         })
     }
 
-    private fun showRecyclerSearch(query: String) {
-        if(query.isNotEmpty()) {
-            binding.rvListSymptom.visibility = View.VISIBLE
-        }else {
-            binding.rvListSymptom.visibility = View.GONE
-        }
-        val newList = list.filter {
-            it.symptomName.contains(query, ignoreCase = true)
-        }
 
-        val adapter = DiagnosisSearchAdapter(newList as ArrayList<Symptom>)
-
-        binding.rvListSymptom.layoutManager = LinearLayoutManager(requireActivity())
-        binding.rvListSymptom.setHasFixedSize(true)
-        binding.rvListSymptom.adapter = adapter
-
-        adapter.setOnItemClickCallback(object: DiagnosisSearchAdapter.OnItemClickCallback {
-            override fun onItemClicked(data: Symptom) {
-                if(!listSymptom.contains(data))
-                    listSymptom.add(data)
-                else showText("Sudah anda Tambahkan")
-                showRecyclerSymptom(listSymptom)
-            }
-
-        })
-
-    }
-    private fun getData(): ArrayList<Symptom> {
-        var newList = ArrayList<Symptom>()
-
+    private fun getData(){
         recordPatientViewModel.getSymptom().observe(requireActivity()) {
             when(it) {
                 is Result.Success -> {
-                    showText(it.data.toString())
-
+                    it.data.forEach {
+                        list.add(
+                            InputSymptom(
+                                false,
+                                it
+                            )
+                        )
+                    }
+                    if(list.isNotEmpty())
+                        showRecyclerSymptom(list)
                 }
                 is Result.Loading -> {}
                 is Result.Error -> {
@@ -134,9 +104,23 @@ class AddRecordPatientFragment : Fragment() {
                 }
             }
         }
-        return newList
     }
 
+    private fun showRecyclerSymptom(list: ArrayList<InputSymptom>) {
+        binding.rvSymptom.layoutManager = LinearLayoutManager(requireActivity())
+        binding.rvSymptom.setHasFixedSize(true)
+        val adapter = DiagnosisAdapter(list)
+        binding.rvSymptom.adapter = adapter
+
+        adapter.setOnItemClickCallback(object: DiagnosisAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: InputSymptom) {
+                val foundIndex = list.indexOf(data)
+                list[foundIndex].isChecked = list[foundIndex].isChecked
+            }
+
+        })
+
+    }
 
     private fun showText(text: String) {
         Toast.makeText(requireActivity(), text, Toast.LENGTH_SHORT).show()
