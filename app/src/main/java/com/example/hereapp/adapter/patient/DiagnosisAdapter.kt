@@ -20,7 +20,7 @@ class DiagnosisAdapter(private val list: ArrayList<InputSymptom>): RecyclerView.
     }
     class ViewHolder(val item: ItemSymptonBinding): RecyclerView.ViewHolder(item.root) {
         fun bind(data: InputSymptom) {
-            item.tvSymptom.text = data.symptom.symptomName
+            item.tvSymptom.text = data.symptom!!.symptomName
             item.cbSymptom.isChecked = data.isChecked
         }
     }
@@ -36,9 +36,7 @@ class DiagnosisAdapter(private val list: ArrayList<InputSymptom>): RecyclerView.
         val data = list[position]
         holder.bind(data)
 
-        holder.item.cbSymptom.setOnCheckedChangeListener { _, isChecked ->
-            data.isChecked = isChecked
-
+        holder.item.cbSymptom.setOnCheckedChangeListener { _, _ ->
             onItemClickCallback.onItemClicked(data)
         }
     }

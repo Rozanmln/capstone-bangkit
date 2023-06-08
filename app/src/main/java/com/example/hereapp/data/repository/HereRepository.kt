@@ -10,14 +10,17 @@ import com.example.hereapp.data.model.LoginResponse
 import com.example.hereapp.data.model.MedicalRecord
 import com.example.hereapp.data.model.MedicalRecordDetail
 import com.example.hereapp.data.model.MedicalRecordRequest
+import com.example.hereapp.data.model.PredictSymptom
 import com.example.hereapp.data.model.RegisterHospitalRequest
 import com.example.hereapp.data.model.RegisterPatientRequest
 import com.example.hereapp.data.model.RegisterPatientResponse
 import com.example.hereapp.data.model.Response
+import com.example.hereapp.data.model.ResponsePredict
 import com.example.hereapp.data.model.Symptom
 import com.example.hereapp.data.preferences.UserPreferences
 import com.example.hereapp.data.remote.HereAppService
 import com.example.hereapp.utils.Result
+import com.google.gson.JsonArray
 
 
 class HereRepository(private val pref: UserPreferences, private val apiService: HereAppService) {
@@ -31,7 +34,7 @@ class HereRepository(private val pref: UserPreferences, private val apiService: 
             emit(Result.Success(response))
 
         } catch (e: Exception) {
-            Log.d("List_Medical_Record", e.message.toString())
+            Log.d("getListMedicalRecordForHospital", e.message.toString())
             emit(Result.Error(e.message.toString()))
         }
     }
@@ -45,7 +48,7 @@ class HereRepository(private val pref: UserPreferences, private val apiService: 
             emit(Result.Success(response))
 
         } catch (e: Exception) {
-            Log.d("Info_Hospital", e.message.toString())
+            Log.d("postCreateMedicalRecord", e.message.toString())
             emit(Result.Error(e.message.toString()))
         }
     }
@@ -60,7 +63,7 @@ class HereRepository(private val pref: UserPreferences, private val apiService: 
             emit(Result.Success(response))
 
         } catch (e: Exception) {
-            Log.d("Info_Hospital", e.message.toString())
+            Log.d("getInfoHospitalAll", e.message.toString())
             emit(Result.Error(e.message.toString()))
         }
     }
@@ -74,7 +77,7 @@ class HereRepository(private val pref: UserPreferences, private val apiService: 
             emit(Result.Success(response))
 
         } catch (e: Exception) {
-            Log.d("Info_Hospital", e.message.toString())
+            Log.d("getInfoHospital", e.message.toString())
             emit(Result.Error(e.message.toString()))
         }
     }
@@ -85,7 +88,7 @@ class HereRepository(private val pref: UserPreferences, private val apiService: 
                 .postLoginHospital(request)
             emit(Result.Success(response))
         } catch (e: Exception) {
-            Log.d("Login_Hospital", e.message.toString())
+            Log.d("postLoginHospital", e.message.toString())
             emit(Result.Error(e.message.toString()))
         }
     }
@@ -97,7 +100,7 @@ class HereRepository(private val pref: UserPreferences, private val apiService: 
                 .postLoginPatient(request)
             emit(Result.Success(response))
         } catch (e: Exception) {
-            Log.d("Login_Patient", e.message.toString())
+            Log.d("postLoginPatient", e.message.toString())
             emit(Result.Error(e.message.toString()))
         }
     }
@@ -109,7 +112,7 @@ class HereRepository(private val pref: UserPreferences, private val apiService: 
                 .postRegisterPatient(request)
             emit(Result.Success(response))
         } catch (e: Exception) {
-            Log.d("Register_Hospital", e.message.toString())
+            Log.d("postRegisterPatient", e.message.toString())
             emit(Result.Error(e.message.toString()))
         }
     }
@@ -120,7 +123,7 @@ class HereRepository(private val pref: UserPreferences, private val apiService: 
                 .postRegisterHospital(request)
             emit(Result.Success(response))
         } catch (e: Exception) {
-            Log.d("Register_Hospital", e.message.toString())
+            Log.d("postRegisterHospital", e.message.toString())
             emit(Result.Error(e.message.toString()))
         }
     }
@@ -134,7 +137,7 @@ class HereRepository(private val pref: UserPreferences, private val apiService: 
                 .getDetailMedRecordHospital(token, id)
             emit(Result.Success(response))
         } catch (e: Exception) {
-            Log.d("Register_Hospital", e.message.toString())
+            Log.d("getDetailMedicalRecordHospital", e.message.toString())
             emit(Result.Error(e.message.toString()))
         }
     }
@@ -147,7 +150,7 @@ class HereRepository(private val pref: UserPreferences, private val apiService: 
                 .patchEditHospital(token, request)
             emit(Result.Success(response))
         } catch (e: Exception) {
-            Log.d("Register_Hospital", e.message.toString())
+            Log.d("patchEditHospital", e.message.toString())
             emit(Result.Error(e.message.toString()))
         }
     }
@@ -160,7 +163,7 @@ class HereRepository(private val pref: UserPreferences, private val apiService: 
                 .deleteHospital(token)
             emit(Result.Success(response))
         } catch (e: Exception) {
-            Log.d("Register_Hospital", e.message.toString())
+            Log.d("deleteHospital", e.message.toString())
             emit(Result.Error(e.message.toString()))
         }
     }
@@ -173,7 +176,7 @@ class HereRepository(private val pref: UserPreferences, private val apiService: 
                 .getInfoPatientSelf(token)
             emit(Result.Success(response))
         } catch (e: Exception) {
-            Log.d("Register_Hospital", e.message.toString())
+            Log.d("getInfoPatientSelf", e.message.toString())
             emit(Result.Error(e.message.toString()))
         }
     }
@@ -186,7 +189,7 @@ class HereRepository(private val pref: UserPreferences, private val apiService: 
                 .patchEditPatient(token, request)
             emit(Result.Success(response))
         } catch (e: Exception) {
-            Log.d("Register_Hospital", e.message.toString())
+            Log.d("patchEditPatient", e.message.toString())
             emit(Result.Error(e.message.toString()))
         }
     }
@@ -199,7 +202,7 @@ class HereRepository(private val pref: UserPreferences, private val apiService: 
                 .deletePatient(token)
             emit(Result.Success(response))
         } catch (e: Exception) {
-            Log.d("Register_Hospital", e.message.toString())
+            Log.d("deltePatient", e.message.toString())
             emit(Result.Error(e.message.toString()))
         }
     }
@@ -212,7 +215,7 @@ class HereRepository(private val pref: UserPreferences, private val apiService: 
                 .getListMedRecordForPatient(token)
             emit(Result.Success(response))
         } catch (e: Exception) {
-            Log.d("Register_Hospital", e.message.toString())
+            Log.d("getListMedicalRecordForPatient", e.message.toString())
             emit(Result.Error(e.message.toString()))
         }
     }
@@ -225,7 +228,7 @@ class HereRepository(private val pref: UserPreferences, private val apiService: 
                 .getDetailMedRecordPatient(token, id)
             emit(Result.Success(response))
         } catch (e: Exception) {
-            Log.d("Register_Hospital", e.message.toString())
+            Log.d("getDetailMedicalRecord", e.message.toString())
             emit(Result.Error(e.message.toString()))
         }
     }
@@ -238,7 +241,7 @@ class HereRepository(private val pref: UserPreferences, private val apiService: 
                 .patchEditMedicalRecord(token, id, request)
             emit(Result.Success(response))
         } catch (e: Exception) {
-            Log.d("Register_Hospital", e.message.toString())
+            Log.d("patchEditMedicalRecord", e.message.toString())
             emit(Result.Error(e.message.toString()))
         }
     }
@@ -251,7 +254,7 @@ class HereRepository(private val pref: UserPreferences, private val apiService: 
                 .deleteMedicalRecord(token, id)
             emit(Result.Success(response))
         } catch (e: Exception) {
-            Log.d("Register_Hospital", e.message.toString())
+            Log.d("deleteMedicalRecord", e.message.toString())
             emit(Result.Error(e.message.toString()))
         }
     }
@@ -264,7 +267,7 @@ class HereRepository(private val pref: UserPreferences, private val apiService: 
                 .searchMedRecord(token, query)
             emit(Result.Success(response))
         } catch (e: Exception) {
-            Log.d("Register_Hospital", e.message.toString())
+            Log.d("searchMedicalRecord", e.message.toString())
             emit(Result.Error(e.message.toString()))
         }
     }
@@ -277,7 +280,20 @@ class HereRepository(private val pref: UserPreferences, private val apiService: 
                 .getSymptom(token)
             emit(Result.Success(response))
         } catch (e: Exception) {
-            Log.d("Register_Hospital", e.message.toString())
+            Log.d("getSymptom", e.message.toString())
+            emit(Result.Error(e.message.toString()))
+        }
+    }
+
+    fun postCreatePredict(list: List<PredictSymptom>): LiveData<Result<ResponsePredict>> = liveData {
+        val token = "Bearer ${pref.getPref().token}"
+        emit(Result.Loading)
+        try {
+            val response = apiService
+                .postCreatePredict(token, list)
+            emit(Result.Success(response))
+        } catch (e: Exception) {
+            Log.d("createPredict", e.message.toString())
             emit(Result.Error(e.message.toString()))
         }
     }

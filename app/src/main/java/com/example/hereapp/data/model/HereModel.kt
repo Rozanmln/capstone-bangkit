@@ -1,6 +1,7 @@
 package com.example.hereapp.data.model
 
 import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 
@@ -98,5 +99,35 @@ data class Symptom(
 )
 data class InputSymptom(
     var isChecked: Boolean = false,
-    val symptom: Symptom
+    val symptom: Symptom? = null
 )
+
+data class PredictSymptom(
+    val symptom: String? = null,
+    val weight: Int? = null
+)
+
+data class ResponsePredict(
+
+    @field:SerializedName("objectWithId")
+    val objectWithId: ObjectWithId? = null
+)
+
+data class ObjectWithId(
+
+    @field:SerializedName("")
+    val jsonMember: String? = null,
+
+    @field:SerializedName("Precaution")
+    val precaution: String? = null,
+
+    @field:SerializedName("Description")
+    val description: String? = null,
+
+    @field:SerializedName("Disease")
+    val disease: String? = null,
+
+    @field:SerializedName("id")
+    val id: String? = null
+)
+

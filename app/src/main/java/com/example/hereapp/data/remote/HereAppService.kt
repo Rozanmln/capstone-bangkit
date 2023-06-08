@@ -7,11 +7,14 @@ import com.example.hereapp.data.model.LoginResponse
 import com.example.hereapp.data.model.MedicalRecord
 import com.example.hereapp.data.model.MedicalRecordDetail
 import com.example.hereapp.data.model.MedicalRecordRequest
+import com.example.hereapp.data.model.PredictSymptom
 import com.example.hereapp.data.model.RegisterHospitalRequest
 import com.example.hereapp.data.model.RegisterPatientRequest
 import com.example.hereapp.data.model.RegisterPatientResponse
 import com.example.hereapp.data.model.Response
+import com.example.hereapp.data.model.ResponsePredict
 import com.example.hereapp.data.model.Symptom
+import com.google.gson.JsonArray
 import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
@@ -135,6 +138,6 @@ interface HereAppService {
     @POST("predict")
     suspend fun postCreatePredict(
         @Header("Authorization") token: String,
-        @Body symptoms: List<Symptom>
-    ): Response
+        @Body symptoms: List<PredictSymptom>
+    ): ResponsePredict
 }
