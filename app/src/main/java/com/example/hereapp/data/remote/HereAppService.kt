@@ -11,6 +11,7 @@ import com.example.hereapp.data.model.RegisterHospitalRequest
 import com.example.hereapp.data.model.RegisterPatientRequest
 import com.example.hereapp.data.model.RegisterPatientResponse
 import com.example.hereapp.data.model.Response
+import com.example.hereapp.data.model.Symptom
 import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
@@ -125,4 +126,9 @@ interface HereAppService {
         @Header("Authorization") token: String,
         @Path("id") id: String
     ): Response
+
+    @GET("symptom")
+    suspend fun getSymptom(
+        @Header("Authorization") token: String
+    ): List<Symptom>
 }

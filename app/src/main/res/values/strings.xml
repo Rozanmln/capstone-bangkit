@@ -51,4 +51,7 @@
     <string name="kelola_profile">Kelola Profile</string>
     <string name="pengaturan_aplikasi">Pengaturan Aplikasi</string>
     <string name="diagnosis">Diagnosis:</string>
+    <string name="self_diagnosis">Diagnosis Mandiri</string>
+    <string name="cari_keluhan">Cari Keluhan..</string>
+    <string name="btn_diagnosis">Diagnosis</string>
 </resources>

@@ -3,9 +3,116 @@ package com.example.hereapp.dummy
 
 import com.example.hereapp.data.model.DataArticle
 import com.example.hereapp.data.model.DataFeature
+import com.example.hereapp.data.model.Symptom
 
 object DataDummy {
 
+    fun generateSymptomData(): ArrayList<Symptom> {
+        val list = ArrayList<Symptom>()
+
+
+            list.add(
+                Symptom(
+                    0,
+                    "skin_rash",
+                    0,
+                    "",
+                    ""
+                )
+            )
+        list.add(
+            Symptom(
+                0,
+                "sakit_kepala",
+                0,
+                "",
+                ""
+            )
+        )
+        list.add(
+            Symptom(
+                0,
+                "pusing",
+                0,
+                "",
+                ""
+            )
+        )
+        list.add(
+                Symptom(
+                    0,
+                    "mual",
+                    0,
+                    "",
+                    ""
+                )
+                )
+        list.add(
+            Symptom(
+                0,
+                "muntah",
+                0,
+                "",
+                ""
+            )
+        )
+        list.add(
+            Symptom(
+                0,
+                "nyeri",
+                0,
+                "",
+                ""
+            )
+        )
+        list.add(
+            Symptom(
+                0,
+                "sariawan",
+                0,
+                "",
+                ""
+            )
+        )
+        list.add(
+            Symptom(
+                0,
+                "bjir",
+                0,
+                "",
+                ""
+            )
+        )
+        list.add(
+            Symptom(
+                0,
+                "whutdehel",
+                0,
+                "",
+                ""
+            )
+        )
+        list.add(
+            Symptom(
+                0,
+                "sakit mata",
+                0,
+                "",
+                ""
+            )
+        )
+        list.add(
+            Symptom(
+                0,
+                "mata kuning",
+                0,
+                "",
+                ""
+            )
+        )
+
+        return list
+    }
     fun generateMainImage(): List<String> {
         val list = ArrayList<String>()
 

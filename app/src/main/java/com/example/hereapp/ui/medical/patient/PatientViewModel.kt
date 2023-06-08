@@ -6,4 +6,6 @@ import com.example.hereapp.data.repository.HereRepository
 class PatientViewModel(private val repo: HereRepository): ViewModel() {
     fun getListMedRecordForPatient() = repo.getListMedRecordForPatient()
     fun getDetailMedRecordForPatient(id: String) = repo.getDetailMedRecordPatient(id)
+
+    fun getSymptom() = repo.getSymptom()
 }

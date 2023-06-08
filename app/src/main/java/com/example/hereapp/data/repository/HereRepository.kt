@@ -14,6 +14,7 @@ import com.example.hereapp.data.model.RegisterHospitalRequest
 import com.example.hereapp.data.model.RegisterPatientRequest
 import com.example.hereapp.data.model.RegisterPatientResponse
 import com.example.hereapp.data.model.Response
+import com.example.hereapp.data.model.Symptom
 import com.example.hereapp.data.preferences.UserPreferences
 import com.example.hereapp.data.remote.HereAppService
 import com.example.hereapp.utils.Result
@@ -261,6 +262,19 @@ class HereRepository(private val pref: UserPreferences, private val apiService: 
         try {
             val response = apiService
                 .searchMedRecord(token, query)
+            emit(Result.Success(response))
+        } catch (e: Exception) {
+            Log.d("Register_Hospital", e.message.toString())
+            emit(Result.Error(e.message.toString()))
+        }
+    }
+
+    fun getSymptom(): LiveData<Result<List<Symptom>>> = liveData {
+        val token = "Bearer ${pref.getPref().token}"
+        emit(Result.Loading)
+        try {
+            val response = apiService
+                .getSymptom(token)
             emit(Result.Success(response))
         } catch (e: Exception) {
             Log.d("Register_Hospital", e.message.toString())

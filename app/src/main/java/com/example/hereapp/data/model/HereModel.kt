@@ -88,3 +88,16 @@ data class InfoPatientResponse(
     val NIK: String,
     val address: String
 )
+
+data class Symptom(
+    val id: Int,
+    val symptomName: String,
+    val weight: Int,
+    val createdAt: String,
+    val updateAt: String
+)
+
+data class InputSymptom(
+    val isUse: Boolean = false,
+    val symptom: Symptom
+)
