@@ -8,20 +8,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hereapp.R
 import com.example.hereapp.ViewModelFactory
-import com.example.hereapp.adapter.medical.RecordHospitalAdapter
 import com.example.hereapp.adapter.patient.AddDiagnosisAdapter
 import com.example.hereapp.adapter.patient.DiagnosisSearchAdapter
-import com.example.hereapp.data.model.InputSymptom
-import com.example.hereapp.data.model.MedicalRecord
 import com.example.hereapp.data.model.Symptom
 import com.example.hereapp.databinding.FragmentAddRecordPatientBinding
 import com.example.hereapp.dummy.DataDummy
-import com.example.hereapp.ui.medical.hospital.DetailRecordHospitalFragment
 import com.example.hereapp.utils.Result
 
 
@@ -48,13 +43,39 @@ class AddRecordPatientFragment : Fragment() {
 
         list = DataDummy.generateSymptomData()
         searchSymptom()
+        btnSubmit()
+    }
+
+    private fun btnSubmit() {
+        binding.btnSubmit.setOnClickListener {
+            if(listSymptom.isNotEmpty()) {
+                val fragmentManager = parentFragmentManager
+                val detailFragment = DetailRecordPatientFragment()
+                fragmentManager.beginTransaction().apply {
+                    replace(R.id.nav_host_fragment_activity_main, detailFragment, DetailRecordPatientFragment::class.java.simpleName)
+                    setReorderingAllowed(true)
+                    addToBackStack(null)
+                    commit()
+                }
+            }else {
+                showText("Masukkan Keluhan Terlebih Dahulu")
+            }
+        }
     }
 
     private fun showRecyclerSymptom(list: ArrayList<Symptom>) {
-        val adapter = AddDiagnosisAdapter(list)
+        val newList = list
+        val adapter = AddDiagnosisAdapter(newList)
         binding.rvSymptom.layoutManager = LinearLayoutManager(requireActivity())
         binding.rvSymptom.setHasFixedSize(true)
         binding.rvSymptom.adapter = adapter
+
+        adapter.setOnItemClickCallback(object: AddDiagnosisAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: Symptom) {
+                newList.remove(data)
+                showRecyclerSymptom(newList)
+            }
+        })
 
     }
 
@@ -89,7 +110,9 @@ class AddRecordPatientFragment : Fragment() {
 
         adapter.setOnItemClickCallback(object: DiagnosisSearchAdapter.OnItemClickCallback {
             override fun onItemClicked(data: Symptom) {
-                listSymptom.add(data)
+                if(!listSymptom.contains(data))
+                    listSymptom.add(data)
+                else showText("Sudah anda Tambahkan")
                 showRecyclerSymptom(listSymptom)
             }
 
@@ -102,14 +125,11 @@ class AddRecordPatientFragment : Fragment() {
         recordPatientViewModel.getSymptom().observe(requireActivity()) {
             when(it) {
                 is Result.Success -> {
-                   newList = it.data as ArrayList<Symptom>
-                    showText(newList.toString())
+                    showText(it.data.toString())
+
                 }
-                is Result.Loading -> {
-                    showLoading(true)
-                }
+                is Result.Loading -> {}
                 is Result.Error -> {
-                    showLoading(false)
                     showText(it.error)
                 }
             }
@@ -117,14 +137,9 @@ class AddRecordPatientFragment : Fragment() {
         return newList
     }
 
-    private fun showLoading(state: Boolean){
-        if (state) binding.progressBar.visibility = View.VISIBLE
-        else binding.progressBar.visibility = View.GONE
-    }
 
     private fun showText(text: String) {
         Toast.makeText(requireActivity(), text, Toast.LENGTH_SHORT).show()
     }
-
 
 }

@@ -104,13 +104,84 @@ object DataDummy {
         list.add(
             Symptom(
                 0,
-                "mata kuning",
+                "mata hijau",
                 0,
                 "",
                 ""
             )
         )
-
+        list.add(
+            Symptom(
+                0,
+                "mata hitam",
+                0,
+                "",
+                ""
+            )
+        )
+        list.add(
+            Symptom(
+                0,
+                "mata mata",
+                0,
+                "",
+                ""
+            )
+        )
+        list.add(
+            Symptom(
+                0,
+                "mata biru",
+                0,
+                "",
+                ""
+            )
+        )
+        list.add(
+            Symptom(
+                0,
+                "darah biru",
+                0,
+                "",
+                ""
+            )
+        )
+        list.add(
+            Symptom(
+                0,
+                "leu",
+                0,
+                "",
+                ""
+            )
+        )
+        list.add(
+            Symptom(
+                0,
+                "hidroponik",
+                0,
+                "",
+                ""
+            )
+        )
+        list.add(
+            Symptom(
+                0,
+                "gigantomakia",
+                0,
+                "",
+                ""
+            )
+        )
+        list.add(
+            Symptom(
+                0,
+                "lebah ganteng",
+                0,
+                "",
+                ""
+            )
+        )
         return list
     }
     fun generateMainImage(): List<String> {

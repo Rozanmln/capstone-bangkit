@@ -30,7 +30,7 @@
     <string name="search_patient">Cari Pasien..</string>
     <string name="riwayat">Riwayat</string>
     <string name="detail_riwayat">Detail Riwayat</string>
-    <string name="keluhan">Keluhan</string>
+    <string name="keluhan">%d. %s</string>
     <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</string>
     <string name="hasil_diagnosis">Hasil Diagnosis</string>
     <string name="saran">Saran</string>
@@ -54,4 +54,5 @@
     <string name="self_diagnosis">Diagnosis Mandiri</string>
     <string name="cari_keluhan">Cari Keluhan..</string>
     <string name="btn_diagnosis">Diagnosis</string>
+    <string name="daftar_keluhan">Daftar Keluhan</string>
 </resources>

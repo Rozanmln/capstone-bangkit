@@ -8,15 +8,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <TextView
-        android:id="@+id/tv_counter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="1."
-        style="@style/MaterialAlertDialog.Material3"
-        android:textSize="18sp"/>
-    <TextView
         android:id="@+id/tv_symptom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -25,7 +16,7 @@
         style="@style/MaterialAlertDialog.Material3"
         android:textSize="18sp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tv_counter"/>
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <ImageView
         android:id="@+id/iv_symptom"

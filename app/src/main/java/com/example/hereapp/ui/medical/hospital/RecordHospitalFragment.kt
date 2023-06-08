@@ -44,7 +44,11 @@ class RecordHospitalFragment : Fragment() {
         showRecyclerView()
         addMedicalRecord()
 
+    }
 
+    private fun isMedicalRecordEmpty(state: Boolean) {
+        if(state) binding.tvInfo.visibility = View.VISIBLE
+        else binding.tvInfo.visibility = View.GONE
     }
 
     private fun showLoading(state: Boolean) {
@@ -65,6 +69,7 @@ class RecordHospitalFragment : Fragment() {
                             val recordHospitalAdapter = RecordHospitalAdapter(list)
                             binding.rvRiwayatHospital.adapter = recordHospitalAdapter
                             toDetail(recordHospitalAdapter)
+
                         }
                         is Result.Loading -> {
                             showLoading(true)
@@ -112,6 +117,9 @@ class RecordHospitalFragment : Fragment() {
                     binding.rvRiwayatHospital.adapter = recordHospitalAdapter
                     toDetail(recordHospitalAdapter)
                     searchUser()
+
+                    if(list.isEmpty()) isMedicalRecordEmpty(true)
+                    else isMedicalRecordEmpty(false)
                 }
                 is Result.Loading -> {
                     showLoading(true)
