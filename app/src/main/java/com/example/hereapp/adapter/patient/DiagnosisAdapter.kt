@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hereapp.data.model.InputSymptom
-import com.example.hereapp.data.model.Symptom
 import com.example.hereapp.databinding.ItemSymptonBinding
 
 

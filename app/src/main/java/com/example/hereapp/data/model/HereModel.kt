@@ -103,16 +103,17 @@ data class InputSymptom(
 )
 
 data class PredictSymptom(
-    val symptom: String? = null,
-    val weight: Int? = null
+    val symptom: Int
 )
 
+@Parcelize
 data class ResponsePredict(
 
     @field:SerializedName("objectWithId")
     val objectWithId: ObjectWithId? = null
-)
+):Parcelable
 
+@Parcelize
 data class ObjectWithId(
 
     @field:SerializedName("")
@@ -129,5 +130,5 @@ data class ObjectWithId(
 
     @field:SerializedName("id")
     val id: String? = null
-)
+): Parcelable
 

@@ -15,6 +15,8 @@ import com.example.hereapp.data.model.Response
 import com.example.hereapp.data.model.ResponsePredict
 import com.example.hereapp.data.model.Symptom
 import com.google.gson.JsonArray
+import com.google.gson.JsonObject
+import org.json.JSONArray
 import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
@@ -138,6 +140,6 @@ interface HereAppService {
     @POST("predict")
     suspend fun postCreatePredict(
         @Header("Authorization") token: String,
-        @Body symptoms: List<PredictSymptom>
+        @Body symptoms: JsonObject
     ): ResponsePredict
 }

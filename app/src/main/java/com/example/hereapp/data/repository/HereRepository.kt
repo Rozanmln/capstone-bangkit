@@ -21,6 +21,8 @@ import com.example.hereapp.data.preferences.UserPreferences
 import com.example.hereapp.data.remote.HereAppService
 import com.example.hereapp.utils.Result
 import com.google.gson.JsonArray
+import com.google.gson.JsonObject
+import org.json.JSONArray
 
 
 class HereRepository(private val pref: UserPreferences, private val apiService: HereAppService) {
@@ -285,12 +287,12 @@ class HereRepository(private val pref: UserPreferences, private val apiService: 
         }
     }
 
-    fun postCreatePredict(list: List<PredictSymptom>): LiveData<Result<ResponsePredict>> = liveData {
+    fun postCreatePredict(json: JsonObject): LiveData<Result<ResponsePredict>> = liveData {
         val token = "Bearer ${pref.getPref().token}"
         emit(Result.Loading)
         try {
             val response = apiService
-                .postCreatePredict(token, list)
+                .postCreatePredict(token, json)
             emit(Result.Success(response))
         } catch (e: Exception) {
             Log.d("createPredict", e.message.toString())

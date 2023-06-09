@@ -14,17 +14,17 @@ import com.example.hereapp.R
 import com.example.hereapp.ViewModelFactory
 import com.example.hereapp.adapter.patient.DiagnosisAdapter
 import com.example.hereapp.data.model.InputSymptom
-import com.example.hereapp.data.model.PredictSymptom
+import com.example.hereapp.data.model.ResponsePredict
 import com.example.hereapp.data.model.Symptom
 import com.example.hereapp.databinding.FragmentAddRecordPatientBinding
 import com.example.hereapp.utils.Result
-import com.google.gson.Gson
-import com.google.gson.JsonArray
+import com.google.gson.JsonObject
 
 
 class AddRecordPatientFragment : Fragment() {
     private var list = ArrayList<InputSymptom>()
     private val listSymptom = ArrayList<InputSymptom>()
+    private lateinit var jsonObjectOfSymptom: JsonObject
     private lateinit var factory: ViewModelFactory
     private lateinit var recordPatientViewModel: PatientViewModel
     private var _binding: FragmentAddRecordPatientBinding? = null
@@ -43,7 +43,7 @@ class AddRecordPatientFragment : Fragment() {
         factory = ViewModelFactory.getInstance(requireActivity())
         recordPatientViewModel = ViewModelProvider(this, factory)[PatientViewModel::class.java]
 
-
+        jsonObjectOfSymptom = JsonObject()
         getData()
         searchSymptom()
         btnSubmit()
@@ -51,48 +51,40 @@ class AddRecordPatientFragment : Fragment() {
 
     private fun btnSubmit() {
         binding.btnSubmit.setOnClickListener {
-            if(listSymptom.isNotEmpty()) {
-                val update = ArrayList<PredictSymptom>()
-
-                listSymptom.filter {
-                    it.isChecked
-                }.forEach {
-                    update.add(
-                        PredictSymptom(
-                            "symptom${it.symptom!!.id}",
-                            it.symptom.weight
-                        )
-                    )
-                }
-
-               postPredict(update)
-
-                val fragmentManager = parentFragmentManager
-                val detailFragment = DetailRecordPatientFragment()
-                fragmentManager.beginTransaction().apply {
-                    replace(R.id.nav_host_fragment_activity_main, detailFragment, DetailRecordPatientFragment::class.java.simpleName)
-                    setReorderingAllowed(true)
-                    addToBackStack(null)
-                    commit()
-                }
+            if(jsonObjectOfSymptom.toString() != "{}") {
+               postPredict(jsonObjectOfSymptom)
             }else {
                 showText("Masukkan Keluhan Terlebih Dahulu")
             }
         }
     }
 
-    private fun postPredict(update: ArrayList<PredictSymptom>) {
-        showText(Gson().toJsonTree(update).toString())
-        recordPatientViewModel.postCreatePredict(update).observe(requireActivity()) {
+    private fun postPredict(data: JsonObject) {
+        recordPatientViewModel.postCreatePredict(data).observe(requireActivity()) {
             when(it) {
                 is Result.Success -> {
-                    showText(it.data.toString())
+                    toDetail(it.data)
                 }
                 is Result.Loading -> {}
                 is Result.Error -> {
                     showText(it.error)
                 }
             }
+        }
+    }
+
+    private fun toDetail(data: ResponsePredict) {
+
+        val fragmentManager = parentFragmentManager
+        val detailFragment = DetailRecordPatientFragment()
+        val bundle = Bundle()
+        bundle.putParcelable("predict", data)
+        detailFragment.arguments = bundle
+        fragmentManager.beginTransaction().apply {
+            replace(R.id.nav_host_fragment_activity_main, detailFragment, DetailRecordPatientFragment::class.java.simpleName)
+            setReorderingAllowed(true)
+            addToBackStack(null)
+            commit()
         }
     }
 
@@ -120,10 +112,17 @@ class AddRecordPatientFragment : Fragment() {
         recordPatientViewModel.getSymptom().observe(requireActivity()) {
             when(it) {
                 is Result.Success -> {
+                    showloading(false)
                     setData(it.data)
+                    binding.cvSymptom.visibility = View.VISIBLE
                 }
-                is Result.Loading -> {}
+                is Result.Loading -> {
+                    binding.cvSymptom.visibility = View.GONE
+                    showloading(true)
+                }
                 is Result.Error -> {
+                    showloading(false)
+                    binding.cvSymptom.visibility = View.VISIBLE
                     showText(it.error)
                 }
             }
@@ -153,6 +152,11 @@ class AddRecordPatientFragment : Fragment() {
                 val foundIndex = listSymptom.indexOf(data)
                 listSymptom[foundIndex].isChecked = !listSymptom[foundIndex].isChecked
 
+                if(listSymptom[foundIndex].isChecked) {
+                    jsonObjectOfSymptom.addProperty(listSymptom[foundIndex].symptom!!.symptomName, listSymptom[foundIndex].symptom!!.weight)
+                }else {
+                    jsonObjectOfSymptom.remove(listSymptom[foundIndex].symptom!!.symptomName)
+                }
             }
 
         })
@@ -161,6 +165,14 @@ class AddRecordPatientFragment : Fragment() {
 
     private fun showText(text: String) {
         Toast.makeText(requireActivity(), text, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun showloading(state: Boolean) {
+        if(state) {
+            binding.progressBar.visibility = View.VISIBLE
+        }else {
+            binding.progressBar.visibility = View.GONE
+        }
     }
 
 }
