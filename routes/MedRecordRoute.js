@@ -6,6 +6,7 @@ const {
     searchMedRecordforHospital,
     getMedRecordforPatient,
     getMedRecordByIdforPatient,
+    searchMedRecordforPatient,
     updateMedRecord,
     deleteMedRecord
 } = require("../controllers/MedRecord")
@@ -17,6 +18,7 @@ router.get('/medRecordforHospital', authToken, authHospital, getMedRecordforHosp
 router.get('/searchMedRecordforHospital', authToken, authHospital, searchMedRecordforHospital)
 router.get('/medRecordforHospital/:id', authToken, authHospital, getMedRecordByIdforHospital)
 router.get('/medRecordforPatient', authToken, authPatient, getMedRecordforPatient)
+router.get('/searchMedRecordforPatient', authToken, authPatient, searchMedRecordforPatient)
 router.get('/medRecordforPatient/:id', authToken, authPatient, getMedRecordByIdforPatient)
 router.post('/medRecord', authToken, authHospital, createMedRecord)
 router.patch('/medRecord/:id', authToken, authHospital, updateMedRecord)
