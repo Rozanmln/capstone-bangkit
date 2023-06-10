@@ -130,6 +130,44 @@ const getMedRecordforPatient = async (req, res) => {
     }
 }
 
+const searchMedRecordforPatient = async (req, res) => {
+    const patientId = req.user._id
+    const { input } = req.query
+
+    try {
+        const user = await MedRecord.findAll({
+            attributes: ['mrid', 'patientName', 'NIK', 'diagnostic_results', 'createdAt'],
+            where: {
+                
+                patientId: patientId,
+                [Op.or]: [
+                    {patientName: {
+                    [Op.like]: '%' + input + '%'
+                  }},
+                  {symptom: {
+                    [Op.like]: '%' + input + '%'
+                  }},
+                  {diagnostic_results: {
+                    [Op.like]: '%' + input + '%'
+                  }},
+                  {doctor_recommendation: {
+                    [Op.like]: '%' + input + '%'
+                  }},
+                ]
+                
+            }
+        })
+
+        if (!user) {
+            res.status(401).json({ message: 'Medical Record not found' })
+        } else {
+            res.status(200).json(user);
+        }
+    } catch (error) {
+        res.status(400).json({ msg: error.message })
+    }
+}
+
 const getMedRecordByIdforPatient = async (req, res) => {
     const patientId = req.user._id
     const medRecordId = req.params.id
@@ -193,6 +231,7 @@ module.exports = {
     searchMedRecordforHospital,
     getMedRecordforPatient,
     getMedRecordByIdforPatient,
+    searchMedRecordforPatient,
     updateMedRecord,
     deleteMedRecord,
 }

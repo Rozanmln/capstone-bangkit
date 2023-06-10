@@ -56,7 +56,7 @@ const getPredict = async (req, res) => {
 
     try {
         const result = await Predicted.findAll({
-            attributes: ['prid', 'disease', 'description', 'precaution'],
+            attributes: ['prid', 'symptoms', 'disease', 'description','createdAt'],
             where: {
                 patientId: patientId
             }
@@ -72,13 +72,51 @@ const getPredict = async (req, res) => {
     }
 }
 
+const searchPredict = async (req, res) => {
+    const patientId = req.user._id
+    const { input } = req.query
+
+    try {
+        const user = await Predicted.findAll({
+            attributes: ['prid', 'symptoms', 'disease', 'description', 'createdAt'],
+            where: {
+                
+                patientId: patientId,
+                [Op.or]: [
+                    {symptoms: {
+                    [Op.like]: '%' + input + '%'
+                  }},
+                  {disease: {
+                    [Op.like]: '%' + input + '%'
+                  }},
+                  {description: {
+                    [Op.like]: '%' + input + '%'
+                  }},
+                  {precaution: {
+                    [Op.like]: '%' + input + '%'
+                  }},
+                ]
+                
+            }
+        })
+
+        if (!user) {
+            res.status(401).json({ message: 'Patient not found' })
+        } else {
+            res.status(200).json(user);
+        }
+    } catch (error) {
+        res.status(400).json({ msg: error.message })
+    }
+}
+
 const getPredictById = async (req, res) => {
     const patientId = req.user._id
     const predictId = req.params.id
 
     try {
         const result = await Predicted.findOne({
-            attributes: ['prid', 'disease', 'description', 'precaution'],
+            attributes: ['prid', 'symptoms', 'disease', 'description', 'precaution', 'createdAt'],
             where: {
                 [Op.and]: [{ patientId: patientId }, { prid: predictId }]
             }
@@ -138,6 +176,7 @@ function findObjectById(jsonObject, id) {
 module.exports = {
     predict,
     getPredict,
+    searchPredict,
     getPredictById,
     deletePredict,
     getSymptom
