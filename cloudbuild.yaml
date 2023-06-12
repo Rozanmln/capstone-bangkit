@@ -36,7 +36,7 @@ steps:
       - '--image'
       - 'gcr.io/$PROJECT_ID/here-app:$COMMIT_SHA'
       - '--region'
-      - 'asia-southeast2'
+      - 'us-central1'
       - '--platform'
       - 'managed'
 images:
