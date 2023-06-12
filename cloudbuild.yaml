@@ -1,0 +1,43 @@
+steps:
+  # build the container image
+  - name: 'gcr.io/cloud-builders/docker'
+    #args: ['build', '-t', 'gcr.io/$PROJECT_ID/here-app:$COMMIT_SHA', '.']
+    args: ['build', '--build-arg', 'DATABASE_URL=${_DATABASE_URL}', '--build-arg', 'SECRET_KEY=${SECRET_KEY}', '-t', 'gcr.io/$PROJECT_ID/here-app:$COMMIT_SHA', '.']
+  # push the container image to Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/here-app:$COMMIT_SHA']
+  # Run Prisma migration reset command
+  # - name: 'gcr.io/$PROJECT_ID/here-app:$COMMIT_SHA'
+  #   entrypoint: 'npx' 
+  #   args: ['prisma', 'migrate', 'reset', '--force']
+  # Run Prisma migration deploy command
+  # - name: 'gcr.io/$PROJECT_ID/here-app:$COMMIT_SHA'
+    # entrypoint: 'npx'
+    # args: ['prisma', 'migrate', 'deploy']
+  # Run Prisma migration save command (initial migration)
+  # - name: 'gcr.io/$PROJECT_ID/here-app:$COMMIT_SHA'
+  #   entrypoint: 'npx'
+  #   args: ['prisma', 'migrate', 'dev', '--name', 'initial', '--create-only']
+  # Apply pending migrations
+  # - name: 'gcr.io/$PROJECT_ID/here-app:$COMMIT_SHA'
+  #   entrypoint: 'npx'
+  #   args: ['prisma', 'migrate', 'dev']
+  # Generate Prisma client
+  # - name: 'gcr.io/$PROJECT_ID/here-app:$COMMIT_SHA'
+  #   entrypoint: 'npx'
+  #   args: ['prisma', 'generate']
+  # Deploy container image to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'here-app'
+      - '--image'
+      - 'gcr.io/$PROJECT_ID/here-app:$COMMIT_SHA'
+      - '--region'
+      - 'asia-southeast2'
+      - '--platform'
+      - 'managed'
+images:
+  - 'gcr.io/$PROJECT_ID/here-app:$COMMIT_SHA'
