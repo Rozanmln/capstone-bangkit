@@ -1,18 +1,17 @@
 package com.example.hereapp.ui.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.hereapp.MainActivity
+import androidx.recyclerview.widget.RecyclerView
 import com.example.hereapp.R
 import com.example.hereapp.adapter.home.ArticleAdapter
 import com.example.hereapp.adapter.home.FeatureAdapter
 import com.example.hereapp.adapter.home.MainAdapter
+import com.example.hereapp.data.model.DataFeature
 import com.example.hereapp.data.preferences.UserPreferences
 import com.example.hereapp.databinding.FragmentHomeBinding
 import com.example.hereapp.dummy.DataDummy
@@ -22,6 +21,9 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private lateinit var userPreferences: UserPreferences
     private val binding get() = _binding!!
+
+    private lateinit var recyclerView: RecyclerView
+    private val list = ArrayList<DataFeature>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,31 +39,6 @@ class HomeFragment : Fragment() {
         userPreferences = UserPreferences(requireContext())
 
         welcomeMessage(userPreferences.getPref().name!!)
-        recyclerViewImage()
-        recyclerViewFeature()
-        recyclerViewArticle()
-    }
-
-    private fun recyclerViewArticle() {
-        val data = DataDummy.generateArticleData()
-        binding.rvArticle.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-        binding.rvArticle.setHasFixedSize(true)
-        binding.rvArticle.adapter = ArticleAdapter(data)
-    }
-
-    private fun recyclerViewFeature() {
-        val data = DataDummy.generateFeatureData()
-        binding.rvFeature.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-        binding.rvFeature.setHasFixedSize(true)
-        binding.rvFeature.adapter = FeatureAdapter(data)
-    }
-
-    private fun recyclerViewImage() {
-        val data = getDummyData()
-        binding.rvMain.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-        binding.rvMain.setHasFixedSize(true)
-        binding.rvMain.adapter = MainAdapter(data)
-
     }
 
     private fun getDummyData(): List<String> = DataDummy.generateMainImage()
