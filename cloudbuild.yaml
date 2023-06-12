@@ -2,7 +2,7 @@ steps:
   # build the container image
   - name: 'gcr.io/cloud-builders/docker'
     #args: ['build', '-t', 'gcr.io/$PROJECT_ID/here-app:$COMMIT_SHA', '.']
-    args: ['build', '--build-arg', 'DATABASE_URL=${_DATABASE_URL}', '--build-arg', 'SECRET_KEY=${SECRET_KEY}', '-t', 'gcr.io/$PROJECT_ID/here-app:$COMMIT_SHA', '.']
+    args: ['build', '--build-arg', 'DATABASE_URL=${_DATABASE_URL}', '--build-arg', 'SECRET_KEY=${_SECRET_KEY}', '-t', 'gcr.io/$PROJECT_ID/here-app:$COMMIT_SHA', '.']
   # push the container image to Container Registry
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/$PROJECT_ID/here-app:$COMMIT_SHA']
