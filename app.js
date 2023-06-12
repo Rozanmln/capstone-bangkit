@@ -9,9 +9,9 @@ const PredictRoute = require("./routes/predictRoute")
 
 const app = express();
 
-// (async () => {
-//     await db.sync();
-// })();
+(async () => {
+    await db.sync();
+})();
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
