@@ -1,29 +1,30 @@
-const express = require("express")
-const db = require("./config/Database")
-const bodyParser = require("body-parser")
-const PatientRoute = require("./routes/PatientRoute")
-const HospitalRoute = require("./routes/HospitalRoute")
-const MedRecordRoute = require("./routes/MedRecordRoute")
-const AuthRoute = require("./routes/AuthRoute")
-const PredictRoute = require("./routes/predictRoute")
+const express = require('express');
+const db = require('./config/Database');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const PatientRoute = require('./routes/PatientRoute');
+const HospitalRoute = require('./routes/HospitalRoute');
+const MedRecordRoute = require('./routes/MedRecordRoute');
+const AuthRoute = require('./routes/AuthRoute');
+const PredictRoute = require('./routes/predictRoute');
 
 const app = express();
 
 (async () => {
-    await db.sync();
+  await db.sync();
 })();
 
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(cors());
 
-app.use(PatientRoute)
-app.use(HospitalRoute)
-app.use(MedRecordRoute)
-app.use(PredictRoute)
-app.use(AuthRoute)
+app.use(PatientRoute);
+app.use(HospitalRoute);
+app.use(MedRecordRoute);
+app.use(PredictRoute);
+app.use(AuthRoute);
 
-
-const PORT = process.env.PORT || 8080
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
-    console.log("Server listening on " + PORT)
-})
+  console.log('Server listening on ' + PORT);
+});
