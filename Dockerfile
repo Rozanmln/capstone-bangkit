@@ -9,7 +9,7 @@ ARG SECRET_KEY
 WORKDIR /app
 
 # Salin package.json dan package-lock.json (jika ada) ke dalam container
-COPY package.json ./
+COPY package*.json ./
 
 # Install dependencies
 RUN npm install
