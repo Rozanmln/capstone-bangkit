@@ -12,7 +12,6 @@ const app = express();
 (async () => {
     await db.sync();
 })();
-// test
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
