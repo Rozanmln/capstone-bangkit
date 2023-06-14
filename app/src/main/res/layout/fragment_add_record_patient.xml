@@ -56,7 +56,6 @@
                 android:id="@+id/rv_symptom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/custom_text_view"
                 android:layout_margin="12dp" />
 
         </LinearLayout>
