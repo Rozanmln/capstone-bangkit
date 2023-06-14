@@ -1,0 +1,652 @@
+{
+    "gatal": {
+        "": "0",
+        "Symptom": "gatal",
+        "weight": "1"
+    },
+    "ruam kulit": {
+        "": "1",
+        "Symptom": "ruam kulit",
+        "weight": "3"
+    },
+    "erupsi kulit nodal": {
+        "": "2",
+        "Symptom": "erupsi kulit nodal",
+        "weight": "4"
+    },
+    "bersin terus menerus": {
+        "": "3",
+        "Symptom": "bersin terus menerus",
+        "weight": "4"
+    },
+    "gemetaran": {
+        "": "4",
+        "Symptom": "gemetaran",
+        "weight": "5"
+    },
+    "panas dingin": {
+        "": "5",
+        "Symptom": "panas dingin",
+        "weight": "3"
+    },
+    "nyeri sendi": {
+        "": "6",
+        "Symptom": "nyeri sendi",
+        "weight": "3"
+    },
+    "sakit perut": {
+        "": "100",
+        "Symptom": "sakit perut",
+        "weight": "4"
+    },
+    "keasaman": {
+        "": "8",
+        "Symptom": "keasaman",
+        "weight": "3"
+    },
+    "bisul di lidah": {
+        "": "9",
+        "Symptom": "bisul di lidah",
+        "weight": "4"
+    },
+    "pemborosan otot": {
+        "": "10",
+        "Symptom": "pemborosan otot",
+        "weight": "3"
+    },
+    "muntah": {
+        "": "11",
+        "Symptom": "muntah",
+        "weight": "5"
+    },
+    "buang air kecil yang terbakar": {
+        "": "12",
+        "Symptom": "buang air kecil yang terbakar",
+        "weight": "6"
+    },
+    "buang air kecil bercak": {
+        "": "13",
+        "Symptom": "buang air kecil bercak",
+        "weight": "6"
+    },
+    "kelelahan": {
+        "": "14",
+        "Symptom": "kelelahan",
+        "weight": "4"
+    },
+    "penambahan berat badan": {
+        "": "15",
+        "Symptom": "penambahan berat badan",
+        "weight": "3"
+    },
+    "kecemasan": {
+        "": "16",
+        "Symptom": "kecemasan",
+        "weight": "4"
+    },
+    "tangan dan kaki dingin": {
+        "": "17",
+        "Symptom": "tangan dan kaki dingin",
+        "weight": "5"
+    },
+    "perubahan suasana hati": {
+        "": "18",
+        "Symptom": "perubahan suasana hati",
+        "weight": "3"
+    },
+    "penurunan berat badan": {
+        "": "19",
+        "Symptom": "penurunan berat badan",
+        "weight": "3"
+    },
+    "kegelisahan": {
+        "": "20",
+        "Symptom": "kegelisahan",
+        "weight": "5"
+    },
+    "kelesuan": {
+        "": "21",
+        "Symptom": "kelesuan",
+        "weight": "2"
+    },
+    "bercak di tenggorokan": {
+        "": "22",
+        "Symptom": "bercak di tenggorokan",
+        "weight": "6"
+    },
+    "kadar gula tidak teratur": {
+        "": "23",
+        "Symptom": "kadar gula tidak teratur",
+        "weight": "5"
+    },
+    "batuk": {
+        "": "24",
+        "Symptom": "batuk",
+        "weight": "4"
+    },
+    "demam tinggi": {
+        "": "25",
+        "Symptom": "demam tinggi",
+        "weight": "7"
+    },
+    "mata cekung": {
+        "": "26",
+        "Symptom": "mata cekung",
+        "weight": "3"
+    },
+    "sesak napas": {
+        "": "27",
+        "Symptom": "sesak napas",
+        "weight": "4"
+    },
+    "berkeringat": {
+        "": "28",
+        "Symptom": "berkeringat",
+        "weight": "3"
+    },
+    "dehidrasi": {
+        "": "29",
+        "Symptom": "dehidrasi",
+        "weight": "4"
+    },
+    "gangguan pencernaan": {
+        "": "30",
+        "Symptom": "gangguan pencernaan",
+        "weight": "5"
+    },
+    "sakit kepala": {
+        "": "31",
+        "Symptom": "sakit kepala",
+        "weight": "3"
+    },
+    "kulit kekuningan": {
+        "": "32",
+        "Symptom": "kulit kekuningan",
+        "weight": "3"
+    },
+    "urin gelap": {
+        "": "33",
+        "Symptom": "urin gelap",
+        "weight": "4"
+    },
+    "mual": {
+        "": "34",
+        "Symptom": "mual",
+        "weight": "5"
+    },
+    "kehilangan selera makan": {
+        "": "35",
+        "Symptom": "kehilangan selera makan",
+        "weight": "4"
+    },
+    "nyeri di belakang mata": {
+        "": "36",
+        "Symptom": "nyeri di belakang mata",
+        "weight": "4"
+    },
+    "sakit punggung": {
+        "": "37",
+        "Symptom": "sakit punggung",
+        "weight": "3"
+    },
+    "sembelit": {
+        "": "38",
+        "Symptom": "sembelit",
+        "weight": "4"
+    },
+    "diare": {
+        "": "40",
+        "Symptom": "diare",
+        "weight": "6"
+    },
+    "demam ringan": {
+        "": "41",
+        "Symptom": "demam ringan",
+        "weight": "5"
+    },
+    "urin kuning": {
+        "": "42",
+        "Symptom": "urin kuning",
+        "weight": "4"
+    },
+    "menguningnya mata": {
+        "": "43",
+        "Symptom": "menguningnya mata",
+        "weight": "4"
+    },
+    "gagal hati akut": {
+        "": "44",
+        "Symptom": "gagal hati akut",
+        "weight": "6"
+    },
+    "kelebihan cairan": {
+        "": "117",
+        "Symptom": "kelebihan cairan",
+        "weight": "4"
+    },
+    "pembengkakan perut": {
+        "": "46",
+        "Symptom": "pembengkakan perut",
+        "weight": "7"
+    },
+    "pembengkakan kelenjar getah bening": {
+        "": "47",
+        "Symptom": "pembengkakan kelenjar getah bening",
+        "weight": "6"
+    },
+    "rasa tidak enak": {
+        "": "48",
+        "Symptom": "rasa tidak enak",
+        "weight": "6"
+    },
+    "penglihatan kabur dan terdistorsi": {
+        "": "49",
+        "Symptom": "penglihatan kabur dan terdistorsi",
+        "weight": "5"
+    },
+    "dahak": {
+        "": "50",
+        "Symptom": "dahak",
+        "weight": "5"
+    },
+    "iritasi tenggorokan": {
+        "": "51",
+        "Symptom": "iritasi tenggorokan",
+        "weight": "4"
+    },
+    "kemerahan pada mata": {
+        "": "52",
+        "Symptom": "kemerahan pada mata",
+        "weight": "5"
+    },
+    "tekanan sinus": {
+        "": "53",
+        "Symptom": "tekanan sinus",
+        "weight": "4"
+    },
+    "pilek": {
+        "": "54",
+        "Symptom": "pilek",
+        "weight": "5"
+    },
+    "penyumbatan": {
+        "": "55",
+        "Symptom": "penyumbatan",
+        "weight": "5"
+    },
+    "nyeri dada": {
+        "": "56",
+        "Symptom": "nyeri dada",
+        "weight": "7"
+    },
+    "kelemahan pada tungkai": {
+        "": "57",
+        "Symptom": "kelemahan pada tungkai",
+        "weight": "7"
+    },
+    "detak jantung cepat": {
+        "": "58",
+        "Symptom": "detak jantung cepat",
+        "weight": "5"
+    },
+    "nyeri saat buang air besar": {
+        "": "59",
+        "Symptom": "nyeri saat buang air besar",
+        "weight": "5"
+    },
+    "nyeri di daerah anus": {
+        "": "60",
+        "Symptom": "nyeri di daerah anus",
+        "weight": "6"
+    },
+    "tinja berdarah": {
+        "": "61",
+        "Symptom": "tinja berdarah",
+        "weight": "5"
+    },
+    "iritasi pada anus": {
+        "": "62",
+        "Symptom": "iritasi pada anus",
+        "weight": "6"
+    },
+    "sakit leher": {
+        "": "63",
+        "Symptom": "sakit leher",
+        "weight": "5"
+    },
+    "pusing": {
+        "": "64",
+        "Symptom": "pusing",
+        "weight": "4"
+    },
+    "kram": {
+        "": "65",
+        "Symptom": "kram",
+        "weight": "4"
+    },
+    "memar": {
+        "": "66",
+        "Symptom": "memar",
+        "weight": "4"
+    },
+    "kegemukan": {
+        "": "67",
+        "Symptom": "kegemukan",
+        "weight": "4"
+    },
+    "kaki bengkak": {
+        "": "68",
+        "Symptom": "kaki bengkak",
+        "weight": "5"
+    },
+    "pembuluh darah membengkak": {
+        "": "69",
+        "Symptom": "pembuluh darah membengkak",
+        "weight": "5"
+    },
+    "wajah dan mata sembab": {
+        "": "70",
+        "Symptom": "wajah dan mata sembab",
+        "weight": "5"
+    },
+    "tiroid yang membesar": {
+        "": "71",
+        "Symptom": "tiroid yang membesar",
+        "weight": "6"
+    },
+    "kuku rapuh": {
+        "": "72",
+        "Symptom": "kuku rapuh",
+        "weight": "5"
+    },
+    "ekstremitas bengkak": {
+        "": "73",
+        "Symptom": "ekstremitas bengkak",
+        "weight": "5"
+    },
+    "rasa lapar yang berlebihan": {
+        "": "74",
+        "Symptom": "rasa lapar yang berlebihan",
+        "weight": "4"
+    },
+    "kontak perkawinan ekstra": {
+        "": "75",
+        "Symptom": "kontak perkawinan ekstra",
+        "weight": "5"
+    },
+    "bibir kering dan kesemutan": {
+        "": "76",
+        "Symptom": "bibir kering dan kesemutan",
+        "weight": "4"
+    },
+    "ucapan cadel": {
+        "": "77",
+        "Symptom": "ucapan cadel",
+        "weight": "4"
+    },
+    "sakit lutut": {
+        "": "78",
+        "Symptom": "sakit lutut",
+        "weight": "3"
+    },
+    "nyeri sendi panggul": {
+        "": "79",
+        "Symptom": "nyeri sendi panggul",
+        "weight": "2"
+    },
+    "kelemahan otot": {
+        "": "80",
+        "Symptom": "kelemahan otot",
+        "weight": "2"
+    },
+    "leher kaku": {
+        "": "81",
+        "Symptom": "leher kaku",
+        "weight": "4"
+    },
+    "sendi bengkak": {
+        "": "82",
+        "Symptom": "sendi bengkak",
+        "weight": "5"
+    },
+    "kekakuan gerakan": {
+        "": "83",
+        "Symptom": "kekakuan gerakan",
+        "weight": "5"
+    },
+    "gerakan berputar": {
+        "": "84",
+        "Symptom": "gerakan berputar",
+        "weight": "6"
+    },
+    "kehilangan keseimbangan": {
+        "": "85",
+        "Symptom": "kehilangan keseimbangan",
+        "weight": "4"
+    },
+    "kegoyangan": {
+        "": "86",
+        "Symptom": "kegoyangan",
+        "weight": "4"
+    },
+    "kelemahan satu sisi tubuh": {
+        "": "87",
+        "Symptom": "kelemahan satu sisi tubuh",
+        "weight": "4"
+    },
+    "kehilangan bau": {
+        "": "88",
+        "Symptom": "kehilangan bau",
+        "weight": "3"
+    },
+    "ketidaknyamanan kandung kemih": {
+        "": "89",
+        "Symptom": "ketidaknyamanan kandung kemih",
+        "weight": "4"
+    },
+    "bau urin yang busuk": {
+        "": "90",
+        "Symptom": "bau urin yang busuk",
+        "weight": "5"
+    },
+    "rasa urin terus menerus": {
+        "": "91",
+        "Symptom": "rasa urin terus menerus",
+        "weight": "6"
+    },
+    "lewatnya gas": {
+        "": "92",
+        "Symptom": "lewatnya gas",
+        "weight": "5"
+    },
+    "gatal dalam": {
+        "": "93",
+        "Symptom": "gatal dalam",
+        "weight": "4"
+    },
+    "tampilan beracun (typhos)": {
+        "": "94",
+        "Symptom": "tampilan beracun (typhos)",
+        "weight": "5"
+    },
+    "depresi": {
+        "": "95",
+        "Symptom": "depresi",
+        "weight": "3"
+    },
+    "sifat lekas marah": {
+        "": "96",
+        "Symptom": "sifat lekas marah",
+        "weight": "2"
+    },
+    "nyeri otot": {
+        "": "97",
+        "Symptom": "nyeri otot",
+        "weight": "2"
+    },
+    "sensorium yang diubah": {
+        "": "98",
+        "Symptom": "sensorium yang diubah",
+        "weight": "2"
+    },
+    "bintik-bintik merah di sekujur tubuh": {
+        "": "99",
+        "Symptom": "bintik-bintik merah di sekujur tubuh",
+        "weight": "3"
+    },
+    "menstruasi yang tidak normal": {
+        "": "101",
+        "Symptom": "menstruasi yang tidak normal",
+        "weight": "6"
+    },
+    "patch diskromik": {
+        "": "102",
+        "Symptom": "patch diskromik",
+        "weight": "6"
+    },
+    "berair dari mata": {
+        "": "103",
+        "Symptom": "berair dari mata",
+        "weight": "4"
+    },
+    "nafsu makan meningkat": {
+        "": "104",
+        "Symptom": "nafsu makan meningkat",
+        "weight": "5"
+    },
+    "poliuria": {
+        "": "105",
+        "Symptom": "poliuria",
+        "weight": "4"
+    },
+    "sejarah keluarga": {
+        "": "106",
+        "Symptom": "sejarah keluarga",
+        "weight": "5"
+    },
+    "dahak mukoid": {
+        "": "107",
+        "Symptom": "dahak mukoid",
+        "weight": "4"
+    },
+    "dahak berkarat": {
+        "": "108",
+        "Symptom": "dahak berkarat",
+        "weight": "4"
+    },
+    "kurang konsenterasi": {
+        "": "109",
+        "Symptom": "kurang konsenterasi",
+        "weight": "3"
+    },
+    "gangguan penglihatan": {
+        "": "110",
+        "Symptom": "gangguan penglihatan",
+        "weight": "3"
+    },
+    "menerima transfusi darah": {
+        "": "111",
+        "Symptom": "menerima transfusi darah",
+        "weight": "5"
+    },
+    "menerima suntikan yang tidak steril": {
+        "": "112",
+        "Symptom": "menerima suntikan yang tidak steril",
+        "weight": "2"
+    },
+    "koma": {
+        "": "113",
+        "Symptom": "koma",
+        "weight": "7"
+    },
+    "pendarahan perut": {
+        "": "114",
+        "Symptom": "pendarahan perut",
+        "weight": "6"
+    },
+    "distensi abdomen": {
+        "": "115",
+        "Symptom": "distensi abdomen",
+        "weight": "4"
+    },
+    "riwayat konsumsi alkohol": {
+        "": "116",
+        "Symptom": "riwayat konsumsi alkohol",
+        "weight": "5"
+    },
+    "darah dalam dahak": {
+        "": "118",
+        "Symptom": "darah dalam dahak",
+        "weight": "5"
+    },
+    "pembuluh darah menonjol di betis": {
+        "": "119",
+        "Symptom": "pembuluh darah menonjol di betis",
+        "weight": "6"
+    },
+    "palpitasi": {
+        "": "120",
+        "Symptom": "palpitasi",
+        "weight": "4"
+    },
+    "berjalan yang menyakitkan": {
+        "": "121",
+        "Symptom": "berjalan yang menyakitkan",
+        "weight": "2"
+    },
+    "jerawat berisi nanah": {
+        "": "122",
+        "Symptom": "jerawat berisi nanah",
+        "weight": "2"
+    },
+    "komedo": {
+        "": "123",
+        "Symptom": "komedo",
+        "weight": "2"
+    },
+    "berlarian": {
+        "": "124",
+        "Symptom": "berlarian",
+        "weight": "2"
+    },
+    "pengelupasan kulit": {
+        "": "125",
+        "Symptom": "pengelupasan kulit",
+        "weight": "3"
+    },
+    "perak seperti debu": {
+        "": "126",
+        "Symptom": "perak seperti debu",
+        "weight": "2"
+    },
+    "penyok kecil di kuku": {
+        "": "127",
+        "Symptom": "penyok kecil di kuku",
+        "weight": "2"
+    },
+    "kuku inflamasi": {
+        "": "128",
+        "Symptom": "kuku inflamasi",
+        "weight": "2"
+    },
+    "lepuh": {
+        "": "129",
+        "Symptom": "lepuh",
+        "weight": "4"
+    },
+    "luka merah di sekitar hidung": {
+        "": "130",
+        "Symptom": "luka merah di sekitar hidung",
+        "weight": "2"
+    },
+    "kerak kuning keluar": {
+        "": "131",
+        "Symptom": "kerak kuning keluar",
+        "weight": "3"
+    },
+    "prognosa": {
+        "": "132",
+        "Symptom": "prognosa",
+        "weight": "5"
+    }
+}
