@@ -92,7 +92,7 @@ data class InfoPatientResponse(
 
 data class Symptom(
     val id: Int,
-    val symptomName: String,
+    var symptomName: String,
     val weight: Int,
     val createdAt: String,
     val updateAt: String
@@ -102,9 +102,32 @@ data class InputSymptom(
     val symptom: Symptom? = null
 )
 
-data class PredictSymptom(
-    val symptom: Int
+data class ListPredict(
+
+    @field:SerializedName("Response")
+    val response: List<Predict>
 )
+
+data class Predict(
+
+    @field:SerializedName("symptoms")
+    val symptoms: String,
+
+    @field:SerializedName("createdAt")
+    val createdAt: String,
+
+    @field:SerializedName("disease")
+    val disease: String,
+
+    @field:SerializedName("prid")
+    val prid: String,
+
+    @field:SerializedName("description")
+    val description: String,
+
+    val precaution: String
+)
+
 
 @Parcelize
 data class ResponsePredict(

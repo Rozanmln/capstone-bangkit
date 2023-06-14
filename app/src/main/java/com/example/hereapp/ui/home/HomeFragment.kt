@@ -6,15 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+<<<<<<< HEAD
 import androidx.recyclerview.widget.RecyclerView
+=======
+>>>>>>> 84c6e5f9dc8fe91f2e85df263504e33bf9af4485
 import com.example.hereapp.R
 import com.example.hereapp.adapter.home.ArticleAdapter
-import com.example.hereapp.adapter.home.FeatureAdapter
 import com.example.hereapp.adapter.home.MainAdapter
 import com.example.hereapp.data.model.DataFeature
 import com.example.hereapp.data.preferences.UserPreferences
 import com.example.hereapp.databinding.FragmentHomeBinding
 import com.example.hereapp.dummy.DataDummy
+import com.example.hereapp.ui.medical.patient.list.ListFragment
+import com.example.hereapp.ui.medical.patient.list.ListPatientRecordFragment
 
 class HomeFragment : Fragment() {
 
@@ -39,6 +43,43 @@ class HomeFragment : Fragment() {
         userPreferences = UserPreferences(requireContext())
 
         welcomeMessage(userPreferences.getPref().name!!)
+<<<<<<< HEAD
+=======
+        recyclerViewImage()
+        recyclerViewArticle()
+
+        btnToList()
+    }
+
+    private fun btnToList() {
+        binding.btnToList.setOnClickListener {
+            val fragmentManager = parentFragmentManager
+            val listPatientRecordFragment = ListPatientRecordFragment()
+            fragmentManager.popBackStack()
+            fragmentManager.beginTransaction().apply {
+                add(R.id.nav_host_fragment_activity_main, listPatientRecordFragment, ListPatientRecordFragment::class.java.simpleName)
+                addToBackStack(null)
+                commit()
+            }
+
+        }
+    }
+
+    private fun recyclerViewArticle() {
+        val data = DataDummy.generateArticleData()
+        binding.rvArticle.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        binding.rvArticle.setHasFixedSize(true)
+        binding.rvArticle.adapter = ArticleAdapter(data)
+    }
+
+
+    private fun recyclerViewImage() {
+        val data = getDummyData()
+        binding.rvMain.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        binding.rvMain.setHasFixedSize(true)
+        binding.rvMain.adapter = MainAdapter(data)
+
+>>>>>>> 84c6e5f9dc8fe91f2e85df263504e33bf9af4485
     }
 
     private fun getDummyData(): List<String> = DataDummy.generateMainImage()

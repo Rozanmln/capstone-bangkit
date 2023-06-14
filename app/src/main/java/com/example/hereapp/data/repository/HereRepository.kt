@@ -10,7 +10,7 @@ import com.example.hereapp.data.model.LoginResponse
 import com.example.hereapp.data.model.MedicalRecord
 import com.example.hereapp.data.model.MedicalRecordDetail
 import com.example.hereapp.data.model.MedicalRecordRequest
-import com.example.hereapp.data.model.PredictSymptom
+import com.example.hereapp.data.model.Predict
 import com.example.hereapp.data.model.RegisterHospitalRequest
 import com.example.hereapp.data.model.RegisterPatientRequest
 import com.example.hereapp.data.model.RegisterPatientResponse
@@ -20,9 +20,7 @@ import com.example.hereapp.data.model.Symptom
 import com.example.hereapp.data.preferences.UserPreferences
 import com.example.hereapp.data.remote.HereAppService
 import com.example.hereapp.utils.Result
-import com.google.gson.JsonArray
 import com.google.gson.JsonObject
-import org.json.JSONArray
 
 
 class HereRepository(private val pref: UserPreferences, private val apiService: HereAppService) {
@@ -299,4 +297,29 @@ class HereRepository(private val pref: UserPreferences, private val apiService: 
             emit(Result.Error(e.message.toString()))
         }
     }
+    fun getListPredict(): LiveData<Result<List<Predict>>> = liveData {
+        val token = "Bearer ${pref.getPref().token}"
+        emit(Result.Loading)
+        try {
+            val response = apiService
+                .getListPredict(token)
+            emit(Result.Success(response))
+        } catch (e: Exception) {
+            Log.d("createPredict", e.message.toString())
+            emit(Result.Error(e.message.toString()))
+        }
+    }
+    fun getPredictById(id: String): LiveData<Result<Predict>> = liveData {
+        val token = "Bearer ${pref.getPref().token}"
+        emit(Result.Loading)
+        try {
+            val response = apiService
+                .getPredictById(token, id)
+            emit(Result.Success(response))
+        } catch (e: Exception) {
+            Log.d("getPredictById", e.message.toString())
+            emit(Result.Error(e.message.toString()))
+        }
+    }
 }
+

@@ -7,16 +7,14 @@ import com.example.hereapp.data.model.LoginResponse
 import com.example.hereapp.data.model.MedicalRecord
 import com.example.hereapp.data.model.MedicalRecordDetail
 import com.example.hereapp.data.model.MedicalRecordRequest
-import com.example.hereapp.data.model.PredictSymptom
+import com.example.hereapp.data.model.Predict
 import com.example.hereapp.data.model.RegisterHospitalRequest
 import com.example.hereapp.data.model.RegisterPatientRequest
 import com.example.hereapp.data.model.RegisterPatientResponse
 import com.example.hereapp.data.model.Response
 import com.example.hereapp.data.model.ResponsePredict
 import com.example.hereapp.data.model.Symptom
-import com.google.gson.JsonArray
 import com.google.gson.JsonObject
-import org.json.JSONArray
 import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
@@ -142,4 +140,18 @@ interface HereAppService {
         @Header("Authorization") token: String,
         @Body symptoms: JsonObject
     ): ResponsePredict
+
+
+    @GET("predict")
+    suspend fun getListPredict(
+        @Header("Authorization") token: String
+    ): List<Predict>
+
+    @GET("predict/{id}")
+    suspend fun getPredictById(
+        @Header("Authorization") token: String,
+        @Path("id") id: String
+    ): Predict
+
+
 }
