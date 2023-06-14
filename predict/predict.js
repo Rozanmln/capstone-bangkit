@@ -1,6 +1,5 @@
 const tf = require('@tensorflow/tfjs');
-const combinations = require('./combinations');
-const Patient = require('../models/PatientModel');
+const combinations = require('./combinations_translated');
 const { Symptoms, Predicted } = require('../models/SymptomModel');
 const { Op } = require('sequelize');
 
