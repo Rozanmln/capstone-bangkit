@@ -44,6 +44,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/daftar_keluhan"
+                android:layout_marginTop="10dp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:fontFamily="@font/googlesans_bold"
@@ -56,6 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp" />
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

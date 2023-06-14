@@ -43,7 +43,6 @@
                     android:textAllCaps="true"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:textColor="@color/purple_700"
                     android:fontFamily="@font/googlesans_bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/imageView" />
