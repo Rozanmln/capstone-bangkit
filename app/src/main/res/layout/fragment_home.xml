@@ -35,7 +35,7 @@
 
                 <TextView
                     android:id="@+id/tv_welcome_name"
-                    style="@style/MaterialAlertDialog.Material3"
+                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
@@ -43,7 +43,6 @@
                     android:textAllCaps="true"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:textColor="@color/purple_700"
                     android:fontFamily="@font/googlesans_bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/imageView" />
@@ -60,7 +59,7 @@
                 android:layout_margin="24dp"
                 android:background="@drawable/white_background"
                 android:inputType="text"
-                style="@style/MaterialAlertDialog.Material3"
+                android:textColor="@color/black"
                 android:drawableStart="@drawable/ic_search"
                 android:hint="@string/search"
                 android:drawablePadding="8dp"/>
@@ -230,13 +229,13 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Article"
                     android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:textSize="18dp"/>
+                    android:textSize="18sp"/>
 
                 <TextView
                     android:layout_width="wrap_content"

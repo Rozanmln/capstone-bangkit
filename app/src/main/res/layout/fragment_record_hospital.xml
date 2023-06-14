@@ -49,7 +49,6 @@
         android:id="@+id/fab_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#199A8E"
         android:src="@drawable/ic_add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
@@ -57,7 +56,7 @@
         android:id="@+id/tv_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Rekam Medis Belum Ada"
+        android:text="@string/empty"
         style="@style/MaterialAlertDialog.Material3.Title.Icon"
         android:textSize="18sp"
         android:textStyle="bold"

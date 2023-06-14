@@ -95,7 +95,7 @@ class DetailListPatientActivity : AppCompatActivity() {
         binding.apply {
             tvDate.text = data.createdAt
             tvKeluhan.text = symptom
-            tvDiagnosis.text = data.disease + "\n(${data.description})"
+            tvDiagnosis.text = data.disease + " (${data.description})"
             tvSaran.text = data.precaution
         }
     }
