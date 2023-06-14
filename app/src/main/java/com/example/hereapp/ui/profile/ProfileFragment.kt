@@ -61,16 +61,12 @@ class ProfileFragment : Fragment() {
         profileViewModel.getInfoHospitalSelf().observe(requireActivity()) {
             when(it) {
                 is Result.Success -> {
-
                 }
                 is Result.Loading -> {
-
                 }
                 is Result.Error -> {
-
                 }
             }
-
         }
     }
 
