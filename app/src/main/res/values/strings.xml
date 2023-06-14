@@ -61,4 +61,6 @@
     <string name="content_tab_home">Welcome Home</string>
     <string name="content_tab_text">This is Tab %1$d</string>
     <string name="searchbar_hint">Cari..</string>
+    <string name="personal">Personal Information</string>
+    <string name="empty">Rekam Medis Belum Ada</string>
 </resources>

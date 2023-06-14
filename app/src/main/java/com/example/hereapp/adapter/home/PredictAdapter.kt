@@ -1,6 +1,7 @@
 package com.example.hereapp.adapter.home
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hereapp.data.model.Predict
@@ -29,6 +30,9 @@ class PredictAdapter(private val list: ArrayList<Predict>): RecyclerView.Adapter
                 symptom += extractedString + ", "
             }
             item.tvDiagnosis.text = symptom
+            item.patientNik.visibility = View.GONE
+            item.patientName.visibility = View.GONE
+            item.tvDate.visibility = View.GONE
         }
 
     }

@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:text="@string/welcome"
         android:layout_marginBottom="64dp"
-        android:textColor="#199A8E"
+        android:textColor="@color/black"
         android:textAlignment="center"
         android:paddingTop="16dp"
         app:layout_constraintTop_toTopOf="parent"
@@ -23,9 +23,9 @@
 
     <ImageView
         android:id="@+id/iv_logo"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:src="@drawable/ic_medical"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:src="@drawable/ic_logo"
         app:layout_constraintTop_toBottomOf="@id/tv_welcome"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -35,7 +35,7 @@
         android:text="@string/here_app"
         android:textSize="32sp"
         android:textStyle="bold"
-        android:textColor="#199A8E"
+        android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@id/iv_logo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -57,56 +57,49 @@
             android:padding="16dp"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/login"
-                android:textSize="18sp"
-                style="@style/MaterialAlertDialog.Material3.Title.Text"
-                android:textColor="#199A8E"
-                android:textStyle="bold"/>
-
-            <EditText
-                android:id="@+id/edt_username"
-                style="@style/TextAppearance.Material3.LabelMedium"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:background="@drawable/custom_edit_text"
-                android:drawableStart="@drawable/ic_username"
-                android:drawablePadding="4dp"
-                android:drawableTint="@color/black"
-                android:hint="@string/username"
-                android:inputType="text"
-                android:textSize="18sp" />
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:background="@color/white"
+                app:startIconDrawable="@drawable/ic_username"
+                app:startIconTint="@color/black"
+                android:hint="@string/username">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textSize="18sp"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:id="@+id/edt_password"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:inputType="textPassword"
-                android:gravity="center_vertical"
-                android:background="@drawable/custom_edit_text"
-                android:drawableStart="@drawable/ic_password"
-                style="@style/TextAppearance.Material3.LabelMedium"
-                android:drawableTint="@color/black"
-                android:drawablePadding="4dp"
-                android:textSize="18sp"
-                android:hint="@string/password"/>
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:background="@color/white"
+                app:startIconDrawable="@drawable/ic_password"
+                app:startIconTint="@color/black"
+                android:hint="@string/password">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:textSize="18sp"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <RadioGroup
                 android:id="@+id/rg_role"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:orientation="horizontal">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/role"
                     style="@style/MaterialAlertDialog.Material3.Title.Text"
-                    android:textColor="#199A8E"
+                    android:textColor="@color/black"
                     android:textSize="18sp"/>
 
                 <RadioButton
@@ -124,12 +117,11 @@
 
             <Button
                 android:id="@+id/btn_login"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_gravity="center"
-                android:text="@string/login"
-                android:backgroundTint="#199A8E"/>
+                android:text="@string/login" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -151,8 +143,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:text="@string/register"
-            android:textColor="#199A8E" />
+            android:textColor="#199A8E"
+            android:text="@string/register"/>
     </LinearLayout>
 
     <ProgressBar
