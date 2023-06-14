@@ -41,37 +41,49 @@
                     android:layout_height="wrap_content"
                     android:text="@string/data"
                     android:layout_gravity="center"
-                    style="@style/MaterialAlertDialog.Material3"
+                    android:textColor="@color/black"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:background="@color/white"
+                    app:startIconDrawable="@drawable/ic_username"
+                    app:startIconTint="@color/black"
+                    android:hint="@string/nama_patient"
+                    app:hintTextColor="@color/design_default_color_primary">
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/ed_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/nama_patient"
-                    android:background="@drawable/custom_edit_text"
-                    android:layout_marginTop="8dp"
                     android:inputType="text"
-                    android:drawableStart="@drawable/ic_username"
-                    android:drawablePadding="4dp"
-                    android:drawableTint="@color/black"/>
+                    android:textSize="18sp"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:visibility="gone"/>
-                <EditText
-                    android:id="@+id/ed_nik"
+
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:background="@color/white"
+                    app:startIconDrawable="@drawable/ic_nik"
+                    app:startIconTint="@color/black"
                     android:hint="@string/nik"
-                    android:background="@drawable/custom_edit_text"
-                    android:layout_marginTop="8dp"
-                    android:inputType="number"
-                    android:drawableStart="@drawable/ic_nik"
-                    android:drawablePadding="4dp"
-                    android:drawableTint="@color/black"/>
+                    app:hintTextColor="@color/design_default_color_primary">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/ed_nik"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:textSize="18sp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -89,33 +101,45 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="12dp"
                 android:orientation="vertical">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/daftar_keluhan"
                     android:layout_gravity="center"
-                    style="@style/MaterialAlertDialog.Material3"
+                    android:textColor="@color/black"
                     android:textSize="18sp" />
-                <EditText
-                    android:id="@+id/edt_keluhan"
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="12dp"
-                    android:minHeight="160dp"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:background="@color/white"
                     android:hint="@string/sakit"
-                    android:gravity="fill_horizontal"
-                    android:background="@drawable/custom_edit_text"/>
+                    app:hintTextColor="@color/design_default_color_primary">
 
-                <EditText
-                    android:id="@+id/edt_diagnosis"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_keluhan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textMultiLine"
+                        android:textSize="18sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="12dp"
-                    android:background="@drawable/custom_edit_text"
-                    android:gravity="fill_horizontal"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:background="@color/white"
                     android:hint="@string/anda_mengidap"
-                    android:minHeight="160dp" />
+                    app:hintTextColor="@color/design_default_color_primary">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_diagnosis"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textMultiLine"
+                        android:textSize="18sp"/>
+                </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -160,6 +184,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="12dp"
                 android:orientation="vertical">
                 <TextView
                     android:layout_width="wrap_content"
@@ -170,15 +195,21 @@
                     android:layout_gravity="center"
                     style="@style/MaterialAlertDialog.Material3"
                     android:textSize="18sp"/>
-                <EditText
-                    android:id="@+id/edt_saran"
+
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="12dp"
-                    android:minHeight="160dp"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:background="@color/white"
                     android:hint="@string/sebaiknya_anda"
-                    android:gravity="fill_horizontal"
-                    android:background="@drawable/custom_edit_text"/>
+                    app:hintTextColor="@color/design_default_color_primary">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_saran"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textMultiLine"
+                        android:textSize="18sp"/>
+                </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -186,7 +217,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@+id/cv_saran">
+            app:layout_constraintTop_toBottomOf="@+id/cv_saran"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_submit"

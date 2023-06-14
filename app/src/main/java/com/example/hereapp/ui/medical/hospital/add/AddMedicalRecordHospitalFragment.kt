@@ -127,23 +127,23 @@ class AddMedicalRecordHospitalFragment : Fragment() {
     private fun mustHasValue(): Boolean {
         var isTrue = true
         binding.apply {
-            if(edName.text.isEmpty()) {
+            if(edName.text!!.isEmpty()) {
                 isTrue = false
                 edName.error = "Lengkapi isi Form!"
             }
-            if(edNik.text.isEmpty()) {
+            if(edNik.text!!.isEmpty()) {
                 isTrue = false
                 edNik.error = "Lengkapi isi Form!"
             }
-            if(edtKeluhan.text.isEmpty()) {
+            if(edtKeluhan.text!!.isEmpty()) {
                 isTrue = false
                 edtKeluhan.error = "Lengkapi isi Form!"
             }
-            if(edtDiagnosis.text.isEmpty()) {
+            if(edtDiagnosis.text!!.isEmpty()) {
                 isTrue = false
                 edtDiagnosis.error = "Lengkapi isi Form!"
             }
-            if(edtSaran.text.isEmpty()) {
+            if(edtSaran.text!!.isEmpty()) {
                 isTrue = false
                 edtSaran.error = "Lengkapi isi Form!"
             }

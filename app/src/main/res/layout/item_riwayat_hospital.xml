@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingTop="4dp"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools">
 
     <TextView
@@ -11,58 +13,43 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="19 May 2023"
-        style="@style/MaterialAlertDialog.Material3.Title.Icon"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        android:textColor="@color/black" />
 
-    <androidx.cardview.widget.CardView
+    <TextView
+        android:id="@+id/patient_name"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:textSize="18sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="20dp"
-        android:elevation="20dp"
+        tools:text="@string/username"/>
+    <TextView
+        android:id="@+id/patient_nik"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="@string/nik"/>
 
-        app:layout_constraintTop_toBottomOf="@id/tv_date"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:layout_gravity="fill_vertical"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/patient_name"
-                style="@style/MaterialAlertDialog.Material3.Title.Icon"
-                android:gravity="center"
-                android:textSize="18sp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:text="@string/username"/>
-            <TextView
-                android:id="@+id/patient_nik"
-                style="@style/MaterialAlertDialog.Material3.Title.Icon"
-                android:gravity="center"
-                android:textSize="18sp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:text="@string/nik"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/diagnosis"
+        android:textSize="18sp"
+        android:textColor="@color/black"/>
+    <TextView
+        android:id="@+id/tv_diagnosis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:textColor="@color/black"
+        tools:text="@string/lorem"
+        android:textAlignment="viewStart" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="@string/diagnosis"
-                android:textSize="18sp"
-                style="@style/MaterialAlertDialog.Material3.Title.Icon"/>
-            <TextView
-                android:id="@+id/tv_diagnosis"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:maxLines="2"
-                style="@style/MaterialAlertDialog.Material3.Title.Icon"
-                tools:text="@string/lorem"
-                android:textAlignment="viewStart"
-                />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"/>
+</LinearLayout>
