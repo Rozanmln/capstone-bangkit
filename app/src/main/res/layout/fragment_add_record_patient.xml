@@ -14,6 +14,7 @@
         android:layout_height="50dp"
         android:background="@drawable/white_background"
         android:inputType="text"
+        android:layout_marginTop="24dp"
         android:drawableStart="@drawable/ic_search"
         android:hint="@string/cari_keluhan"
         android:textColor="@color/black"
@@ -54,7 +55,7 @@
                 android:id="@+id/rv_symptom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp" />
+                android:layout_margin="12dp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
