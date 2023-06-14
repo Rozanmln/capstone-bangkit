@@ -19,6 +19,7 @@ import com.example.hereapp.data.model.Symptom
 import com.example.hereapp.databinding.FragmentAddRecordPatientBinding
 import com.example.hereapp.utils.Result
 import com.google.gson.JsonObject
+import java.util.Locale
 
 
 class AddRecordPatientFragment : Fragment() {
@@ -52,7 +53,7 @@ class AddRecordPatientFragment : Fragment() {
     private fun btnSubmit() {
         binding.btnSubmit.setOnClickListener {
             if(jsonObjectOfSymptom.toString() != "{}") {
-               postPredict(jsonObjectOfSymptom)
+                postPredict(jsonObjectOfSymptom)
             }else {
                 showText("Masukkan Keluhan Terlebih Dahulu")
             }
@@ -112,8 +113,9 @@ class AddRecordPatientFragment : Fragment() {
         recordPatientViewModel.getSymptom().observe(requireActivity()) {
             when(it) {
                 is Result.Success -> {
-                    showloading(false)
-                    setData(it.data)
+                    val data = it.data
+
+                    setData(data)
                     binding.cvSymptom.visibility = View.VISIBLE
                 }
                 is Result.Loading -> {
@@ -131,6 +133,7 @@ class AddRecordPatientFragment : Fragment() {
 
     private fun setData(data: List<Symptom>) {
         data.forEach {
+            it.symptomName =  it.symptomName.capitalize(Locale.getDefault()).replace("_", " ")
             listSymptom.add(
                 InputSymptom(
                     false,
@@ -153,9 +156,9 @@ class AddRecordPatientFragment : Fragment() {
                 listSymptom[foundIndex].isChecked = !listSymptom[foundIndex].isChecked
 
                 if(listSymptom[foundIndex].isChecked) {
-                    jsonObjectOfSymptom.addProperty(listSymptom[foundIndex].symptom!!.symptomName, listSymptom[foundIndex].symptom!!.weight)
+                    jsonObjectOfSymptom.addProperty(listSymptom[foundIndex].symptom?.symptomName, listSymptom[foundIndex].symptom!!.weight)
                 }else {
-                    jsonObjectOfSymptom.remove(listSymptom[foundIndex].symptom!!.symptomName)
+                    jsonObjectOfSymptom.remove(listSymptom[foundIndex].symptom?.symptomName)
                 }
             }
 

@@ -61,6 +61,12 @@
                     android:drawableStart="@drawable/ic_username"
                     android:drawablePadding="4dp"
                     android:drawableTint="@color/black"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"/>
                 <EditText
                     android:id="@+id/ed_nik"
                     android:layout_width="match_parent"

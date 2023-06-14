@@ -12,4 +12,8 @@ class PatientViewModel(private val repo: HereRepository): ViewModel() {
 
     fun postCreatePredict(json: JsonObject) = repo.postCreatePredict(json)
     fun getSymptom() = repo.getSymptom()
+
+    fun getListPredict() = repo.getListPredict()
+
+    fun getPredictById(id: String) = repo.getPredictById(id)
 }

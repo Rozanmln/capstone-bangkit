@@ -55,4 +55,9 @@
     <string name="cari_keluhan">Cari Keluhan..</string>
     <string name="btn_diagnosis">Diagnosis</string>
     <string name="daftar_keluhan">Daftar Keluhan</string>
+    <string name="tab_text_1">Rekam Medis</string>
+    <string name="tab_text_2">Diagnosis Mandiri</string>
+    <string name="content_tab_home">Welcome Home</string>
+    <string name="content_tab_text">This is Tab %1$d</string>
+    <string name="searchbar_hint">Cari..</string>
 </resources>

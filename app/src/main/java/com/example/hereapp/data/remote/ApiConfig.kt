@@ -16,7 +16,7 @@ object ApiConfig {
 
     private val retrofit = Retrofit.Builder()
         .client(okHttp)
-        .baseUrl("https://strange-descent-388409.et.r.appspot.com/")
+        .baseUrl("https://here-app-ripfuystpa-uc.a.run.app/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 

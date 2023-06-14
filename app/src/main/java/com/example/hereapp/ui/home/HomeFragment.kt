@@ -1,21 +1,19 @@
 package com.example.hereapp.ui.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.hereapp.MainActivity
 import com.example.hereapp.R
 import com.example.hereapp.adapter.home.ArticleAdapter
-import com.example.hereapp.adapter.home.FeatureAdapter
 import com.example.hereapp.adapter.home.MainAdapter
 import com.example.hereapp.data.preferences.UserPreferences
 import com.example.hereapp.databinding.FragmentHomeBinding
 import com.example.hereapp.dummy.DataDummy
+import com.example.hereapp.ui.medical.patient.list.ListFragment
+import com.example.hereapp.ui.medical.patient.list.ListPatientRecordFragment
 
 class HomeFragment : Fragment() {
 
@@ -38,8 +36,23 @@ class HomeFragment : Fragment() {
 
         welcomeMessage(userPreferences.getPref().name!!)
         recyclerViewImage()
-        recyclerViewFeature()
         recyclerViewArticle()
+
+        btnToList()
+    }
+
+    private fun btnToList() {
+        binding.btnToList.setOnClickListener {
+            val fragmentManager = parentFragmentManager
+            val listPatientRecordFragment = ListPatientRecordFragment()
+            fragmentManager.popBackStack()
+            fragmentManager.beginTransaction().apply {
+                add(R.id.nav_host_fragment_activity_main, listPatientRecordFragment, ListPatientRecordFragment::class.java.simpleName)
+                addToBackStack(null)
+                commit()
+            }
+
+        }
     }
 
     private fun recyclerViewArticle() {
@@ -49,12 +62,6 @@ class HomeFragment : Fragment() {
         binding.rvArticle.adapter = ArticleAdapter(data)
     }
 
-    private fun recyclerViewFeature() {
-        val data = DataDummy.generateFeatureData()
-        binding.rvFeature.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-        binding.rvFeature.setHasFixedSize(true)
-        binding.rvFeature.adapter = FeatureAdapter(data)
-    }
 
     private fun recyclerViewImage() {
         val data = getDummyData()

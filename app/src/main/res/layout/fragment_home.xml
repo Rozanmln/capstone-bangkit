@@ -80,9 +80,9 @@
             app:layout_constraintTop_toBottomOf="@id/rv_main"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_feature"
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/btn_to_list"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/tv_feature"
             app:layout_constraintStart_toStartOf="parent"
@@ -97,7 +97,7 @@
             android:textSize="18sp"
             android:textStyle="bold"
             android:paddingTop="32dp"
-            app:layout_constraintTop_toBottomOf="@id/rv_feature"
+            app:layout_constraintTop_toBottomOf="@id/btn_to_list"
             app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
@@ -109,7 +109,7 @@
             android:background="@drawable/custom_text_view"
             android:layout_marginTop="32dp"
             android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/rv_feature"
+            app:layout_constraintTop_toBottomOf="@id/btn_to_list"
             app:layout_constraintEnd_toEndOf="parent"/>
 
         <androidx.recyclerview.widget.RecyclerView
