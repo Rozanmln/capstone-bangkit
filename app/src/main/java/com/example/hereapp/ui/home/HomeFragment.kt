@@ -6,10 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-<<<<<<< HEAD
 import androidx.recyclerview.widget.RecyclerView
-=======
->>>>>>> 84c6e5f9dc8fe91f2e85df263504e33bf9af4485
 import com.example.hereapp.R
 import com.example.hereapp.adapter.home.ArticleAdapter
 import com.example.hereapp.adapter.home.MainAdapter
@@ -43,10 +40,6 @@ class HomeFragment : Fragment() {
         userPreferences = UserPreferences(requireContext())
 
         welcomeMessage(userPreferences.getPref().name!!)
-<<<<<<< HEAD
-=======
-        recyclerViewImage()
-        recyclerViewArticle()
 
         btnToList()
     }
@@ -63,23 +56,6 @@ class HomeFragment : Fragment() {
             }
 
         }
-    }
-
-    private fun recyclerViewArticle() {
-        val data = DataDummy.generateArticleData()
-        binding.rvArticle.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-        binding.rvArticle.setHasFixedSize(true)
-        binding.rvArticle.adapter = ArticleAdapter(data)
-    }
-
-
-    private fun recyclerViewImage() {
-        val data = getDummyData()
-        binding.rvMain.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-        binding.rvMain.setHasFixedSize(true)
-        binding.rvMain.adapter = MainAdapter(data)
-
->>>>>>> 84c6e5f9dc8fe91f2e85df263504e33bf9af4485
     }
 
     private fun getDummyData(): List<String> = DataDummy.generateMainImage()
