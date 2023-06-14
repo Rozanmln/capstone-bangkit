@@ -1,8 +1,8 @@
-const tf = require("@tensorflow/tfjs");
-const combinations = require("./combinations");
-const Patient = require("../models/PatientModel");
-const { Symptoms, Predicted } = require("../models/SymptomModel");
-const { Op } = require("sequelize");
+const tf = require('@tensorflow/tfjs');
+const combinations = require('./combinations');
+const Patient = require('../models/PatientModel');
+const { Symptoms, Predicted } = require('../models/SymptomModel');
+const { Op } = require('sequelize');
 
 const predict = async (req, res) => {
   try {
@@ -11,7 +11,7 @@ const predict = async (req, res) => {
     const jsonString = JSON.stringify(jsonData);
 
     const model = await tf.loadLayersModel(
-      "https://storage.googleapis.com/here-bucket/model.json"
+      'https://storage.googleapis.com/here-bucket/model.json'
     );
 
     const arrayData = Object.values(jsonData);
@@ -54,14 +54,14 @@ const getPredict = async (req, res) => {
 
   try {
     const result = await Predicted.findAll({
-      attributes: ["prid", "symptoms", "disease", "description", "createdAt"],
+      attributes: ['prid', 'symptoms', 'disease', 'description', 'createdAt'],
       where: {
         patientId: patientId,
       },
     });
 
     if (!result) {
-      res.status(401).json({ message: "There is no Predict Record yet" });
+      res.status(401).json({ message: 'There is no Predict Record yet' });
     } else {
       res.status(200).json(result);
     }
@@ -76,28 +76,28 @@ const searchPredict = async (req, res) => {
 
   try {
     const user = await Predicted.findAll({
-      attributes: ["prid", "symptoms", "disease", "description", "createdAt"],
+      attributes: ['prid', 'symptoms', 'disease', 'description', 'createdAt'],
       where: {
         patientId: patientId,
         [Op.or]: [
           {
             symptoms: {
-              [Op.like]: "%" + input + "%",
+              [Op.like]: '%' + input + '%',
             },
           },
           {
             disease: {
-              [Op.like]: "%" + input + "%",
+              [Op.like]: '%' + input + '%',
             },
           },
           {
             description: {
-              [Op.like]: "%" + input + "%",
+              [Op.like]: '%' + input + '%',
             },
           },
           {
             precaution: {
-              [Op.like]: "%" + input + "%",
+              [Op.like]: '%' + input + '%',
             },
           },
         ],
@@ -105,7 +105,7 @@ const searchPredict = async (req, res) => {
     });
 
     if (!user) {
-      res.status(401).json({ message: "Patient not found" });
+      res.status(401).json({ message: 'Patient not found' });
     } else {
       res.status(200).json(user);
     }
@@ -121,12 +121,12 @@ const getPredictById = async (req, res) => {
   try {
     const result = await Predicted.findOne({
       attributes: [
-        "prid",
-        "symptoms",
-        "disease",
-        "description",
-        "precaution",
-        "createdAt",
+        'prid',
+        'symptoms',
+        'disease',
+        'description',
+        'precaution',
+        'createdAt',
       ],
       where: {
         [Op.and]: [{ patientId: patientId }, { prid: predictId }],
@@ -147,7 +147,7 @@ const deletePredict = async (req, res) => {
         [Op.and]: [{ patientId: patientId }, { prid: predictId }],
       },
     });
-    res.status(200).json({ msg: "Predict Record Deleted" });
+    res.status(200).json({ msg: 'Predict Record Deleted' });
   } catch (error) {
     res.status(400).json({ msg: error.message });
   }
@@ -176,7 +176,7 @@ function argMax(array) {
 
 function findObjectById(jsonObject, id) {
   for (let key in jsonObject) {
-    if (jsonObject.hasOwnProperty(key) && jsonObject[key]["id"] == id) {
+    if (jsonObject.hasOwnProperty(key) && jsonObject[key]['id'] == id) {
       return jsonObject[key];
     }
   }

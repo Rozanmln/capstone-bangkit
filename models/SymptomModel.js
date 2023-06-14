@@ -1,11 +1,11 @@
-const { Sequelize } = require("sequelize");
-const db = require("../config/Database.js");
-const Patient = require("./PatientModel.js");
+const { Sequelize } = require('sequelize');
+const db = require('../config/Database.js');
+const Patient = require('./PatientModel.js');
 
 const { DataTypes } = Sequelize;
 
 const Symptoms = db.define(
-  "symptoms",
+  'symptoms',
   {
     symptomName: {
       type: DataTypes.STRING,
@@ -29,7 +29,7 @@ const Symptoms = db.define(
 );
 
 const Predicted = db.define(
-  "predicted",
+  'predicted',
   {
     prid: {
       type: DataTypes.STRING,
@@ -88,6 +88,6 @@ const Predicted = db.define(
 );
 
 Patient.hasMany(Predicted);
-Predicted.belongsTo(Patient, { foreignKey: "patientId" });
+Predicted.belongsTo(Patient, { foreignKey: 'patientId' });
 
 module.exports = { Symptoms, Predicted };

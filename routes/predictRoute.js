@@ -1,20 +1,21 @@
-const express = require("express")
-const router = express.Router()
-const { predict,
-    getPredict,
-    searchPredict,
-    getPredictById,
-    deletePredict,
-    getSymptom
-} = require("../predict/predict")
-const { authPatient, authToken } = require("../middleware/Auth")
+const express = require('express');
+const router = express.Router();
+const {
+  predict,
+  getPredict,
+  searchPredict,
+  getPredictById,
+  deletePredict,
+  getSymptom,
+} = require('../predict/predict');
+const { authPatient, authToken } = require('../middleware/Auth');
 
-router.get('/symptom', authToken, authPatient, getSymptom)
+router.get('/symptom', authToken, authPatient, getSymptom);
 
-router.post('/predict', authToken, authPatient, predict)
-router.get('/predict', authToken, authPatient, getPredict)
-router.get('/searchPredict', authToken, authPatient, searchPredict)
-router.get('/predict/:id', authToken, authPatient, getPredictById)
-router.delete('/predict/:id', authToken, authPatient, deletePredict)
+router.post('/predict', authToken, authPatient, predict);
+router.get('/predict', authToken, authPatient, getPredict);
+router.get('/searchPredict', authToken, authPatient, searchPredict);
+router.get('/predict/:id', authToken, authPatient, getPredictById);
+router.delete('/predict/:id', authToken, authPatient, deletePredict);
 
-module.exports = router
+module.exports = router;
