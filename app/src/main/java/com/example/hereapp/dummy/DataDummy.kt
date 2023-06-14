@@ -193,17 +193,17 @@ object DataDummy {
         return list
     }
 
-    fun generateFeatureData(): ArrayList<DataFeature> {
-        val list = ArrayList<DataFeature>()
-
-        for(i in 0..3) {
-            val data = DataFeature (
-                "https://cdn-icons-png.flaticon.com/512/809/809957.png",
-                "Feature name")
-            list.add(data)
-        }
-        return list
-    }
+//    fun generateFeatureData(): ArrayList<DataFeature> {
+//        val list = ArrayList<DataFeature>()
+//
+//        for(i in 0..3) {
+//            val data = DataFeature (
+//                "https://cdn-icons-png.flaticon.com/512/809/809957.png",
+//                "Feature name")
+//            list.add(data)
+//        }
+//        return list
+//    }
 
     fun generateArticleData(): ArrayList<DataArticle> {
         val list = ArrayList<DataArticle>()

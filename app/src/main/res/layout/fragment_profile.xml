@@ -4,90 +4,132 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#199A8E"
+    android:background="#ECECEC"
     tools:context=".ui.profile.ProfileFragment">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/iv_profile"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/ic_person"
-        app:civ_border_width="3dp"
-        app:civ_border_color="@color/white"
-        android:layout_marginTop="32dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/iv_edit"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_marginEnd="16dp"
-        android:src="@drawable/ic_edit"
-        app:civ_border_color="@color/black"
-        app:civ_border_width="3dp"
-        app:layout_constraintBottom_toBottomOf="@id/iv_profile"
-        app:layout_constraintEnd_toEndOf="@id/iv_profile" />
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:layout_marginTop="128dp"
-        android:padding="16dp"
-        android:background="@drawable/custom_background"
-        app:layout_constraintTop_toBottomOf="@id/iv_profile"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/kelola_profile"
-            android:padding="16dp"
-            android:gravity="center_vertical"
-            style="@style/MaterialAlertDialog.Material3"
-            app:drawableStartCompat="@drawable/ic_person"
-            app:drawableEndCompat="@drawable/ic_panah"
-            app:drawableTint="@color/black"
-            android:drawablePadding="8dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/address"
-            android:gravity="center_vertical"
-            android:padding="16dp"
-            style="@style/MaterialAlertDialog.Material3"
-            app:drawableStartCompat="@drawable/ic_address"
-            app:drawableEndCompat="@drawable/ic_panah"
-            app:drawableTint="@color/black"
-            android:drawablePadding="8dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/pengaturan_aplikasi"
-            android:padding="16dp"
-            android:gravity="center_vertical"
-            style="@style/MaterialAlertDialog.Material3"
-            app:drawableStartCompat="@drawable/ic_setting"
-            app:drawableEndCompat="@drawable/ic_panah"
-            app:drawableTint="@color/black"
-            android:drawablePadding="8dp"/>
-        <TextView
-            android:id="@+id/btn_logout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/logout"
-            android:padding="16dp"
-            android:gravity="center_vertical"
-            style="@style/MaterialAlertDialog.Material3"
-            android:textColor="#BC2424"
-            app:drawableStartCompat="@drawable/ic_logout"
-            app:drawableEndCompat="@drawable/ic_panah"
-            app:drawableTint="@color/black"
-            android:drawablePadding="8dp" />
-    </LinearLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/top_background" />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView"
+                    app:srcCompat="@drawable/profile" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PatientName"
+                    android:layout_marginTop="16dp"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@+id/imageView2"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginTop="36dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/button3"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="32dp"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        style="@android:style/Widget.Button"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/btn_background_1"
+                        android:drawableStart="@drawable/ic_3"
+                        android:drawablePadding="20dp"
+                        android:paddingStart="20dp"
+                        android:text="Persoanl Information"
+                        android:textAlignment="viewStart" />
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/button4"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="10dp"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        style="@android:style/Widget.Button"
+                        android:layout_marginEnd="32dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/btn_background_1"
+                        android:drawableStart="@drawable/ic_4"
+                        android:drawablePadding="20dp"
+                        android:paddingStart="20dp"
+                        android:text="Notification"
+                        android:textAlignment="viewStart" />
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/button5"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="32dp"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        style="@android:style/Widget.Button"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/btn_background_1"
+                        android:drawableStart="@drawable/ic_1"
+                        android:drawablePadding="20dp"
+                        android:paddingStart="20dp"
+                        android:text="Settings"
+                        android:textAlignment="viewStart" />
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_logout"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        style="@style/MaterialAlertDialog.Material3"
+                        android:background="@drawable/btn_background_logout"
+                        android:layout_marginEnd="32dp"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/logout"
+                        android:textColor="#ffffff"
+                        android:textStyle="bold"
+                        android:textSize="18sp"/>
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

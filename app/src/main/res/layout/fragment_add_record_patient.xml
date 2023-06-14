@@ -4,14 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
+    android:background="@color/grey"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.medical.patient.AddRecordPatientFragment">
 
     <EditText
         android:id="@+id/edt_search"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/custom_edit_text"
+        android:layout_height="50dp"
+        android:background="@drawable/white_background"
         android:inputType="text"
         android:drawableStart="@drawable/ic_search"
         android:hint="@string/cari_keluhan"
@@ -42,6 +43,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/daftar_keluhan"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:fontFamily="@font/googlesans_bold"
                 android:gravity="center"
                 style="@style/MaterialAlertDialog.Material3"
                 android:textSize="20sp"/>

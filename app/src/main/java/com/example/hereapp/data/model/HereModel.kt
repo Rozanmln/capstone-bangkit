@@ -14,7 +14,7 @@ data class LoginResponse(
     val token: String
 )
 data class DataFeature(
-    val imageUrl: String,
+    val imageUrl: Int,
     val description: String
 )
 
