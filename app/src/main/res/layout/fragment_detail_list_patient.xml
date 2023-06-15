@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:padding="16dp"
+    android:background="@color/grey"
     tools:context=".ui.medical.patient.list.DetailListPatientFragment"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -82,6 +83,7 @@
                 android:gravity="fill_vertical"
                 style="@style/MaterialAlertDialog.Material3"
                 android:lineSpacingExtra="2dp"
+                android:layout_margin="12dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:text="@string/lorem"/>
@@ -110,6 +112,7 @@
             <TextView
                 android:id="@+id/tv_diagnosis"
                 android:padding="16dp"
+                android:layout_margin="12dp"
                 android:background="@drawable/custom_edit_text"
                 android:gravity="fill_vertical"
                 style="@style/MaterialAlertDialog.Material3"

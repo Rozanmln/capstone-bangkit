@@ -3,7 +3,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="title_medical_record">Medical Record</string>
+    <string name="title_medical_record">Medical</string>
     <string name="title_profile">Profile</string>
     <string name="welcome_message">Hello, %s !</string>
     <string name="notification">Notification</string>

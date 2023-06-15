@@ -43,6 +43,7 @@
                     android:textAllCaps="true"
                     android:textSize="20sp"
                     android:textStyle="bold"
+                    android:fontFamily="@font/googlesans_bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/imageView" />
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -101,7 +102,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginStart="12dp"
                 android:layout_marginEnd="12dp">
 
@@ -121,10 +122,10 @@
 
                         <ImageView
                             android:id="@+id/fitur1"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
                             android:layout_margin="16dp"
-                            android:src="@drawable/medicine"
+                            android:src="@drawable/medical_history"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -159,10 +160,10 @@
 
                         <ImageView
                             android:id="@+id/fitur_2"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
                             android:layout_margin="16dp"
-                            android:src="@drawable/pills"
+                            android:src="@drawable/medicine"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -175,7 +176,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:gravity="center"
-                        android:text="TextView"
+                        android:text="Medicine"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
@@ -197,8 +198,8 @@
 
                         <ImageView
                             android:id="@+id/fitur_3"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
                             android:layout_margin="16dp"
                             android:src="@drawable/cardiogram"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -213,7 +214,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:gravity="center"
-                        android:text="TextView"
+                        android:text="Cardiogram"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
@@ -240,7 +241,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="See All"
-                    android:textColor="@color/black"
+                    android:textColor="@color/teal_700"
                     android:textStyle="bold"/>
 
             </LinearLayout>
@@ -254,8 +255,8 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="24dp"
-                    android:layout_marginEnd="12dp"
-                    android:layout_weight="0.5"
+                    android:layout_marginEnd="24dp"
+                    android:layout_weight="1"
                     android:background="@drawable/white_background"
                     android:orientation="vertical">
 
@@ -275,8 +276,8 @@
 
                             <ImageView
                                 android:id="@+id/imageView2"
-                                android:layout_width="35dp"
-                                android:layout_height="35dp"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
                                 android:layout_margin="10dp"
                                 android:src="@drawable/stethoscope"
                                 app:layout_constraintBottom_toBottomOf="parent"
@@ -323,6 +324,8 @@
                         android:layout_marginEnd="24dp"
                         android:layout_marginBottom="24dp"/>
                 </LinearLayout>
+
+
             </LinearLayout>
 
         </LinearLayout>

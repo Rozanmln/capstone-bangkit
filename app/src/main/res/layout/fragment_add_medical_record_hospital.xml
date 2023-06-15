@@ -128,7 +128,13 @@
                     android:layout_height="wrap_content"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:background="@color/white"
+<<<<<<< HEAD
                     android:hint="@string/anda_mengidap">
+=======
+                    android:layout_marginBottom="10dp"
+                    android:hint="@string/anda_mengidap"
+                    app:hintTextColor="@color/design_default_color_primary">
+>>>>>>> 1f071ff1bd8b9d879932b351d9180dfe05bebb98
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edt_diagnosis"
                         android:layout_width="match_parent"
