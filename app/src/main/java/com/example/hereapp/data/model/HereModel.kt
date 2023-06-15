@@ -102,12 +102,6 @@ data class InputSymptom(
     val symptom: Symptom? = null
 )
 
-data class ListPredict(
-
-    @field:SerializedName("Response")
-    val response: List<Predict>
-)
-
 data class Predict(
 
     @field:SerializedName("symptoms")

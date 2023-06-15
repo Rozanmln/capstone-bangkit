@@ -2,6 +2,8 @@ package com.example.hereapp.ui.medical.patient.list
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 
 import androidx.fragment.app.Fragment
@@ -45,7 +47,34 @@ class ListFragment : Fragment() {
         patientViewModel = ViewModelProvider(this, factory)[PatientViewModel::class.java]
 
         showRecyclerView()
+        searchPredict()
 
+    }
+
+    private fun searchPredict() {
+        binding.edtSearch.addTextChangedListener(object: TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                if(list.isNotEmpty()) {
+                    val newList = list.filter {
+                        it.patientName.contains(p0.toString(), ignoreCase = true)
+                    }
+                    val adapter = RecordHospitalAdapter(newList as ArrayList<MedicalRecord>)
+                    binding.rvRecord.adapter = adapter
+                    toDetail(recordHospitalAdapter = adapter)
+                }else if(listPredict.isNotEmpty()) {
+                    val newList = listPredict.filter {
+                        it.symptoms.contains(p0.toString(), ignoreCase = true)
+                    }
+                    val adapter = PredictAdapter(newList as ArrayList<Predict>)
+                    binding.rvRecord.adapter = adapter
+                    toDetail(predictAdapter = adapter)
+                }
+            }
+
+            override fun afterTextChanged(p0: Editable?) {}
+        })
     }
 
     private fun showRecyclerView() {
@@ -66,6 +95,7 @@ class ListFragment : Fragment() {
                             val recordHospitalAdapter = RecordHospitalAdapter(list)
                             binding.rvRecord.adapter = recordHospitalAdapter
                             toDetail(recordHospitalAdapter = recordHospitalAdapter)
+                            searchPredict()
                         }
                         is Result.Loading -> {
                         }
@@ -93,10 +123,6 @@ class ListFragment : Fragment() {
                 }
             }
         }
-    }
-
-    private fun showText(text: String) {
-        Toast.makeText(requireActivity(), text, Toast.LENGTH_SHORT).show()
     }
 
     private fun toDetail(recordHospitalAdapter: RecordHospitalAdapter? = null, predictAdapter: PredictAdapter? = null) {

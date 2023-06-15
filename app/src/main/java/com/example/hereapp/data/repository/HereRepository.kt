@@ -321,5 +321,30 @@ class HereRepository(private val pref: UserPreferences, private val apiService: 
             emit(Result.Error(e.message.toString()))
         }
     }
+    fun deletePredict(id: String): LiveData<Result<Response>> = liveData {
+        val token = "Bearer ${pref.getPref().token}"
+        emit(Result.Loading)
+        try {
+            val response = apiService
+                .deletePredict(token, id)
+            emit(Result.Success(response))
+        } catch (e: Exception) {
+            Log.d("getPredictById", e.message.toString())
+            emit(Result.Error(e.message.toString()))
+        }
+    }
+
+    fun getSearchPredict(query: String): LiveData<Result<List<Predict>>> = liveData {
+        val token = "Bearer ${pref.getPref().token}"
+        emit(Result.Loading)
+        try {
+            val response = apiService
+                .getSearchPredict(token, query)
+            emit(Result.Success(response))
+        } catch (e: Exception) {
+            Log.d("getPredictById", e.message.toString())
+            emit(Result.Error(e.message.toString()))
+        }
+    }
 }
 

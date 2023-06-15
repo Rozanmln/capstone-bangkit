@@ -51,8 +51,7 @@
                     android:background="@color/white"
                     app:startIconDrawable="@drawable/ic_username"
                     app:startIconTint="@color/black"
-                    android:hint="@string/nama_patient"
-                    app:hintTextColor="@color/design_default_color_primary">
+                    android:hint="@string/nama_patient">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/ed_name"
                     android:layout_width="match_parent"
@@ -74,8 +73,7 @@
                     android:background="@color/white"
                     app:startIconDrawable="@drawable/ic_nik"
                     app:startIconTint="@color/black"
-                    android:hint="@string/nik"
-                    app:hintTextColor="@color/design_default_color_primary">
+                    android:hint="@string/nik">
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/ed_nik"
                         android:layout_width="match_parent"
@@ -115,8 +113,7 @@
                     android:layout_height="wrap_content"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:background="@color/white"
-                    android:hint="@string/sakit"
-                    app:hintTextColor="@color/design_default_color_primary">
+                    android:hint="@string/sakit">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edt_keluhan"
@@ -131,8 +128,7 @@
                     android:layout_height="wrap_content"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:background="@color/white"
-                    android:hint="@string/anda_mengidap"
-                    app:hintTextColor="@color/design_default_color_primary">
+                    android:hint="@string/anda_mengidap">
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edt_diagnosis"
                         android:layout_width="match_parent"
@@ -201,8 +197,7 @@
                     android:layout_height="wrap_content"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:background="@color/white"
-                    android:hint="@string/sebaiknya_anda"
-                    app:hintTextColor="@color/design_default_color_primary">
+                    android:hint="@string/sebaiknya_anda">
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edt_saran"
                         android:layout_width="match_parent"

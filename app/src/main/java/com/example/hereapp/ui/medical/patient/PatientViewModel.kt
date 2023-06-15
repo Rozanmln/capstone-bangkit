@@ -16,4 +16,8 @@ class PatientViewModel(private val repo: HereRepository): ViewModel() {
     fun getListPredict() = repo.getListPredict()
 
     fun getPredictById(id: String) = repo.getPredictById(id)
+
+    fun deletePredict(id: String) = repo.deletePredict(id)
+
+    fun getSearchPredict(query: String) = repo.getSearchPredict(query)
 }

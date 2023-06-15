@@ -5,16 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.hereapp.R
-import com.example.hereapp.adapter.home.ArticleAdapter
-import com.example.hereapp.adapter.home.MainAdapter
-import com.example.hereapp.data.model.DataFeature
 import com.example.hereapp.data.preferences.UserPreferences
 import com.example.hereapp.databinding.FragmentHomeBinding
-import com.example.hereapp.dummy.DataDummy
-import com.example.hereapp.ui.medical.patient.list.ListFragment
+import com.example.hereapp.ui.medical.hospital.RecordHospitalFragment
 import com.example.hereapp.ui.medical.patient.list.ListPatientRecordFragment
 
 class HomeFragment : Fragment() {
@@ -22,9 +16,6 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private lateinit var userPreferences: UserPreferences
     private val binding get() = _binding!!
-
-    private lateinit var recyclerView: RecyclerView
-    private val list = ArrayList<DataFeature>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,24 +32,38 @@ class HomeFragment : Fragment() {
 
         welcomeMessage(userPreferences.getPref().name!!)
 
-        btnToList()
-    }
-
-    private fun btnToList() {
         binding.btnToList.setOnClickListener {
-            val fragmentManager = parentFragmentManager
-            val listPatientRecordFragment = ListPatientRecordFragment()
-            fragmentManager.popBackStack()
-            fragmentManager.beginTransaction().apply {
-                add(R.id.nav_host_fragment_activity_main, listPatientRecordFragment, ListPatientRecordFragment::class.java.simpleName)
-                addToBackStack(null)
-                commit()
+            if(userPreferences.getPref().role == 1) {
+                btnToList()
+            }else {
+                toMedical()
             }
-
         }
     }
 
-    private fun getDummyData(): List<String> = DataDummy.generateMainImage()
+    private fun toMedical() {
+        val fragmentManager = parentFragmentManager
+        val recordHospitalFragment = RecordHospitalFragment()
+
+        fragmentManager.beginTransaction().apply {
+            setReorderingAllowed(true)
+            replace(R.id.nav_host_fragment_activity_main, recordHospitalFragment, RecordHospitalFragment::class.java.simpleName)
+            addToBackStack(null)
+            commit()
+        }
+    }
+
+    private fun btnToList() {
+        val fragmentManager = parentFragmentManager
+        val listPatientRecordFragment = ListPatientRecordFragment()
+        fragmentManager.popBackStack()
+        fragmentManager.beginTransaction().apply {
+            add(R.id.nav_host_fragment_activity_main, listPatientRecordFragment, ListPatientRecordFragment::class.java.simpleName)
+            addToBackStack(null)
+            commit()
+        }
+    }
+
     private fun welcomeMessage(name: String) {
         binding.tvWelcomeName.text = String.format(resources.getString(R.string.welcome_message), name)
     }
