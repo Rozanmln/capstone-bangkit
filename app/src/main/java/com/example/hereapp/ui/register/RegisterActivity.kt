@@ -85,9 +85,7 @@ class RegisterActivity : AppCompatActivity() {
                         finish()
                     }
                 }
-                is Result.Loading -> {
-                    showLoading(true)
-                }
+                is Result.Loading -> {showLoading(true)}
                 is Result.Error -> {
                     showLoading(false)
                     showText(it.error)
@@ -107,9 +105,7 @@ class RegisterActivity : AppCompatActivity() {
                       finish()
                   }
               }
-              is Result.Loading -> {
-                  showLoading(true)
-              }
+              is Result.Loading -> { showLoading(true) }
               is Result.Error -> {
                   showText(it.error)
                   showLoading(false)

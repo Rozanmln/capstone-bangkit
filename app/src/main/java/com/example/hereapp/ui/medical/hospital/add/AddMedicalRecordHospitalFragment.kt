@@ -35,7 +35,7 @@ class AddMedicalRecordHospitalFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        showLoading(true)
         factory = ViewModelFactory.getInstance(requireActivity())
         addMedicalRecordHospitalViewModel = ViewModelProvider(this, factory)[AddMedicalRecordHospitalViewModel::class.java]
 
@@ -51,6 +51,11 @@ class AddMedicalRecordHospitalFragment : Fragment() {
             }
         }
         submit()
+    }
+
+    private fun showLoading(state: Boolean) {
+        if(state) binding.progressBar.visibility = View.VISIBLE
+        else binding.progressBar.visibility = View.GONE
     }
 
     private fun submit() {
@@ -82,11 +87,13 @@ class AddMedicalRecordHospitalFragment : Fragment() {
         addMedicalRecordHospitalViewModel.patchEditMedicalRecord(id, request).observe(requireActivity()) {
             when(it) {
                 is Result.Success -> {
+                    showLoading(false)
                     showText(it.data.msg)
                     backToListMedRecord()
                 }
-                is Result.Loading -> {}
+                is Result.Loading -> {showLoading(true)}
                 is Result.Error -> {
+                    showLoading(false)
                     showText(it.error)
                 }
             }
@@ -97,11 +104,14 @@ class AddMedicalRecordHospitalFragment : Fragment() {
         addMedicalRecordHospitalViewModel.postCreateMedicalRecord(request).observe(requireActivity()) {
             when(it) {
                 is Result.Success -> {
+                    showLoading(true)
                     showText(it.data.msg)
                     backToListMedRecord()
+                    showLoading(false)
                 }
-                is Result.Loading -> {}
+                is Result.Loading -> {showLoading(true)}
                 is Result.Error -> {
+                    showLoading(false)
                     showText(it.error)
                 }
             }
@@ -111,13 +121,14 @@ class AddMedicalRecordHospitalFragment : Fragment() {
     private fun backToListMedRecord() {
         val fragmentManager = parentFragmentManager
         val recordHospital = RecordHospitalFragment()
-
+        showLoading(true)
         fragmentManager.beginTransaction().apply {
             replace(R.id.nav_host_fragment_activity_main, recordHospital, RecordHospitalFragment::class.java.simpleName)
             setReorderingAllowed(true)
             addToBackStack(null)
             commit()
         }
+        showLoading(false)
     }
 
     private fun showText(text: String) {

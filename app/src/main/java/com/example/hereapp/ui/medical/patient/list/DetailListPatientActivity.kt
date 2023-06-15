@@ -39,7 +39,12 @@ class DetailListPatientActivity : AppCompatActivity() {
             binding.btnDelete.visibility = View.GONE
         }
 
+        showLoading(false)
+    }
 
+    private fun showLoading(state: Boolean) {
+        if(state) binding.progressBar.visibility = View.VISIBLE
+        else binding.progressBar.visibility = View.GONE
     }
 
 
@@ -49,10 +54,12 @@ class DetailListPatientActivity : AppCompatActivity() {
                 patientViewModel.deletePredict(prid!!).observe(this) {
                     when(it) {
                         is Result.Success -> {
+                            showLoading(false)
                             showText(it.data.msg)
                         }
-                        is Result.Loading -> {}
+                        is Result.Loading -> {showLoading(true)}
                         is Result.Error -> {
+                            showLoading(false)
                             showText(it.error)
                         }
                     }
@@ -65,11 +72,13 @@ class DetailListPatientActivity : AppCompatActivity() {
     private fun toMedRecord() {
         val fragmentManager = supportFragmentManager
         val listFragment = ListFragment()
+        showLoading(true)
         fragmentManager.beginTransaction().apply {
             replace(R.id.nav_host_fragment_activity_main, listFragment, ListFragment::class.java.simpleName)
             addToBackStack(null)
             commit()
         }
+        showLoading(false)
     }
 
     private fun showText(text: String) {
@@ -81,10 +90,12 @@ class DetailListPatientActivity : AppCompatActivity() {
             patientViewModel.getDetailMedRecordForPatient(mrid!!).observe(this) {
                 when(it) {
                     is Result.Success -> {
+                        showLoading(false)
                         bindData(it.data)
                     }
-                    is Result.Loading -> {}
+                    is Result.Loading -> {showLoading(true)}
                     is Result.Error -> {
+                        showLoading(false)
                         showText(it.error)
                     }
                 }
@@ -93,10 +104,12 @@ class DetailListPatientActivity : AppCompatActivity() {
             patientViewModel.getPredictById(prid!!).observe(this) {
                 when(it) {
                     is Result.Success -> {
+                        showLoading(false)
                         bindDataPredict(it.data)
                     }
-                    is Result.Loading -> {}
+                    is Result.Loading -> {showLoading(true)}
                     is Result.Error -> {
+                        showLoading(false)
                         showText(it.error)
                     }
                 }

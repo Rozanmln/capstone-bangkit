@@ -48,7 +48,13 @@ class ListFragment : Fragment() {
 
         showRecyclerView()
         searchPredict()
+        showLoading(true)
 
+    }
+
+    private fun showLoading(state: Boolean) {
+        if(state) binding.progressBar.visibility = View.VISIBLE
+        else binding.progressBar.visibility = View.GONE
     }
 
     private fun searchPredict() {
@@ -89,6 +95,7 @@ class ListFragment : Fragment() {
                 patientViewModel.getListMedRecordForPatient().observe(requireActivity()) {
                     when(it) {
                         is Result.Success -> {
+                            showLoading(false)
                             list.clear()
                             list.addAll(it.data)
                             list.reverse()
@@ -97,9 +104,10 @@ class ListFragment : Fragment() {
                             toDetail(recordHospitalAdapter = recordHospitalAdapter)
                             searchPredict()
                         }
-                        is Result.Loading -> {
-                        }
+                        is Result.Loading -> {showLoading(true)}
                         is Result.Error -> {
+                            showLoading(false)
+                            showText(it.error)
                         }
                     }
                 }
@@ -108,6 +116,7 @@ class ListFragment : Fragment() {
                 patientViewModel.getListPredict().observe(requireActivity()) {
                     when(it) {
                         is Result.Success -> {
+                            showLoading(false)
                             listPredict.clear()
                             listPredict.addAll(it.data)
                             listPredict.reverse()
@@ -115,9 +124,10 @@ class ListFragment : Fragment() {
                             binding.rvRecord.adapter = predictAdapter
                             toDetail(predictAdapter = predictAdapter)
                         }
-                        is Result.Loading -> {
-                        }
+                        is Result.Loading -> {showLoading(true)}
                         is Result.Error -> {
+                            showLoading(false)
+                            showText(it.error)
                         }
                     }
                 }
@@ -125,23 +135,31 @@ class ListFragment : Fragment() {
         }
     }
 
+    private fun showText(text: String) {
+        Toast.makeText(requireActivity(), text, Toast.LENGTH_SHORT).show()
+    }
+
     private fun toDetail(recordHospitalAdapter: RecordHospitalAdapter? = null, predictAdapter: PredictAdapter? = null) {
 
         if(recordHospitalAdapter != null) {
             recordHospitalAdapter.setOnItemClickCallback(object: RecordHospitalAdapter.OnItemClickCallback {
                 override fun onItemClicked(data: MedicalRecord) {
+                    showLoading(true)
                     val intent = Intent(requireActivity(), DetailListPatientActivity()::class.java)
                     intent.putExtra(DetailListPatientActivity.MRID, data.mrid)
                     startActivity(intent)
+                    showLoading(false)
                 }
 
             })
         }
         else predictAdapter?.setOnItemClickCallback(object: PredictAdapter.OnItemClickCallback {
             override fun onItemClicked(data: Predict) {
+                showLoading(true)
                 val intent = Intent(requireActivity(), DetailListPatientActivity()::class.java)
                 intent.putExtra(DetailListPatientActivity.PRID, data.prid)
                 startActivity(intent)
+                showLoading(false)
             }
 
         })

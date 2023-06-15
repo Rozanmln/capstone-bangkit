@@ -31,7 +31,6 @@ class HomeFragment : Fragment() {
         userPreferences = UserPreferences(requireContext())
 
         welcomeMessage(userPreferences.getPref().name!!)
-
         binding.btnToList.setOnClickListener {
             if(userPreferences.getPref().role == 1) {
                 btnToList()

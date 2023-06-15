@@ -48,15 +48,18 @@ class AddRecordPatientFragment : Fragment() {
         getData()
         searchSymptom()
         btnSubmit()
+        showLoading(false)
     }
 
     private fun btnSubmit() {
         binding.btnSubmit.setOnClickListener {
+            showLoading(true)
             if(jsonObjectOfSymptom.toString() != "{}") {
                 postPredict(jsonObjectOfSymptom)
             }else {
                 showText("Masukkan Keluhan Terlebih Dahulu")
             }
+            showLoading(false)
         }
     }
 
@@ -64,10 +67,13 @@ class AddRecordPatientFragment : Fragment() {
         recordPatientViewModel.postCreatePredict(data).observe(requireActivity()) {
             when(it) {
                 is Result.Success -> {
+                    showLoading(true)
                     toDetail(it.data)
+                    showLoading(false)
                 }
-                is Result.Loading -> {}
+                is Result.Loading -> {showLoading(true)}
                 is Result.Error -> {
+                    showLoading(false)
                     showText(it.error)
                 }
             }
@@ -81,12 +87,14 @@ class AddRecordPatientFragment : Fragment() {
         val bundle = Bundle()
         bundle.putParcelable("predict", data)
         detailFragment.arguments = bundle
+        showLoading(true)
         fragmentManager.beginTransaction().apply {
             replace(R.id.nav_host_fragment_activity_main, detailFragment, DetailRecordPatientFragment::class.java.simpleName)
             setReorderingAllowed(true)
             addToBackStack(null)
             commit()
         }
+        showLoading(false)
     }
 
 
@@ -112,6 +120,7 @@ class AddRecordPatientFragment : Fragment() {
         recordPatientViewModel.getSymptom().observe(requireActivity()) {
             when(it) {
                 is Result.Success -> {
+                    showLoading(false)
                     val data = it.data
                     data.sortedBy { it.symptomName[0]}
                     setData(data)

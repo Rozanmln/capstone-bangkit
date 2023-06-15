@@ -33,11 +33,17 @@ class DetailRecordHospitalFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        showLoading(true)
         factory = ViewModelFactory.getInstance(requireActivity())
         recordHospitalViewModel = ViewModelProvider(this, factory)[RecordHospitalViewModel::class.java]
         setDetail()
         btnDelete()
 
+    }
+
+    private fun showLoading(state: Boolean) {
+        if(state) binding.progressBar.visibility = View.VISIBLE
+        else binding.progressBar.visibility = View.GONE
     }
 
     private fun btnEdit(data: MedicalRecordDetail) {
@@ -49,13 +55,14 @@ class DetailRecordHospitalFragment : Fragment() {
             bundle.putParcelable("data", data)
             bundle.putString("id", mrid)
             addMedicalRecordHospitalFragment.arguments = bundle
-
+            showLoading(true)
             fragmentManager.beginTransaction().apply {
                 replace(R.id.nav_host_fragment_activity_main, addMedicalRecordHospitalFragment, AddMedicalRecordHospitalFragment::class.java.simpleName)
                 setReorderingAllowed(true)
                 addToBackStack(null)
                 commit()
             }
+            showLoading(false)
         }
     }
 
@@ -64,13 +71,13 @@ class DetailRecordHospitalFragment : Fragment() {
             recordHospitalViewModel.deleteMedicalRecord(mrid!!).observe(requireActivity()) {
                 when(it) {
                     is Result.Success -> {
+                        showLoading(false)
                         showText(it.data.msg)
                         toMedRecord()
                     }
-                    is Result.Loading -> {
-
-                    }
+                    is Result.Loading -> {showLoading(true)}
                     is Result.Error -> {
+                        showLoading(false)
                         showText(it.error)
                     }
                 }
@@ -81,26 +88,29 @@ class DetailRecordHospitalFragment : Fragment() {
     private fun toMedRecord() {
         val fragmentManager = parentFragmentManager
         val recordHospitalFragment = RecordHospitalFragment()
+        showLoading(true)
         fragmentManager.beginTransaction().apply {
             replace(R.id.nav_host_fragment_activity_main, recordHospitalFragment, RecordHospitalFragment::class.java.simpleName)
             setReorderingAllowed(true)
             addToBackStack(null)
             commit()
         }
+        showLoading(false)
     }
 
     private fun setDetail() {
         recordHospitalViewModel.getDetail(mrid!!).observe(requireActivity()) {
             when(it) {
                 is Result.Success -> {
+                    showLoading(false)
                     bindData(it.data)
                     btnEdit(it.data)
+                    showLoading(false)
 
                 }
-                is Result.Loading -> {
-
-                }
+                is Result.Loading -> {showLoading(true)}
                 is Result.Error -> {
+                    showLoading(false)
                     showText(it.error)
                 }
             }
