@@ -61,7 +61,6 @@ class AddRecordPatientFragment : Fragment() {
     }
 
     private fun postPredict(data: JsonObject) {
-        showText(data.toString())
         recordPatientViewModel.postCreatePredict(data).observe(requireActivity()) {
             when(it) {
                 is Result.Success -> {
