@@ -45,6 +45,7 @@ class LoginActivity : AppCompatActivity() {
         if(userPreferences.getPref().isLogin == true) {
             startActivity(Intent(this@LoginActivity, MainActivity::class.java))
             finish()
+
         }
     }
 
