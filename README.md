@@ -29,5 +29,3 @@ HeRe Mobile App utilizes the following technology stack:
 - Framework: Android SDK
 - Platform and Services: Android Studio
 - Retrofit
-- Database:
-- UI/UX:
