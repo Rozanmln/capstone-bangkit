@@ -9,7 +9,7 @@ The first step we took was to find data that was suitable for our needs, then we
 Data preprocessing steps:
 1. Combine symptom data and symptom severity data by replacing all the symptoms in the disease dataset table into the weight of these symptoms
 2. Unite the symptom dataset and its weight with the disease description dataset and diseases precautions using id in the diseases column
-3. Make the combined table a combination.csv that contains 'Diseases', 'Description', and 'Precaution' column (give the link)
+3. Make the combined table a combination.csv that contains 'Diseases', 'Description', and 'Precaution' column (https://github.com/Rozanmln/capstone-bangkit/blob/Machine-Learning/combination.csv)
 4. Perform data normalization
 
 ## Modeling
