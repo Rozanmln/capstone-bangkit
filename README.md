@@ -17,6 +17,6 @@ To create our model using the Keras library from tensorflow, a model is generate
 <img width="412" alt="image" src="https://github.com/Rozanmln/capstone-bangkit/assets/84652339/a05bc4d1-396f-4ab6-a798-0b8988d70828">
 
 With the following accuracy:
-<img width="473" alt="image" src="https://github.com/Rozanmln/capstone-bangkit/assets/84652339/451f4ea8-2a79-4475-8727-bc9da70a0560">
+<img width="469" alt="image" src="https://github.com/Rozanmln/capstone-bangkit/assets/84652339/74541f33-b797-442b-aae1-8cc0cde54ca1">
 
 Once the model is ready, we convert the model into model.json format so that it can be used by cloud computing for the deployment process
