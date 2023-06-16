@@ -1,5 +1,5 @@
 # Cloud Computing
-Our task is to create Restful APIs for the app and deploy it to **Google Cloud Platform**. The service that we use is **Cloud Run** for communication between user and mobile development in medical record feature and also for machine learning prediction system and mobile development in diseases prediction feature. And also **Cloud Build** for implementation of CI/CD in our development system by developer. Using **Cloud storage** to store our machine learning model and **Cloud SQL** for our database
+Our task is to create Restful APIs for the app and deploy it to **Google Cloud Platform**. The service that we use is **Cloud Run** for communication between user and mobile development in medical record feature and also for machine learning prediction system and mobile development in diseases prediction feature. And also **Cloud Build** for implementation of CI/CD in our development system by developer. Using **Cloud storage** to store our machine learning model and **Cloud SQL** for our database   
 
 # Restful APIs
 We use **Javascript** language and **Node.js** framework to build the APIs. And also **Sequelize** library to implementing ORM (Object-Relational Mapping) in our database. Each URL will be explained below
