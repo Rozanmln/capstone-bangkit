@@ -1,5 +1,6 @@
 # HeRe (Your Health Record HeRe!)
-![logo](https://github.com/Rozanmln/capstone-bangkit/assets/63687723/aee8fcef-7d79-440a-81d2-4de172f57e03)
+![logo](https://github.com/Rozanmln/capstone-bangkit/assets/63687723/665d3dc2-355f-4782-ac95-1953a7866a02)
+
 
 ## This repository is GitHub repository for Capstone Project Bangkit 2023.
 
