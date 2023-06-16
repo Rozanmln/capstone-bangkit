@@ -1,14 +1,13 @@
-# HeRe (Your Health Record HeRe!)
-## This repository is GitHub repository for Capstone Project Bangkit 2023.
+# Mobile Development
 
-**Team ID: C23-PS395**
-**Project Themes: Human Healthcare and Living Wellbeings**
-**Title of the Project: HeRe (Your Health Record HeRe!)**
+##Features
+HeRe Mobile App includes the following features:
 
-**Team Member:**
-1. (ML) M013DSY0024 – Citra Regita Nurtalia Wahyu Santosa – IPB University
-2. (ML) M017DSX0322 – Christophe Samuel Diaz Harnanto Putra – Bandung Institute of Technology
-3. (CC) C013DSX0652 – Rozan Maulana – IPB University
-4. (CC) C241DSX3578– Rinaldy Darmawan – Mercubuana University
-5. (MD) A013DSX1006 – Albarra Zikrillah – IPB University
-6. (MD) A154DKX4946 – Tegar Iyar Lalana – Bumigora University
+User authentication and role-based access control
+Secure storage and retrieval of patient medical records
+Ability to create, update, and delete patient records
+Real-time synchronization with a central database
+Search functionality to quickly find patient records
+Integration with external systems, such as lab results or imaging systems
+Data encryption and compliance with privacy regulations
+Responsive design for seamless usage across various mobile devices
