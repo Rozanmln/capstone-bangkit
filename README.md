@@ -25,4 +25,3 @@ HeRe Mobile App utilizes the following technology stack:
 - Platform and Services: Android Studio
 - Database:
 - UI/UX:
-- Authentication: Firebase Authentication
