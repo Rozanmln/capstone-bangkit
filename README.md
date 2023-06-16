@@ -17,7 +17,7 @@ HeRe Mobile App includes the following features:
 Figma link for the mock up :
 	https://www.figma.com/file/Cx8kJursePDXSbseMpVM7g/HeRe-App?type=design&node-id=0%3A1&t=agbgOwhnIjihU8WN-1
 
-## Technology Stack
+## Tools
 HeRe Mobile App utilizes the following technology stack:
 
 - Programming Language: Kotlin, Xml
