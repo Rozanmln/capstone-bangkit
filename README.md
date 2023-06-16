@@ -5,6 +5,7 @@ Diseases Prediction is used to predict diseases that can be done independently b
 
 ## Prediction System
 The first step we took was to find data that was suitable for our needs, then we found some data, which consisted of data on diseases and their symptoms, as many as 17 symptoms, then data on disease symptoms and their weights, then descriptions of diseases and disease precautions. The data we found is in .csv format.
+https://www.kaggle.com/datasets/itachi9604/disease-symptom-description-dataset
 
 Data preprocessing steps:
 1. Combine symptom data and symptom severity data by replacing all the symptoms in the disease dataset table into the weight of these symptoms
