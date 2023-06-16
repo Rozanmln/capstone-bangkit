@@ -17,8 +17,10 @@ HeRe Mobile App includes the following features:
 Figma link for the mock up :
 	https://www.figma.com/file/Cx8kJursePDXSbseMpVM7g/HeRe-App?type=design&node-id=0%3A1&t=agbgOwhnIjihU8WN-1
 
-![Screenshot_20230615_013933](https://github.com/Rozanmln/capstone-bangkit/assets/72233920/b4a2b47f-c747-4b20-ac6f-bad32a47e5c9)![Screenshot_20230615_014051](https://github.com/Rozanmln/capstone-bangkit/assets/72233920/780b8eb2-ff80-4190-8b09-d05d1f45adf9)![Screenshot_20230615_014134](https://github.com/Rozanmln/capstone-bangkit/assets/72233920/b2ba33ee-e149-447b-a026-c43824577acc)![Screenshot_20230615_014039](https://github.com/Rozanmln/capstone-bangkit/assets/72233920/17078e85-2e92-43e1-b075-69f8bd53e102)
-
+<img src="https://github.com/Rozanmln/capstone-bangkit/assets/72233920/b4a2b47f-c747-4b20-ac6f-bad32a47e5c9" height="300px" alt="Screenshot_20230615_013933">
+<img src="https://github.com/Rozanmln/capstone-bangkit/assets/72233920/780b8eb2-ff80-4190-8b09-d05d1f45adf9" height="300px" alt="Screenshot_20230615_014051">
+<img src="https://github.com/Rozanmln/capstone-bangkit/assets/72233920/b2ba33ee-e149-447b-a026-c43824577acc" height="300px" alt="Screenshot_20230615_014134">
+<img src="https://github.com/Rozanmln/capstone-bangkit/assets/72233920/17078e85-2e92-43e1-b075-69f8bd53e102" height="300px" alt="Screenshot_20230615_014039">
 
 ## Tools
 HeRe Mobile App utilizes the following technology stack:
@@ -26,5 +28,6 @@ HeRe Mobile App utilizes the following technology stack:
 - Programming Language: Kotlin, Xml
 - Framework: Android SDK
 - Platform and Services: Android Studio
+- Retrofit
 - Database:
 - UI/UX:
