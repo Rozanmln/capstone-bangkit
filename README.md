@@ -22,6 +22,6 @@ HeRe Mobile App utilizes the following technology stack:
 
 - Programming Language: Kotlin, Xml
 - Framework: Android SDK
-- UI/UX: 
-- Database: 
-- Authentication: 
+- Platform and Services: Android Studio
+- Database:
+- UI/UX:
