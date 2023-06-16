@@ -15,7 +15,7 @@ HeRe Mobile App includes the following features:
 
 ## UI
 Figma link for the mock up :
-	https://www.figma.com/file/Cx8kJursePDXSbseMpVM7g/HeRe-App?type=design&node-id=0-1&t=SWfMA4dMqdf4ETe8-0
+	https://www.figma.com/file/Cx8kJursePDXSbseMpVM7g/HeRe-App?type=design&node-id=0%3A1&t=agbgOwhnIjihU8WN-1
 
 ## Technology Stack
 HeRe Mobile App utilizes the following technology stack:
