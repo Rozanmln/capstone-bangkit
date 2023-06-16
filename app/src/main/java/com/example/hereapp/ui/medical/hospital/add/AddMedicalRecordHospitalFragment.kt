@@ -35,7 +35,7 @@ class AddMedicalRecordHospitalFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        showLoading(true)
+        showLoading(false)
         factory = ViewModelFactory.getInstance(requireActivity())
         addMedicalRecordHospitalViewModel = ViewModelProvider(this, factory)[AddMedicalRecordHospitalViewModel::class.java]
 
