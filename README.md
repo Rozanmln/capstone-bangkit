@@ -20,8 +20,8 @@ Figma link for the mock up :
 ## Technology Stack
 HeRe Mobile App utilizes the following technology stack:
 
-Programming Language: Kotlin, Xml
-Framework: Android SDK
-UI/UX: 
-Database: 
-Authentication: 
+- Programming Language: Kotlin, Xml
+- Framework: Android SDK
+- UI/UX: 
+- Database: 
+- Authentication: 
