@@ -18,9 +18,14 @@
         app:layout_constraintEnd_toEndOf="parent"/>
     <TextView
         android:id="@+id/tv_symptom"
+<<<<<<< HEAD
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
+=======
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+>>>>>>> b5459d41f8c465568c34753cb4a415bc01297db0
         tools:text="@string/keluhan"
         android:textColor="@color/black"
         android:textSize="24sp"
