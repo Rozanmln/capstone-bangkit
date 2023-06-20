@@ -6,8 +6,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.hereapp.data.model.InputSymptom
 import com.example.hereapp.databinding.ItemSymptonBinding
 
+class DiagnosisAdapter(private val list: ArrayList<InputSymptom>) :
+    RecyclerView.Adapter<DiagnosisAdapter.ViewHolder>() {
 
-class DiagnosisAdapter(private val list: ArrayList<InputSymptom>): RecyclerView.Adapter<DiagnosisAdapter.ViewHolder>() {
     private lateinit var onItemClickCallback: OnItemClickCallback
 
     interface OnItemClickCallback {
@@ -17,7 +18,8 @@ class DiagnosisAdapter(private val list: ArrayList<InputSymptom>): RecyclerView.
     fun setOnItemClickCallback(callback: OnItemClickCallback) {
         this.onItemClickCallback = callback
     }
-    class ViewHolder(val item: ItemSymptonBinding): RecyclerView.ViewHolder(item.root) {
+
+    class ViewHolder(val item: ItemSymptonBinding) : RecyclerView.ViewHolder(item.root) {
         fun bind(data: InputSymptom) {
             item.tvSymptom.text = data.symptom!!.symptomName
             item.cbSymptom.isChecked = data.isChecked
@@ -25,7 +27,11 @@ class DiagnosisAdapter(private val list: ArrayList<InputSymptom>): RecyclerView.
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = ItemSymptonBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val view = ItemSymptonBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
         return ViewHolder(view)
     }
 
@@ -35,7 +41,11 @@ class DiagnosisAdapter(private val list: ArrayList<InputSymptom>): RecyclerView.
         val data = list[position]
         holder.bind(data)
 
-        holder.item.cbSymptom.setOnCheckedChangeListener { _, _ ->
+        holder.item.cbSymptom.setOnCheckedChangeListener(null)
+        holder.item.cbSymptom.isChecked = data.isChecked
+
+        holder.item.cbSymptom.setOnCheckedChangeListener { _, isChecked ->
+            data.isChecked = isChecked
             onItemClickCallback.onItemClicked(data)
         }
     }

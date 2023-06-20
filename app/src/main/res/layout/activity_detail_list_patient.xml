@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:padding="16dp"
+    android:background="@color/grey"
     tools:context=".ui.medical.patient.list.DetailListPatientActivity"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -17,7 +18,7 @@
             android:layout_height="wrap_content"
             android:text="@string/detail_riwayat"
             android:textSize="24sp"
-            style="@style/MaterialAlertDialog.Material3"
+            android:textColor="@color/black"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -28,129 +29,177 @@
             android:src="@drawable/ic_delete"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
-        <TextView
-            android:id="@+id/tv_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="@string/date"
-            style="@style/MaterialAlertDialog.Material3"
-            app:layout_constraintTop_toBottomOf="@id/detail_riwayat"
-            app:layout_constraintStart_toStartOf="parent"/>
 
-        <TextView
-            android:id="@+id/tv_name"
-            android:layout_width="wrap_content"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_data"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/MaterialAlertDialog.Material3"
-            android:layout_marginTop="8dp"
-            tools:text="@string/username"
-            app:layout_constraintTop_toBottomOf="@id/tv_date"
-            app:layout_constraintStart_toStartOf="parent"/>
-        <TextView
-            android:id="@+id/tv_nik"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/MaterialAlertDialog.Material3"
-            tools:text="@string/nik"
-            app:layout_constraintTop_toBottomOf="@id/tv_name"
-            app:layout_constraintStart_toStartOf="parent"/>
-        <TextView
-            android:id="@+id/keluhan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/daftar_keluhan"
-            android:layout_margin="0dp"
-            android:textSize="18sp"
-            style="@style/MaterialAlertDialog.Material3.Title.Icon"
-            app:layout_constraintTop_toBottomOf="@id/tv_nik"
+            app:cardCornerRadius="8dp"
+            android:elevation="8dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/detail_riwayat"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tv_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="@string/date"
+                    android:textColor="@color/black"/>
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="@string/username"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:id="@+id/tv_nik"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="@string/nik"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_keluhan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="20dp"
-            android:elevation="16dp"
-            app:layout_constraintTop_toBottomOf="@id/keluhan"
+            app:cardCornerRadius="8dp"
+            android:elevation="8dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/cv_data"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
-            <TextView
-                android:id="@+id/tv_keluhan"
-                android:padding="16dp"
-                android:background="@drawable/custom_edit_text"
-                android:gravity="fill_vertical"
-                style="@style/MaterialAlertDialog.Material3"
-                android:lineSpacingExtra="2dp"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="@string/lorem"/>
-        </androidx.cardview.widget.CardView>
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="16dp"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/keluhan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/daftar_keluhan"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:gravity="center"/>
 
-        <TextView
-            android:id="@+id/diagonosis"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/hasil_diagnosis"
-            android:paddingTop="16dp"
-            android:textSize="18sp"
-            style="@style/MaterialAlertDialog.Material3.Title.Icon"
-            app:layout_constraintTop_toBottomOf="@id/cv_keluhan"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/tv_keluhan"
+                    android:justificationMode="inter_word"
+                    android:lineSpacingExtra="2dp"
+                    android:textColor="@color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="@string/lorem"/>
+
+            </LinearLayout>
+           </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_diagnosis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="20dp"
-            android:elevation="16dp"
-            app:layout_constraintTop_toBottomOf="@id/diagonosis"
-            app:layout_constraintStart_toStartOf="parent">
-            <TextView
-                android:id="@+id/tv_diagnosis"
-                android:padding="16dp"
-                android:background="@drawable/custom_edit_text"
-                android:gravity="fill_vertical"
-                style="@style/MaterialAlertDialog.Material3"
-                android:lineSpacingExtra="2dp"
+            app:cardCornerRadius="8dp"
+            android:elevation="8dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/cv_keluhan"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="@string/lorem"/>
-        </androidx.cardview.widget.CardView>
+                android:padding="16dp"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/diagnosis"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hasil_diagnosis"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:gravity="center"/>
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
 
-        <TextView
-            android:id="@+id/saran"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/saran"
-            android:paddingTop="16dp"
-            android:textSize="18sp"
-            style="@style/MaterialAlertDialog.Material3.Title.Icon"
-            app:layout_constraintTop_toBottomOf="@id/cv_diagnosis"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+                <TextView
+                    android:id="@+id/tv_diagnosis"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:lineSpacingExtra="2dp"
+                    android:textColor="@color/black"
+                    tools:text="@string/lorem" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_saran"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="20dp"
-            android:elevation="16dp"
-            app:layout_constraintTop_toBottomOf="@id/saran"
-            app:layout_constraintStart_toStartOf="parent">
-            <TextView
-                android:id="@+id/tv_saran"
-                android:padding="16dp"
-                android:background="@drawable/custom_edit_text"
-                android:gravity="fill_vertical"
-                style="@style/MaterialAlertDialog.Material3"
-                android:lineSpacingExtra="2dp"
+            app:cardCornerRadius="8dp"
+            android:elevation="8dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/cv_diagnosis"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="@string/lorem"/>
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="16dp"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/saran"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/saran"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:gravity="center"/>
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/tv_saran"
+                    android:gravity="fill_vertical"
+                    android:lineSpacingExtra="2dp"
+                    android:textColor="@color/black"
+                    android:justificationMode="inter_word"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="@string/lorem"/>
+
+            </LinearLayout>
         </androidx.cardview.widget.CardView>
 
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

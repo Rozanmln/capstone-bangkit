@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:paddingTop="4dp"
     android:paddingStart="16dp"
@@ -11,20 +11,38 @@
 
     <CheckBox
         android:id="@+id/cb_symptom"
+<<<<<<< HEAD
         android:layout_width="24dp"
         android:layout_height="0dp"
+=======
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+>>>>>>> 3f6765eb33c819e689df8a44aa8b8d1e7c354735
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
     <TextView
         android:id="@+id/tv_symptom"
+<<<<<<< HEAD
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         tools:text="@string/keluhan"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:gravity="center"
+=======
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:text="@string/keluhan"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="start"
+        android:layout_marginStart="4dp"
+>>>>>>> 3f6765eb33c819e689df8a44aa8b8d1e7c354735
         app:layout_constraintTop_toTopOf="@id/cb_symptom"
-        app:layout_constraintStart_toEndOf="@id/cb_symptom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/cb_symptom"
         app:layout_constraintBottom_toBottomOf="@id/cb_symptom"/>
 
     <com.google.android.material.divider.MaterialDivider

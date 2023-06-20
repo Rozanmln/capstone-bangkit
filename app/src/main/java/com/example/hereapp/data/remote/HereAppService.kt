@@ -124,6 +124,7 @@ interface HereAppService {
         @Body request: MedicalRecordRequest
     ): Response
 
+
     @DELETE("medRecord/{id}")
     suspend fun deleteMedicalRecord(
         @Header("Authorization") token: String,
@@ -153,5 +154,16 @@ interface HereAppService {
         @Path("id") id: String
     ): Predict
 
+    @DELETE("predict/{id}")
+    suspend fun deletePredict(
+        @Header("Authorization") token: String,
+        @Path("id") id: String
+    ): Response
+
+    @GET("searchPredict/{id}")
+    suspend fun getSearchPredict(
+        @Header("Authorization") token: String,
+        @Path("query") query: String
+    ): List<Predict>
 
 }

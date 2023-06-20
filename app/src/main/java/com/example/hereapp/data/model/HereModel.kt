@@ -14,7 +14,7 @@ data class LoginResponse(
     val token: String
 )
 data class DataFeature(
-    val imageUrl: String,
+    val imageUrl: Int,
     val description: String
 )
 
@@ -100,12 +100,6 @@ data class Symptom(
 data class InputSymptom(
     var isChecked: Boolean = false,
     val symptom: Symptom? = null
-)
-
-data class ListPredict(
-
-    @field:SerializedName("Response")
-    val response: List<Predict>
 )
 
 data class Predict(

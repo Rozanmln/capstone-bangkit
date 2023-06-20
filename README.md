@@ -1,14 +1,31 @@
-# HeRe (Your Health Record HeRe!)
-## This repository is GitHub repository for Capstone Project Bangkit 2023.
+# Mobile Development
 
-**Team ID: C23-PS395**
-**Project Themes: Human Healthcare and Living Wellbeings**
-**Title of the Project: HeRe (Your Health Record HeRe!)**
+## Features
+HeRe Mobile App includes the following features:
 
-**Team Member:**
-1. (ML) M013DSY0024 – Citra Regita Nurtalia Wahyu Santosa – IPB University
-2. (ML) M017DSX0322 – Christophe Samuel Diaz Harnanto Putra – Bandung Institute of Technology
-3. (CC) C013DSX0652 – Rozan Maulana – IPB University
-4. (CC) C241DSX3578– Rinaldy Darmawan – Mercubuana University
-5. (MD) A013DSX1006 – Albarra Zikrillah – IPB University
-6. (MD) A154DKX4946 – Tegar Iyar Lalana – Bumigora University
+- User authentication and role-based access control
+- Secure storage and retrieval of patient medical records
+- Ability to create, update, and delete patient records
+- Real-time synchronization with a central database
+- Search functionality to quickly find patient records
+- Integration with external systems, such as lab results or imaging systems
+- Data encryption and compliance with privacy regulations
+- self Diagnosis for a simple symtoms
+- Responsive design for seamless usage across various mobile devices
+
+## UI
+Figma link for the mock up :
+	https://www.figma.com/file/Cx8kJursePDXSbseMpVM7g/HeRe-App?type=design&node-id=0%3A1&t=agbgOwhnIjihU8WN-1
+
+<img src="https://github.com/Rozanmln/capstone-bangkit/assets/72233920/b4a2b47f-c747-4b20-ac6f-bad32a47e5c9" height="300px" alt="Screenshot_20230615_013933">
+<img src="https://github.com/Rozanmln/capstone-bangkit/assets/72233920/780b8eb2-ff80-4190-8b09-d05d1f45adf9" height="300px" alt="Screenshot_20230615_014051">
+<img src="https://github.com/Rozanmln/capstone-bangkit/assets/72233920/b2ba33ee-e149-447b-a026-c43824577acc" height="300px" alt="Screenshot_20230615_014134">
+<img src="https://github.com/Rozanmln/capstone-bangkit/assets/72233920/17078e85-2e92-43e1-b075-69f8bd53e102" height="300px" alt="Screenshot_20230615_014039">
+
+## Tools
+HeRe Mobile App utilizes the following technology stack:
+
+- Programming Language: Kotlin, Xml
+- Framework: Android SDK
+- Platform and Services: Android Studio
+- Retrofit

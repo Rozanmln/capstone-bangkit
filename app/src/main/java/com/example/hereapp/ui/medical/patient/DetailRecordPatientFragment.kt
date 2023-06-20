@@ -5,9 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.hereapp.data.model.ObjectWithId
 import com.example.hereapp.data.model.ResponsePredict
-import com.example.hereapp.data.preferences.UserPreferences
 import com.example.hereapp.databinding.FragmentDetailRecordPatientBinding
 
 
@@ -24,7 +22,14 @@ class DetailRecordPatientFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        showLoading(true)
         getData()
+        showLoading(false)
+    }
+
+    private fun showLoading(state: Boolean) {
+        if(state) binding.progressBar.visibility = View.VISIBLE
+        else binding.progressBar.visibility = View.GONE
     }
 
     private fun getData() {

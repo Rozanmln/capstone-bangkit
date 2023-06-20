@@ -41,6 +41,7 @@ class RecordHospitalFragment : Fragment() {
         factory = ViewModelFactory.getInstance(requireActivity())
         recordHospitalViewModel = ViewModelProvider(this, factory)[RecordHospitalViewModel::class.java]
 
+        showLoading(true)
         showRecyclerView()
         addMedicalRecord()
 
@@ -90,12 +91,14 @@ class RecordHospitalFragment : Fragment() {
             val addMedicalRecordHospitalFragment = AddMedicalRecordHospitalFragment()
             val fragmentManager = parentFragmentManager
 
+            showLoading(true)
             fragmentManager.beginTransaction().apply {
                 replace(R.id.nav_host_fragment_activity_main, addMedicalRecordHospitalFragment, AddMedicalRecordHospitalFragment::class.java.simpleName)
                 setReorderingAllowed(true)
                 addToBackStack(null)
                 commit()
             }
+            showLoading(false)
         }
     }
 
@@ -121,9 +124,7 @@ class RecordHospitalFragment : Fragment() {
                     if(list.isEmpty()) isMedicalRecordEmpty(true)
                     else isMedicalRecordEmpty(false)
                 }
-                is Result.Loading -> {
-                    showLoading(true)
-                }
+                is Result.Loading -> {showLoading(true)}
                 is Result.Error -> {
                     showLoading(false)
                     showText(it.error)
@@ -144,12 +145,14 @@ class RecordHospitalFragment : Fragment() {
                 val detailRecordHospitalFragment = DetailRecordHospitalFragment()
                 detailRecordHospitalFragment.mrid = data.mrid
 
+                showLoading(true)
                 fragmentManager.beginTransaction().apply {
                     replace(R.id.nav_host_fragment_activity_main, detailRecordHospitalFragment, DetailRecordHospitalFragment::class.java.simpleName)
                     setReorderingAllowed(true)
                     addToBackStack(null)
                     commit()
                 }
+                showLoading(false)
             }
 
         })

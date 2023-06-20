@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
+    android:background="@color/grey"
     tools:context=".ui.register.RegisterActivity">
 
     <TextView
@@ -14,9 +15,8 @@
         android:text="@string/create_new_account"
         android:layout_marginBottom="64dp"
         android:textStyle="bold"
-        android:textColor="#199A8E"
+        android:textColor="@color/black"
         android:textSize="32sp"
-        style="@style/MaterialAlertDialog.Material3.Title.Text"
         android:textAlignment="center"
         android:paddingTop="16dp"
         app:layout_constraintTop_toTopOf="parent"
@@ -40,70 +40,63 @@
             android:padding="16dp"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tv_register"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/register"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="#199A8E"
-                style="@style/MaterialAlertDialog.Material3.Title.Text"/>
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:background="@color/white"
+                app:startIconDrawable="@drawable/ic_username"
+                app:startIconTint="@color/black"
+                android:hint="@string/username">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textSize="18sp"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:id="@+id/edt_username"
-                style="@style/TextAppearance.Material3.LabelMedium"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/custom_edit_text"
-                android:drawableStart="@drawable/ic_username"
-                android:drawablePadding="4dp"
-                android:drawableTint="@color/black"
-                android:hint="@string/username"
-                android:inputType="text"
-                android:textSize="18sp"
-                android:gravity="center_vertical"/>
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:background="@color/white"
+                app:startIconDrawable="@drawable/ic_email"
+                app:startIconTint="@color/black"
+                android:hint="@string/email">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:textSize="18sp"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:id="@+id/edt_email"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/custom_edit_text"
-                android:drawableStart="@drawable/ic_email"
-                android:drawablePadding="4dp"
-                android:drawableTint="@color/black"
-                android:layout_marginTop="16dp"
-                android:hint="@string/email"
-                android:textSize="18sp"
-                android:inputType="textEmailAddress"
-                android:gravity="center_vertical"/>
-
-            <EditText
-                android:id="@+id/edt_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:inputType="textPassword"
-                android:background="@drawable/custom_edit_text"
-                android:drawableStart="@drawable/ic_password"
-                style="@style/TextAppearance.Material3.LabelMedium"
-                android:drawableTint="@color/black"
-                android:drawablePadding="4dp"
-                android:textSize="18sp"
-                android:hint="@string/password"/>
-
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:background="@color/white"
+                app:startIconDrawable="@drawable/ic_password"
+                app:startIconTint="@color/black"
+                android:hint="@string/password">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:textSize="18sp"/>
+            </com.google.android.material.textfield.TextInputLayout>
             <RadioGroup
                 android:id="@+id/rg_role"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:orientation="horizontal">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/role"
-                    style="@style/MaterialAlertDialog.Material3.Title.Text"
-                    android:textColor="#199A8E"
+                    android:textColor="@color/black"
                     android:textSize="18sp"/>
 
                 <RadioButton
@@ -119,41 +112,45 @@
                     android:text="@string/patient"/>
             </RadioGroup>
 
-            <EditText
-                android:id="@+id/edt_address"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ti_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPostalAddress"
-                android:background="@drawable/custom_edit_text"
-                android:drawableStart="@drawable/ic_address"
-                style="@style/TextAppearance.Material3.LabelMedium"
-                android:layout_marginTop="16dp"
-                android:drawableTint="@color/black"
-                android:drawablePadding="4dp"
-                android:textSize="18sp"
-                android:hint="@string/address"
-                android:gravity="center_vertical"/>
-            <EditText
-                android:id="@+id/edt_nik"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:background="@color/white"
+                app:startIconDrawable="@drawable/ic_address"
+                app:startIconTint="@color/black"
+                android:hint="@string/address">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textSize="18sp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ti_nik"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:inputType="number"
-                android:background="@drawable/custom_edit_text"
-                android:drawableStart="@drawable/ic_nik"
-                style="@style/TextAppearance.Material3.LabelMedium"
-                android:drawableTint="@color/black"
-                android:drawablePadding="4dp"
-                android:textSize="18sp"
-                android:hint="@string/nik"
-                android:gravity="center_vertical"/>
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:background="@color/white"
+                app:startIconDrawable="@drawable/ic_nik"
+                app:startIconTint="@color/black"
+                android:hint="@string/nik">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_nik"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textSize="18sp"/>
+            </com.google.android.material.textfield.TextInputLayout>
             <Button
                 android:id="@+id/btn_register"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/register"
-                android:backgroundTint="#199A8E" />
+                android:text="@string/register" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -185,7 +182,7 @@
         android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/Widget.AppCompat.ProgressBar"
+        android:elevation="30dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

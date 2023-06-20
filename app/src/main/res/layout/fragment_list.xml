@@ -4,14 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/grey"
     android:padding="16dp"
     tools:context=".ui.medical.patient.list.ListFragment">
 
     <EditText
         android:id="@+id/edt_search"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/custom_edit_text"
+        android:layout_height="50dp"
+        android:background="@drawable/white_background"
         android:inputType="text"
         android:drawableStart="@drawable/ic_search"
         android:hint="@string/cari_keluhan"
@@ -25,8 +26,19 @@
         android:id="@+id/rv_record"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:paddingTop="32dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/white_background"
         app:layout_constraintTop_toBottomOf="@id/edt_search"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="30dp"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>

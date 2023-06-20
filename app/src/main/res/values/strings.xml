@@ -3,7 +3,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="title_medical_record">Medical Record</string>
+    <string name="title_medical_record">Medical</string>
     <string name="title_profile">Profile</string>
     <string name="welcome_message">Hello, %s !</string>
     <string name="notification">Notification</string>
@@ -34,6 +34,7 @@
     <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</string>
     <string name="hasil_diagnosis">Hasil Diagnosis</string>
     <string name="saran">Saran</string>
+    <string name="record">Simpan</string>
     <string name="date">19 May 2023</string>
     <string name="tambah_rekam_medis">Tambah Rekam Medis</string>
     <string name="tanggal">Tanggal</string>
@@ -60,4 +61,6 @@
     <string name="content_tab_home">Welcome Home</string>
     <string name="content_tab_text">This is Tab %1$d</string>
     <string name="searchbar_hint">Cari..</string>
+    <string name="personal">Personal Information</string>
+    <string name="empty">Rekam Medis Belum Ada</string>
 </resources>

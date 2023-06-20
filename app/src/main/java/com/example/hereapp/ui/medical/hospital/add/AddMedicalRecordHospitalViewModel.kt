@@ -8,4 +8,5 @@ import com.example.hereapp.data.repository.HereRepository
 class AddMedicalRecordHospitalViewModel(private val hereRepository: HereRepository): ViewModel() {
     fun postCreateMedicalRecord(request: MedicalRecordRequest) = hereRepository.postCreateMedicalRecord(request)
     fun patchEditMedicalRecord(id: String, request: MedicalRecordRequest) = hereRepository.patchEditMedicalRecord(id, request)
+
 }

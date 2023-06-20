@@ -3,19 +3,16 @@ package com.example.hereapp.ui.medical.patient.list
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import com.example.hereapp.MainActivity
+import com.example.hereapp.R
 import com.example.hereapp.ViewModelFactory
 import com.example.hereapp.data.model.MedicalRecordDetail
 import com.example.hereapp.data.model.Predict
 import com.example.hereapp.databinding.ActivityDetailListPatientBinding
 import com.example.hereapp.ui.medical.patient.PatientViewModel
 import com.example.hereapp.utils.Result
-import com.google.gson.JsonArray
-import com.google.gson.JsonObject
-import org.json.JSONArray
 
 class DetailListPatientActivity : AppCompatActivity() {
     var mrid: String? = null
@@ -32,23 +29,56 @@ class DetailListPatientActivity : AppCompatActivity() {
 
         factory = ViewModelFactory.getInstance(this)
         patientViewModel = ViewModelProvider(this, factory)[PatientViewModel::class.java]
+
         mrid = intent.getStringExtra("MRID")
         prid = intent.getStringExtra("PRID")
         setDetail()
         btnDelete()
 
+        if(mrid != null) {
+            binding.btnDelete.visibility = View.GONE
+        }
 
+        showLoading(false)
     }
+
+    private fun showLoading(state: Boolean) {
+        if(state) binding.progressBar.visibility = View.VISIBLE
+        else binding.progressBar.visibility = View.GONE
+    }
+
 
     private fun btnDelete() {
         binding.btnDelete.setOnClickListener {
+            if(prid != null) {
+                patientViewModel.deletePredict(prid!!).observe(this) {
+                    when(it) {
+                        is Result.Success -> {
+                            showLoading(false)
+                            showText(it.data.msg)
+                        }
+                        is Result.Loading -> {showLoading(true)}
+                        is Result.Error -> {
+                            showLoading(false)
+                            showText(it.error)
+                        }
+                    }
+                }
+            }
             toMedRecord()
         }
     }
 
     private fun toMedRecord() {
-        startActivity(Intent(this, MainActivity::class.java))
-        finish()
+        val fragmentManager = supportFragmentManager
+        val listFragment = ListFragment()
+        showLoading(true)
+        fragmentManager.beginTransaction().apply {
+            replace(R.id.nav_host_fragment_activity_main, listFragment, ListFragment::class.java.simpleName)
+            addToBackStack(null)
+            commit()
+        }
+        showLoading(false)
     }
 
     private fun showText(text: String) {
@@ -60,10 +90,12 @@ class DetailListPatientActivity : AppCompatActivity() {
             patientViewModel.getDetailMedRecordForPatient(mrid!!).observe(this) {
                 when(it) {
                     is Result.Success -> {
+                        showLoading(false)
                         bindData(it.data)
                     }
-                    is Result.Loading -> {}
+                    is Result.Loading -> {showLoading(true)}
                     is Result.Error -> {
+                        showLoading(false)
                         showText(it.error)
                     }
                 }
@@ -72,10 +104,12 @@ class DetailListPatientActivity : AppCompatActivity() {
             patientViewModel.getPredictById(prid!!).observe(this) {
                 when(it) {
                     is Result.Success -> {
+                        showLoading(false)
                         bindDataPredict(it.data)
                     }
-                    is Result.Loading -> {}
+                    is Result.Loading -> {showLoading(true)}
                     is Result.Error -> {
+                        showLoading(false)
                         showText(it.error)
                     }
                 }
@@ -95,7 +129,7 @@ class DetailListPatientActivity : AppCompatActivity() {
         binding.apply {
             tvDate.text = data.createdAt
             tvKeluhan.text = symptom
-            tvDiagnosis.text = data.disease + "\n(${data.description})"
+            tvDiagnosis.text = data.disease + "(${data.description})"
             tvSaran.text = data.precaution
         }
     }
