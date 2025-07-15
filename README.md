@@ -19,6 +19,6 @@
 6. (MD) A154DKX4946 – Tegar Iyar Lalana – Bumigora University
 
 **This main branch is not part of our group's github documentation. Instead, the focus of the documentation of our project github is the following 3 branches:** 
-1. Mobile-Development
+1. Mobile-Development-Android
 2. Machine-Learning
 3. Cloud-Computing
